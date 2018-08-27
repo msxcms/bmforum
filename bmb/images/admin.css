@@ -1,0 +1,125 @@
+a  { font:normal 12px Tahoma; color:#000000; text-decoration:none; }
+a:hover  { color:#428EFF;text-decoration:underline; }
+body { color: #F9FCFE; font-family: verdana,arial; font-size: 9pt;margin-top:0;margin-left:0;
+}
+.bmf_table_border{
+	width: 97%;
+	background: #F8FCFF; 
+}
+.bmf_table_class{
+	width: 97%;
+	background-color: #F8FCFF;
+	border-left:#448ABD 1px solid;
+	border-right:#448ABD 1px solid;
+}
+.bmf_n_table_class{
+	width: 100%;
+	background-color: #F8FCFF;
+	border-left:#448ABD 1px solid;
+	border-right:#448ABD 1px solid;
+	border-top:#448ABD 1px solid;
+}
+td {
+	border-bottom:1px solid #448ABD;
+}
+a:link		{color: #333333; text-decoration: none;}
+a:visited	{color: #333333; text-decoration: none;}
+a:hover		{color: #254394;text-decoration: underline;}
+a:active	{color: #254394;text-decoration: underline;}
+
+.t     {	line-height: 1.4;}
+td,select,textarea,div,form,option,p{
+color:#333333; font-family: tahoma; font-size: 9pt;
+}
+input  {	font-family: tahoma; font-size: 9pt; height:22px;	}
+
+#adminheader {
+	height: 56px;
+	background: url('http://www.bmforum.com/bmb/images/adminlogo.png') no-repeat top left;
+}
+#adminmain_before {
+	height: 5px;
+}
+
+#adminheaderbar {
+	padding-left: 25%;
+	padding-top: 5px;
+}
+
+#adminheaderbar ul {
+	list-style: none;
+	width: auto;
+	margin: 0;
+	padding: 0;
+} 
+#adminheaderbar li {
+	display: block;
+	float:left;
+	margin: 0;
+	padding: 0;
+	width:80px;	
+	text-align: center;
+	border: 1px solid #93ADC7;
+	border-left: none;
+}
+#adminheaderbar .firstitem {
+	border-left: 1px solid #93ADC7;
+}
+#adminheaderbar .ahb_active a, #adminheaderbar .ahb_active li a:hover {
+	color: #517928;
+}
+#adminheaderbar .ahb_active li {
+	border: 1px solid #99CC66;
+	border-left: 0;
+}
+#adminheaderbar .ahb_active .firstitem {
+	border-left: 1px solid #99CC66;
+}
+#adminheaderbar li a {
+	text-decoration: none; display: block; color: #044275;
+	height: 23px;
+	padding-top: 5px;
+}
+*+html #adminheaderbar li a {
+	padding-top: 8px;
+}
+#adminheaderbar li a:hover {
+	color: #000;
+}
+#dropmenudiv {
+	border-top: 1px solid #999999;
+	background: #fff;
+	width: 155px;
+	text-align: left;
+}
+#dropmenudiv ul {
+	list-style: none;
+	margin: 0;	padding: 0;
+	width: 155px;
+	height: 30px;
+}
+#dropmenudiv li {
+	display: block;
+	margin: 0;	padding: 0;
+	background: #FFFFFF;
+	width: 155px;
+	height: 30px;
+	border: 1px solid #999999;
+	border-top: 0;
+}
+#dropmenudiv li a{
+	display: block;
+	padding-top: 8px;
+	padding-left: 15px;
+	height: 22px;
+	color: #333;
+	text-decoration: none;
+}
+#dropmenudiv li a:hover {
+	display: block;
+	padding-top: 8px;
+	padding-left: 15px;
+	height: 22px;
+	color: #465E00;
+	background: #EAF9D7;
+}

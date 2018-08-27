@@ -1,0 +1,15 @@
+<?php
+bmbdb_query("CREATE TABLE IF NOT EXISTS `{$database_up}notification` (  `nid` int(10) unsigned NOT NULL AUTO_INCREMENT,  `senderid` int(11) NOT NULL,  `sendername` varchar(60) NOT NULL,  `receiverid` int(11) NOT NULL,  `ntype` varchar(20) NOT NULL,  `nvalue` text NOT NULL,  `timestamp` int(11) NOT NULL,  PRIMARY KEY (`nid`),  KEY `timestamp` (`timestamp`),  KEY `receiverid` (`receiverid`,`timestamp`)) ENGINE=MyISAM");
+bmbdb_query("ALTER TABLE  `{$database_up}userlist` ADD  `unreadnote` SMALLINT NOT NULL DEFAULT  '0',ADD  `lastreadnote` INT NOT NULL DEFAULT  '0', ADD `salt` varchar(8) NOT NULL");
+bmbdb_query("INSERT INTO `{$database_up}schedule` (`id`, `taskname`, `available`, `day`, `week`, `min`, `hour`, `last`, `next`, `fname`) VALUES(1, '清理过期数据', 1, -1, -1, '0', 0, 1333426648, 1333468800, 'cleanoutdated.php')");
+bmbdb_query("CREATE TABLE  `{$database_up}noticefilter` (`uid` INT NOT NULL ,`filterrule` TEXT NOT NULL ,PRIMARY KEY (  `uid` )) ENGINE = MYISAM");
+bmbdb_query("CREATE TABLE `{$database_up}user_add` (  `uid` int(10) unsigned NOT NULL DEFAULT '0',  `cover` text NOT NULL,  PRIMARY KEY (`uid`)) ENGINE=MyISAM");
+
+$version_file_info='<?php
+if (!defined("INBMFORUM")) die("Access Denied");
+// Kernel version ,do NOT change this!
+define("VERTYPE", 1); // Datium!
+
+$verandproname = "BMForum Myna 7.0";
+$kernel_build  = "520151204";
+';

@@ -1,0 +1,22 @@
+<div id='vcard_{eval echo $_GET['uid'] ? $checkuid."_" : "_".$user['username'];}' {if $_GET['uid']}uid="{$checkuid}" username=""{else}uid="" username="{$user['username']}"{/if} class="vcard">
+	<div class="bgcard" style="background-image:url('{if $userAdd['cover']}{$userAdd['cover']}{else}{otherimages}/defaultimage.jpg{/if}');">
+		<div class="avatarcard">
+			<img src="misc.php?p=getavatar&uid={$checkuid}" width="80" height="80" class="avatar"><br />
+			<a href='misc.php?p=sut'><img style="padding-top:10px;padding-left: 4px;" border='0' alt='{echo $user['r_userlevel']}' title='{echo $user['r_userlevel']}' src='{otherimages}/system/{echo $user['r_userIcon']}' /></a>
+		</div>
+	</div>
+	<div class="cardpadding">
+		<div class="username">
+			<span class="author_name"><a href="profile.php?job=show&memberid={$checkuid}">{$user['username']}</a></span><br />
+		</div>
+		<div class="cpadding clear">
+
+		<div class="profilearea">
+			{unreguser[12]}<a href='search.php?keyword={echo $user['urlname']}&amp;method=or&amp;method1=2'>{echo $user['postamount']} {unreguser[13]}</a>,&nbsp;
+			{unreguser[15]}{echo $user['bym']} {unreguser[16]}<br/>
+			<!--{if $user['regdate']}-->
+			{unreguser[18]}{echo $user['regdate']},&nbsp;{echo $bbs_money} {echo $user['money']}
+			<!--{/if}-->
+		</div>
+	</div>
+</div>

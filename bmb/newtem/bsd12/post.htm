@@ -1,0 +1,265 @@
+<!--{if $previewshow}-->
+<table class="tableborder" border="0" cellspacing="0" cellpadding="0" align="center">
+	<tr>
+		<td class="noptd">
+		<table cellspacing="1" cellpadding="4" width="100%" border="0">
+			<tr class="tile_back_nowidth">
+				<td class="announcement" colspan="3">
+				<strong class="title">&nbsp; {print_form[76]}</strong> </td>
+			</tr>
+			<tr class="article_color1">
+				<td valign="top" width="25%">{echo $previewshow}</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+<br />
+<!--{/if}-->
+
+<script type="text/javascript">
+//<![CDATA[ 
+helpstat = false;
+stprompt = true;
+basic = false;
+clckcnt = 0;
+var postmaxchars = {echo $max_post_length};
+var postminchars = {echo $min_post_length};
+ie = (document.all)? true:false
+function ctlent(eventobject){
+	if((eventobject.ctrlKey && eventobject.keyCode==13) || (eventobject.altKey && eventobject.keyCode == 83)) {
+		document.getElementById("_bmb_MainContent_SaveButton").click();
+	}
+}
+function clckcntr() {
+clckcnt++;
+if(clckcnt > 1) {
+	if(clckcnt > 2) { return false; }
+	alert('{print_form[19]}');
+	return false;
+}
+return true;
+}
+function check_file_ext(fobject,extcount) {
+	ext_exists = 0;
+	if (fobject.value!="") {
+		available_exts = "{echo $upload_type_available}"
+		available_ext = available_exts.split(' ');
+		for (i = 0; i < extcount; i++) {
+			currentext = available_ext[i].toLowerCase();
+			str1=fobject.value.toLowerCase();
+			s=str1.lastIndexOf("."); 
+			str2=str1.substring(s+1).toLowerCase(); 
+			if (str2==currentext) {
+				ext_exists = 1;
+			}
+		}
+	}
+	if (ext_exists != 1) {
+		alert("{echo $alert_error_ext}");
+		fobject.style.backgroundColor="#FFFF77";
+	} else {
+		fobject.style.backgroundColor="";
+		document.{echo $form_name}.upload_num.value++;
+		makeupload();
+	}
+}
+function thelp(swtch){
+if (swtch == 1){
+	basic = false;
+	stprompt = false;
+	helpstat = true;
+	} else if (swtch == 0) {
+		helpstat = false;
+		stprompt = false;
+		basic = true;
+	} else if (swtch == 2) {
+		helpstat = false;
+		basic = false;
+		stprompt = true;
+	}
+}
+function checklayer(objs){
+	if(objs.checked==true){
+		$("#Layer1").css({left: $(objs).offset().left-40, top: $(objs).offset().top+$(objs).height()});
+		$("#Layer1").fadeIn('slow');
+	}else{
+		$("#Layer1").fadeOut('slow');
+	}
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_showHideLayers() { //v6.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+function DoTitle(addTitle) { 
+if ("{echo $set_a_tags}"==1) {
+	var mytags = addTitle;
+	if (mytags != "") document.__bmbForm.tags.value = document.__bmbForm.tags.value == "" ? mytags : mytags + " " + document.__bmbForm.tags.value;
+	document.__bmbForm.tags.focus(); 
+} else{
+	var revisedTitle; 
+	var currentTitle = document.__bmbForm.articletitle.value; 
+	revisedTitle = "["+addTitle+"]"+currentTitle; 
+	document.__bmbForm.articletitle.value=revisedTitle; 
+	document.__bmbForm.articletitle.focus(); 
+}
+return; 
+}
+function validate() {
+	theform = document.__bmbForm;
+	var usertype_z = "{echo $usertype_z}";
+	if ("{echo $set_a_tags}"==1 && ("{echo $action}" == "new" || ("{echo $action}" == "modify" && "{echo $filename}" == "{echo $article}"))){
+		if (theform.tags.value=="" && usertype_z == 1) {
+			alert("{print_form[tags]}");
+			clckcnt=0;
+			return false; 
+		}
+	}
+	if (theform.articletitle.value=="" && ("{echo $action}" == "new" || ("{echo $action}" == "modify" && "{echo $filename}" == "{echo $article}"))) {
+		alert("{print_form[20]}");
+		clckcnt=0;
+		return false; 
+	}
+	return true;
+}
+function insertEmot(emotion, imgsrc) {
+	var tmp = 'javascript:bmbEmotTemp();';
+	myNicEditor.selectedInstance.restoreRng();
+	myNicEditor.nicCommand("insertImage",tmp);
+	$("img[src='"+tmp+"']").attr({
+		src : imgsrc,
+		bmbemotion : emotion
+	});
+	//myNicEditor.nicCommand('insertHTML', '<img src="'+imgsrc+'" bmbemotion="'+emotion+'" />');
+}
+function tagls()
+{
+	var mytags = document.__bmbForm.tagsse.options[document.__bmbForm.tagsse.selectedIndex].value;
+	if (mytags != "") document.__bmbForm.tags.value = document.__bmbForm.tags.value == "" ? mytags : mytags + " " + document.__bmbForm.tags.value;
+}
+function moreemots(){
+	var script = document.createElement('script'); 
+	script.type = 'text/javascript'; 
+	script.src = 'misc.php?p=emotlist&layer=Layer2&mode=2&varReturn=1&rnd='+ajaxtmp['times'];
+	document.getElementsByTagName('head')[0].appendChild(script);  
+}
+function turntopage(packedname,pagenum,layer,jstype){
+	var script = document.createElement('script'); 
+	script.type = 'text/javascript'; 
+	script.src = 'misc.php?p=emotlist&layer=Layer2&varReturn=1&mode=2&packname='+packedname+'&page='+pagenum+'&rnd='+ajaxtmp['times']; 
+	document.getElementsByTagName('head')[0].appendChild(script);
+}
+//]]>>
+</script>
+<table class="tableborder" cellspacing="0" cellpadding="0" align="center" border="0">
+	<tr>
+		<td class="noptd">
+		<form style="margin: 0px;" name="__bmbForm" method="post" action="post.php" enctype="multipart/form-data" id="__bmbForm">
+			<table cellspacing="1" cellpadding="4" width="100%" border="0">
+				<tr class="tile_back_nowidth">
+					<td class="announcement" colspan="3">
+					<strong class="title">&nbsp;{echo $status}</strong>
+					</td>
+				</tr>
+				<tr class="forumcolortwo_noalign">
+					<td valign="top" width="75%" colspan="3" class="forum_border_one_3">
+					<select name="font" onchange="DoTitle(this.options[this.selectedIndex].value)">
+					<option selected="selected" value="">{print_form[27]}</option>
+					{echo $t_t_option}
+					</select>
+					<input style="width:622px;" value="{echo $articletitle}" maxlength="{echo $max_post_title}" size="120" name="articletitle" /> 
+					</td>
+				</tr>
+				<!--{if $type=="vote"}-->
+				<!--{template poll}-->
+				<!--{/if}-->
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" colspan="3" align="left">
+					<script type="text/javascript" id="dnscript" src="misc.php?p=emotlist&layer=Layer2&varReturn=1"></script>
+					<script src="images/nicEdit.min.js" type="text/javascript"></script>
+					<div style="float:left;width:80%;">
+					<textarea rows="20" cols="140" style="width:717px;" id="articlecontent" name="articlecontent"> {echo $articlecontent}</textarea>
+					</div>
+					<div style="float:left:width:18%;">
+					<input type="checkbox" name="open_1nd" onclick="checklayer(this);" id="open_nd" /><label for="open_nd">{print_form[64]}</label> 
+					<br />
+					<!--{if $html_codeinfo != "yes"}-->
+					<input disabled='disabled' type='checkbox' id="open_ss1" /><label for="open_ss1">{print_form[1]}</label><br />
+					<!--{else}-->
+					<input type="checkbox" {if $somepostinfo[7] == "checkbox" || $action == "new" || $action == "reply"  || $action == "quote"}checked='checked'{/if} name="openhtmlcode" value="checkbox" id="open_1" /><label for="open_1">{print_form[2]}<strong>HTML Code</strong></label><br />
+					<!--{/if}-->
+					<div id="Layer1" class="post_options">
+						<input type="checkbox" name="usesignature" value="checkbox" {echo $somepostinfo[0]} id="open_2" /><label for="open_2">{print_form[65]}</label>
+						<br />
+						<input type="checkbox" name="openbmbcode" {echo $somepostinfo[1]} value="checkbox" id="open_3" /><label for="open_3">{print_form[66]}</label>
+						<br />
+						<input type="checkbox" name="openbmbemot" {echo $somepostinfo[2]} value="checkbox" id="open_4" /><label for="open_4">{print_form[67]}</label>
+						<br />
+
+						{echo $output2info} {echo $outputinfo} {echo $showulist} </div>
+						<!--{eval eval(load_hook('tpl_post_sidebar'));}-->
+					</div>
+					</td>
+				</tr>
+<!--{if $set_a_tags}-->
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_1">{print_form[G1]}<br/>{print_form[G4]}{echo $max_tags_num}</td>
+					<td class="forum_border_one_1" colspan="2">{print_form[G2]}<br />{echo $chooser_c}
+					<input value="{echo $oldtags}" maxlength="65" size="65" name="tags" /> 
+					{print_form[G3]} </td>
+				</tr>
+<!--{/if}-->
+
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_1" valign="top"><strong>{print_form[69]} [{print_form[70]}{echo $leftuploadnum}]:</strong><br />
+					{print_form[71]} {echo $max_upload_size} 
+					{print_form[72]}<br />
+					{print_form[73]} {echo $max_upload_post} 
+					{print_form[74]}</td>
+					<td class="forum_border_one_1" colspan="2" align="center">{echo $uploadfileshow} 
+					{echo $showtype} {echo $showaaash} &nbsp;</td>
+				</tr>
+<!--{if $usertype[120] == 1 && $allow_upload}-->
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_1" valign="top"><strong>{print_form[119]}:</strong></td>
+					<td class="forum_border_one_1" colspan="2" align="left">
+					{print_form[120]}<input type="text" size="65" value="{echo $remote_upload}" name="remote_upload" /><br />
+					{print_form[123]}<input type="text" size="65" value="{echo $remote_referer}" name="remote_referer" /><br />
+					{print_form[121]}
+					</td>
+				</tr>
+<!--{/if}-->
+				<!--{eval eval(load_hook('tpl_post_items'));}-->
+				<tr align="center">
+					<td colspan="3" class="form-actions" style="height: 58px;">
+					<input type="hidden" value="2" name="step" />
+					<input type="hidden" value="{echo $type}" name="type" />
+					<input type="hidden" value="{echo $action}" name="action" />
+					<input type="hidden" value="{echo $form_name}" name="form_name" />
+					<input type="hidden" value="{echo $page}" name="page" />
+					<input type="hidden" value="{echo $forumid}" name="forumid" />{echo $echoinfotwo}
+					<input type="submit" class="btn btn-primary" onclick="return validate();" name="_bmb:MainContent:SaveButton" value="{print_form[75]}" id="_bmb_MainContent_SaveButton" />&nbsp;&nbsp;&nbsp;
+					<input type="submit" class="btn" onclick="return validate();" name="preview" value="{print_form[76]}" />
+					</td>
+				</tr>
+
+			</table>
+			</form>
+		</td>
+	</tr>
+</table>
+<br />
+
+<script type="text/javascript">
+var myNicEditor = new nicEditor({bmbcode:  true, maxHeight : '400', iconsPath : 'images/nicEditorIcons.png'}).panelInstance('articlecontent');
+</script>

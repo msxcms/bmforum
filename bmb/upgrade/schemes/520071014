@@ -1,0 +1,61 @@
+<?php
+bmbdb_query("ALTER TABLE `{$database_up}primsg` CHANGE `belong` `belong` VARCHAR( 60 ) NOT NULL ,
+CHANGE `sendto` `sendto` VARCHAR( 60 ) NOT NULL ,
+CHANGE `prtitle` `prtitle` VARCHAR( 200 ) NOT NULL ,
+CHANGE `prread` `prread` TINYINT( 1 ) NOT NULL ,
+CHANGE `prother` `prother` VARCHAR( 100 ) NOT NULL ,
+CHANGE `prtype` `prtype` VARCHAR( 1 ) NOT NULL");
+bmbdb_query("ALTER TABLE `{$database_up}shareforum` CHANGE `name` `name` VARCHAR( 255 ) NOT NULL ,
+CHANGE `url` `url` VARCHAR( 255 ) NOT NULL ,
+CHANGE `gif` `gif` VARCHAR( 255 ) NOT NULL ,
+CHANGE `des` `des` VARCHAR( 255 ) NOT NULL ,
+CHANGE `type` `type` VARCHAR( 3 ) NOT NULL ");
+bmbdb_query("ALTER TABLE `{$database_up}primsg` CHANGE `prkeepsnd` `prkeepsnd` VARCHAR( 1 ) DEFAULT '0' ");
+bmbdb_query("CREATE TABLE `{$database_up}emoticons` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `emotcode` varchar(30) NOT NULL,
+  `emotpack` varchar(30) NOT NULL,
+  `packname` tinytext NOT NULL,
+  `emotname` tinytext NOT NULL,
+  `thumb` tinyint(1) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `emotpack` (`emotpack`)
+)TYPE=MyISAM ");
+
+bmbdb_query("DROP TABLE `{$database_up}gueststat` ,`{$database_up}onlinestat` ");
+
+bmbdb_query("INSERT INTO `{$database_up}emoticons` (`id`, `emotcode`, `emotpack`, `packname`, `emotname`, `thumb`) VALUES
+(1, ':titter:', 'default', 'Default', '20.gif', 0),
+(2, ':smoking:', 'default', 'Default', '29.gif', 0),
+(3, ':blackman:', 'default', 'Default', '36.gif', 0),
+(5, '[:o]', 'default', 'Default', 'icon1000.gif', 0),
+(26, ':’( ', 'default', 'Default', 'icon1001.gif', 0),
+(7, '[:S]', 'default', 'Default', 'icon1100.gif', 0),
+(8, ':mad:', 'default', 'Default', 'icon1200.gif', 0),
+(9, '[:P]', 'default', 'Default', 'icon1300.gif', 0),
+(10, '[:D]', 'default', 'Default', 'icon1400.gif', 0),
+(11, '[:)]', 'default', 'Default', 'icon1500.gif', 0),
+(12, '[:(]', 'default', 'Default', 'icon1600.gif', 0),
+(13, ':blush:', 'default', 'Default', 'icon1800.gif', 0),
+(14, ':ninja:', 'default', 'Default', 'icon2000.gif', 0),
+(15, ':excl:', 'default', 'Default', 'icon2001.gif', 0),
+(16, ':glare:', 'default', 'Default', 'icon2100.gif', 0),
+(17, ':lol:', 'default', 'Default', 'icon3000.gif', 0),
+(18, ':wacko:', 'default', 'Default', 'icon4000.gif', 0),
+(19, ':happy:', 'default', 'Default', 'icon4600.gif', 0),
+(20, '[;)]', 'default', 'Default', 'icon5000.gif', 0),
+(21, ':wub:', 'default', 'Default', 'icon7000.gif', 0),
+(22, ':mellow:', 'default', 'Default', 'icon8000.gif', 0),
+(23, ':sleeply:', 'default', 'Default', 'icon9000.gif', 0),
+(24, ':disdainful:', 'default', 'Default', 'icon9100.gif', 0),
+(25, ':knife:', 'default', 'Default', 'icon9200.gif', 0),
+(27, ':dejecta:', 'default', 'Default', 'a.gif', 0)");
+
+$version_file_info='<?php
+if (!defined("INBMFORUM")) die("Access Denied");
+// Kernel version ,do NOT change this!
+define("VERTYPE", 1); // Datium!
+
+$verandproname = "BMForum Myna Beta 1";
+$kernel_build  = "520071014";
+';

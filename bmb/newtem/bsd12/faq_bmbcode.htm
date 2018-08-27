@@ -1,0 +1,284 @@
+<script type="text/javascript">
+//<![CDATA[ 
+function toggleHidden(h,f)
+{
+  if(f==1)
+  {
+    h.nextSibling.style.display='inline';
+    //h.style.height=h.nextSibling.scrollHeight;
+  }
+  else
+  {
+    h.nextSibling.style.display='none';
+    h.style.height='auto';
+  }
+}
+var exchanging = "{read_post[46]}";
+//]]>>
+</script>
+
+<table cellspacing="0" cellpadding="0" align="center" class="tableborder">
+  <tr>
+    <td class="noptd">
+      <table cellspacing="1" cellpadding="5" width="100%" border="0" align="center">
+         <tr> <td class='announcement'><span class="title"><strong>{faq_l[41]}</strong></span></td>
+        </tr>
+        <tr> 
+          <td class="article_color1"> 
+            <table cellspacing="0" cellpadding="0" width="100%" border="0">
+               
+              <tr > 
+                <td valign="middle">[url]http://www.BMForum.com[/url]
+                 </td>
+                <td valign="middle"><a 
+            href="http://www.BMForum.com" target="_blank">http://www.BMForum.com/</a>
+                </td>
+              </tr>
+              <tr > 
+                <td valign="middle">[url=http://www.BMForum.com]BMForum[/url]
+                  </td>
+                <td valign="middle"><a href="http://www.BMForum.com">BMForum</a></td>
+              </tr>
+              <tr > 
+                <td valign="middle">[email]service@BMForum.com[/email]</td>
+                <td valign="middle"><a href="mailto:service@BMForum.com">service@BMForum.com</a></td>
+              </tr>
+              <tr > 
+                <td valign="middle">[email=service@BMForum.com]Email me[/email]</td>
+                <td valign="middle"><a href="mailto:service@BMForum.com">Email me</a></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td class='announcement'><span class="title"><strong>{faq_l[42]}</strong></span></td>
+        </tr>
+        <tr> 
+          <td class="article_color1"> 
+            <table cellspacing="1" cellpadding="5" width="100%" border="0">
+               
+              <tr class="article_color2"> 
+                <td valign="middle" align="left" class="article_color2"> 
+                    <span class="jiazhongcolor">[quote]</span>{faq_l[43]}<span class="jiazhongcolor">[/quote]</span> 
+                </td>
+                <td valign="middle"><div class='quote_dialog'>{faq_l[43]}</div></td>
+              </tr>
+			  <tr class="article_color1"> 
+                <td valign="middle"> 
+                    <span class="jiazhongcolor">[quoted={faq_l[44]}]</span>{faq_l[45]}<span class="jiazhongcolor">[/quoted]</span> 
+                </td>                
+				<td valign="middle"><fieldset><legend>{faq_l[44]}</legend>{faq_l[45]}</fieldset></td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle">
+                    <span class="jiazhongcolor">[code]</span><br />
+$forumlist=file(&quot;datafile/forumdata.php&quot;); <br/>
+$fcount=count($forumlist); <br/>
+for ($i=0; $i&lt;$fcount; $i++) { <br/>
+$detail=explode(&quot;|&quot;,$forumlist[$i]); <br/>
+if ($detail[0]==&quot;forum&quot;) <br/>
+$forumtosearch[]=$detail[3]; <br/>
+}<br/>
+                    <span class="jiazhongcolor">[/code]</span> 
+                </td>
+                <td valign="middle"><div class='quote_dialog'><ol><li>$forumlist=file(&quot;datafile/forumdata.php&quot;); </li>
+<li>$fcount=count($forumlist); </li>
+<li>for ($i=0; $i&lt;$fcount; $i++) { </li>
+<li>$detail=explode(&quot;|&quot;,$forumlist[$i]); </li>
+<li>if ($detail[0]==&quot;forum&quot;) </li>
+<li>$forumtosearch[]=$detail[3]; </li>
+<li>}</li></ol></div>
+
+                </td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle">[b]{faq_l[47]}[/b]
+                </td>
+                <td valign="middle"><strong>{faq_l[47]}</strong>
+                </td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle">[i]{faq_l[48]}[/i]
+</td>
+                <td valign="middle"><em>{faq_l[48]}</em>
+                </td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle">[u]{faq_l[49]}[/u]
+</td>
+                <td valign="middle"><u>{faq_l[49]}</u>
+                </td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle">[bt={faq_l[50]}]{faq_l[51]}[/bt]
+</td>
+                <td valign="middle"><img align="middle" src="images/bt.gif" alt="" /><a href="{faq_l[50]}" target="_blank">{faq_l[51]}</a> 
+                </td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle">[ed={faq_l[52]}]{faq_l[51]}[/ed]
+</td>
+                <td valign="middle"><img align="middle" src="images/ed.gif" alt="" /><a href="{faq_l[52]}" target="_blank">{faq_l[51]}</a>
+                </td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle">[align=right(left,center)]{faq_l[53]}[/align]</td>
+                <td valign="middle">
+                  <div align="right">{faq_l[53]}</div>
+ </td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle">[size=4]{faq_l[54]}[/size] 
+</td>
+                <td valign="middle"><span style="font-size:14px;">{faq_l[54]}</span></td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle">[font=Tahoma]{faq_l[55]}[/font] 
+</td>
+                <td valign="middle"><span style="font-family:Tahoma;">{faq_l[55]}</span> 
+</td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle">[color=red]{faq_l[56]}[/color] 
+</td>
+                <td valign="middle"><span style="color: red;">{faq_l[56]}</span>
+</td></tr>
+              <tr class="article_color2"> 
+                <td valign="middle">[list]{faq_l[57]}<br />
+                  [*]{faq_l[58]}<br />
+                  [/list] </td>
+                <td valign="middle" align="left"> 
+                    {faq_l[57]}<br />
+                   <ul>
+                    <li>{faq_l[58]}</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle">[olist]{faq_l[59]}<br />
+                  [*]{faq_l[58]}<br />
+                  [/olist] </td>
+                <td valign="middle" align="left"> 
+                    {faq_l[59]}<br />
+                  <ol>
+                    <li>{faq_l[58]}</li>
+                  </ol>
+                </td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle">[img]http://www.bmforum.com/bmb/logo8.gif[/img]
+</td>
+                <td valign="middle" align="left"><img src="http://www.bmforum.com/bmb/logo8.gif" border="0" alt="" /> </td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle">[img=right(left)]http://www.bmforum.com/bmb/logo8.gif[/img] {faq_l[53]}
+</td>
+                <td valign="middle"><img align="right" src="http://www.bmforum.com/bmb/logo8.gif" border="0" alt="" /> </td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle"><span class="jiazhongcolor">[fly]</span>{faq_l[60]}<span class="jiazhongcolor">[/fly]</span></td>
+                <td valign="middle">
+<script type="text/javascript">
+//<![CDATA[ 
+document.write('<marquee scrollamount="3" behavior="alternate" width="90%">{faq_l[60]}</marquee>');
+//]]>>
+</script>
+</td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle"><span class="jiazhongcolor">[move]</span>{faq_l[61]}<span class="jiazhongcolor">[/move]</span></td>
+                <td valign="middle">
+<script type="text/javascript">
+//<![CDATA[ 
+document.write('<marquee scrollamount="3" width="90%">{faq_l[61]}</marquee>');
+//]]>>
+</script>
+</td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle"><span class="jiazhongcolor">[title={faq_l[78]}]</span>{faq_l[80]}<span class="jiazhongcolor">[/title]</span></td>
+                <td valign="middle"><label title="{faq_l[78]}">{faq_l[80]}</label></td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle"><span class="jiazhongcolor">[hidden={faq_l[78]}]</span>{faq_l[79]}<span class="jiazhongcolor">[/hidden]</span></td>
+                <td valign="middle"><label title="{faq_l[78]}"><a onmouseover="toggleHidden(this,1);" onmouseout="toggleHidden(this,0);">&raquo;</a><a style="display: none;">{faq_l[79]}&laquo;</a></label></td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle"><span class="jiazhongcolor">[flash=400,300]</span>http://{faq_l[62]}<span class="jiazhongcolor">[/flash]</span></td>
+                <td valign="middle">{faq_l[63]}</td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle"><span class="jiazhongcolor">[asf=500,300]</span>http://<span class="jiazhongcolor">asf</span>{faq_l[64]}<span class="jiazhongcolor">[/asf]</span></td>
+                <td valign="middle">{faq_l[65]}</td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle"><span class="jiazhongcolor">[rm=500,300]</span>http://rm{faq_l[64]}[/rm]</td>
+                <td valign="middle">{faq_l[66]}</td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle"><span class="jiazhongcolor">[shadow=255,blue,1]</span>{faq_l[67]}<br />
+                  [/shadow] </td>
+                <td valign="middle"> 
+                  <table width="255" style="filter:shadow(color=blue, direction=1)">
+                  	  <tr><td>
+                    {faq_l[67]} 
+                      </td></tr>
+                  </table>
+</td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle"><span class="jiazhongcolor">[glow=255,red,1]</span><br />
+                  {faq_l[68]}[/glow] </td>
+                <td valign="middle"> 
+                  <table width="255" style="filter:glow(color=red, direction=1)">
+                    <tr><td>
+                    {faq_l[68]}
+                    </td></tr>
+                  </table>
+</td>
+              </tr>
+              <tr class="article_color1"> 
+                <td valign="middle"><span class="jiazhongcolor">[upload]</span>{faq_l[69]}[/upload]<br />{faq_l[70]}</td>
+                <td valign="middle"> 
+                    <a target="_blank" href="#"><img src="images/attach/pic.gif" border="0" alt="" /> {faq_l[71]}</a><br /> 
+</td>
+              </tr>
+              <tr class="article_color2"> 
+                <td valign="middle">{faq_l[81]}</td>
+                <td valign="middle"> {faq_l[82]}
+ </td>
+              </tr>
+<!--{loop $tcode_item $key $value}-->
+<!--{eval $nowcolor = ($i%2==0) ? "article_color1" : "article_color2"; $i++;  }-->
+              <tr class="{echo $nowcolor}"> 
+                <td valign="middle"><strong>{echo $value['name']}</strong><br />{echo $value['desc']}<br/>
+                {echo $value['example']}
+                </td>
+                <td valign="middle"> {echo $value['eg']}
+			 </td>
+              </tr>
+<!--{/loop}-->
+              <tr class="article_color1"> 
+                <td valign="middle"><span class="jiazhongcolor">{faq_l[72]}</span></td>
+                <td valign="middle"> 
+{faq_l[73]}</td>
+              </tr>
+               
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td class='announcement'><span class="title"><strong>{faq_l[74]}</strong></span></td>
+        </tr>
+        <tr> 
+          <td class="article_color1"> 
+           <p>{faq_l[75]}<br />
+           <div id='psline' style='clear:both;width:100%;'>{echo $emots}
+           </div>
+</p>
+          </td>
+      </tr>
+      </table> 
+         </td>
+      </tr>      </table>
+<br />

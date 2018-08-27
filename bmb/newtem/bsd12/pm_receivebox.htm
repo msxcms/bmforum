@@ -1,0 +1,53 @@
+<!--{template pm_head}-->
+<!--{if $count == 0}-->
+
+<table width='100%' cellspacing='0' cellpadding='0' class='tableborder'><tr><td>
+<table width='100%' cellspacing='1' cellpadding='4' class='bordercolor_background'>
+<tr align='center'>
+
+<td colspan='4'>
+<div class="alert alert-block alert-info fade in">
+    <h4 class="alert-heading">{gl[89]}</h4>
+</div>
+
+</td>
+
+</tr></table></table></table>
+<!--{else}-->
+<form action='messenger.php' method='post' style='margin:0px;'>
+    <input type='hidden' value='delone' name='job' />
+    <input type='hidden' value='more' name='n' />
+<table width='100%' cellspacing='0' cellpadding='0' class='tableborder'><tr><td>
+<table width='100%' cellspacing='1' cellpadding='4' class='bordercolor_background'>
+    <tr align='center' class='backtd'>
+        <td width='5%' class='left'><strong class='title_color_pm'>{gl[91]}</strong></td>
+        <td width='10%' class='middle'><strong class='title_color_pm'>{gl[92]}</strong></td>
+        <td width='*' class='middle'><strong class='title_color_pm'>{gl[93]}</strong></td>
+        <td width='20%' class='right'><strong class='title_color_pm'>{gl[538]}</strong></td>
+    </tr>
+<!--{loop $bmf_pms $key $value}-->
+<!--{if $value[3]}-->
+<tr align='center' class='forum_border_one' style="height:45px;">
+<!--{else}-->
+<tr align='center' class='forum_border_one_2' style="height:45px;">
+<!--{/if}-->
+<td width='5%' class='forum_border_one_3'>
+<input type='checkbox' name='delmore[]' value='{echo $value[0]}'></td>
+<td width='10%' class='forum_border_one_3'><a title='$gl[98]' href='messenger.php?job=write&target={echo urlencode($value[1])}'>{echo $value[1]}</a></td>
+<td width="*" class='forum_border_one_3' style='text-align:left;'><a href='messenger.php?job=read&msg={echo $value[0]}'>{echo $value[2]}</a></td>
+<td width="20%" class='forum_border_one_3'>{echo $value[4]}</td>
+</tr>
+<!--{/loop}-->
+<tr class='forum_border_one_2' align='left'>
+<td colspan='4' width='100%' class="form-actions">
+<input type='button' name='chkall' value='{gl[99]}' onclick='CheckAll(this.form)' class="btn" />
+<input type='button' name='clear2' value='{gl[100]}' onclick='FanAll(this.form)' class="btn" />
+<input type='reset' value='{gl[101]}' class="btn" />
+<input type='submit' value='{gl[102]}' class="btn btn-danger" />
+</td>
+</tr></form>
+<tr><td colspan='4' style='padding-left:0px;'>
+<!--{eval pager($page, $maxpage, $pagerLink);}-->
+</td></tr>
+<!--{template pm_foot}-->
+<!--{/if}-->

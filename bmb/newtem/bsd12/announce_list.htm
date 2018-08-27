@@ -1,0 +1,25 @@
+<!--{loop $announce_arr $key $announce}-->
+<table cellpadding='0' cellspacing='0' border='0' class='tableborder' align='center'>
+<tr><td class="noptd"><table cellpadding='5' cellspacing='1' border='0' width='100%'>
+<tr> 
+  <td colspan='2' class='announcement' align='center'><strong> {ggl[6]} - {echo $announce['title']} </strong></td>
+</tr>
+<tr>
+<td class='article_color1'>{echo $announce['content']}</td></tr>
+<tr><td class='article_color1' align='right'> <strong> {ggl[8]}</strong> {echo $announce['time']} <strong> {ggl[9]} </strong>{echo $announce['author']}
+ <a href='#'>[top]</a></td>
+</tr></table>
+</td>
+</tr>
+</table>
+<br />
+<!--{/loop}-->
+
+<table cellpadding='0' cellspacing='0' border='0' class='tableborder' align='center'>
+    <tr><td class="noptd"><table cellpadding='5' cellspacing='1' border='0' width='100%'>
+    <tr class='article_color1'><td colspan='2' align='right'>
+<!--{if $announceadmin}-->
+<strong> [<a href='announcesys.php?forumid={echo $forumid}&job=clear'>{ggl[14]}</a>] [<a href='announcesys.php?forumid={echo $forumid}&job=write'>{ggl[15]}</a>] [<a href='announcesys.php?forumid={echo $forumid}&job=showzt'>{ggl[16]}</a>]</strong>
+<!--{/if}-->
+{echo $pageinfo}
+</td></tr></table></td></tr></table>

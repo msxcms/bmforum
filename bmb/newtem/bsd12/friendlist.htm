@@ -1,0 +1,42 @@
+<table cellpadding='0' cellspacing='0' border='0' class='tableborder' align='center'>
+<tr><td>
+<table cellpadding='5' cellspacing='1' border='0' width='100%'>
+<tr> 
+  <td colspan='6' class='announcement' align='center'><strong>{gl[178]}</strong></td>
+</tr>
+<!--{loop $friend_arr $key $value}-->
+<tr align='center' style='height:23px;' class='forum_border_one'>
+<td style='width:12px;' align='center' class='forum_border_one_3'><img {if $value[0]}title="{gl[185]}"{else}title="{gl[186]}"{/if} src="misc.php?p=getavatar&amp;uid={$value[1]}" width="20" height="20" class="headeravatar"></td>
+<td style='width:auto;' class='forum_border_one_3' align='left'>&nbsp;&nbsp;<a href='profile.php?job=show&amp;memberid={$value[1]}'>{echo $value[2]}</a></td>
+<td style='width:50px;' class='forum_border_one_3'>
+    <!--{if $value[3] == 1}-->
+        <span style='color:blue;'>{gl[182]}</span>
+    <!--{elseif $value[3] == 0}-->
+        <span style='color:green;'>{gl[181]}</span>
+    <!--{elseif $value[3] == 2}-->
+        <span style='color:red;'>{gl[451]}</span>
+    <!--{else}-->
+        <span style='color:red;'>Error!</span>
+    <!--{/if}-->
+</td>
+<td style='width:50px;' class='forum_border_one_3'><a href="messenger.php?job=write&amp;target={echo $value[4]}">[{gl[187]}]</a></td>
+<td style='width:250px;' class='forum_border_one_3'>{gl[188]}{echo $value[5]}</td>
+<td style='width:50px;' class='forum_border_one_3'><a href="#" onclick="javascript:warningrun('friendlist.php?action=del&amp;friendname={echo $value[4]}&amp;type={echo $value[6]}');">[{gl[102]}]</a></td>
+</tr>
+<!--{/loop}-->
+<tr class='list_color2'>
+<td colspan="6" class='forum_border_one_3' valign="middle" align="center">
+<form method="post" action='friendlist.php?action=add' style="margin:0px;">
+{gl[179]}&nbsp;<input type="text" name='friendname' />&nbsp;{gl[180]}&nbsp;<select name="fusertype"><option value="0">{gl[181]}</option><option value="1">{gl[182]}</option><option value="2">{gl[451]}</option></select>&nbsp;<input type="submit" class="btn" name='submit' value='{gl[183]}' />
+</form>
+</td>
+</tr>
+<tr> 
+<td colspan="4" align="left">
+<!--{eval pager($page, $maxpageno, $pageLink);}-->
+<td colspan="2" align="right">
+<button onclick="javascript:warningrun('friendlist.php?action=clean');" class="btn btn-danger">{gl[184]}</button>
+</td></tr>
+
+</table></td></tr>
+</table>

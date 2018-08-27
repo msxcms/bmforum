@@ -1,0 +1,14 @@
+<ul class="breadcrumb" style="height:18px;">
+  <li style='width:auto;float:left;overflow:hidden;'>
+	<a href="./"><i class='icon-home'></i></a>
+<!--{loop $links $key $_SNav}-->
+&nbsp;<span class="divider">/</span> 
+<!--{if $_SNav['link']}--><a href="{$_SNav['link']}"><!--{/if}-->
+{$_SNav['name']}
+<!--{if $_SNav['link']}--></a><!--{/if}-->
+<!--{/loop}-->
+  </li>
+  <li style='width:auto;text-align:right;float:right;overflow:hidden;'>
+	{$des}
+  </li>
+</ul>

@@ -1,0 +1,649 @@
+<!--{if $_navList}--><!--{eval naviBar($_navList, $_navDes);}--><!--{/if}-->
+<!--{if $view_forum_online == 1}-->
+<div id="onlinelist">
+<script type="text/javascript">
+//<![CDATA[ 
+var online_show_anti="{echo $whois_online['online_show_anti']}";
+//]]>>
+</script>
+
+		<table cellspacing="1" cellpadding="4" width="100%" border="0" class="tableborder" align="center">
+			<tr>
+				<td class="announcement">
+			    <span class="categoryfontcolor_normal"><a name="onlinearea" onclick="bmb_ajax_preprocess('forums.php?forumid={echo $forumid}','&amp;','{echo $allow_ajax_browse}');" href="#onlinearea">{online_info_show[6]} <strong>{echo $whois_online['sum']}</strong> 
+				{online_info_show[7]} <strong>{echo $whois_online['suma']}</strong> {online_info_show[8]} ({online_info_show[9]} 
+				{echo $whois_online['usernoc']} {online_info_show[10]}), {online_info_show[11]} <strong>{echo $whois_online['guestno']}</strong> 
+				{online_info_show[12]}</a></span>
+				
+				</td>
+			</tr>
+			<!--{if $whois_online['usergroup']}-->
+			<tr><td class='backtdbottom'><table width='100%'><tr>
+			<td width='100%'>
+			<!--{loop $whois_online['usergroup'] $onlineuser}-->
+				<div style='width:12%;float:left;'>&nbsp;{if $onlineuser['guest'] !== true && $onlineuser['anonymous'] != 'yes'}<a href="messenger.php?job=write&amp;target={$onlineuser['urlname']}">{/if}<img border='0' src='{otherimages}/system/{$onlineuser['icon']}'{if $onlineuser['groupname']} title='{online_info_show[2]}{$onlineuser['groupname']}{online_info_show[3]}'{/if} />{$onlineuser['name']}{if $onlineuser['guest'] !== true && $onlineuser['anonymous'] != 'yes'}</a>{/if}</div>
+			<!--{/loop}-->
+			</td>
+			</table></td></tr>
+			<!--{/if}-->
+		</table>
+
+</div>
+<!--{/if}-->
+<!--{if !$load_ajax_script}-->
+
+<!--{if $ourrule}-->
+<br />
+		<table class="tableborder" cellspacing="1" cellpadding="4" width="100%" border="0" align="center">
+			<tr>
+				<td class="announcement">
+				<span class="rule_title_font">{forum_line[29]}</span></td>
+			</tr>
+			<tr>
+				<td class="backtdbottom">{echo $ourrule} </td>
+			</tr>
+		</table>
+
+<!--{/if}-->
+<!--{eval eval(load_hook('tpl_forums_afterrule'));}-->
+
+<!--{eval show_row_ads("showforum", $forumid);}-->
+
+<script type="text/javascript">
+//<![CDATA[ 
+
+
+function CheckAll(form){
+for (var i=0;i<form.elements.length;i++){
+var e = form.elements[i];
+e.checked = true;
+}}
+function FanAll(form){
+for (var i=0;i<form.elements.length;i++){
+var e = form.elements[i];
+if (e.checked == true){ e.checked = false; }
+else { e.checked = true;}
+}}
+function admin(){ 
+var URL = document.adminjump.jumpto1.options[document.adminjump.jumpto1.selectedIndex].value; 
+top.location.href = URL; target = '_self'; 
+} 
+function menu(){
+var URL = document.jump.jumpto.options[document.jump.jumpto.selectedIndex].value;
+top.location.href = URL; target = '_self';
+}
+//]]>>
+
+</script>
+<p></p>
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+	<tr>
+		<td class="noptd">
+<!--{loop $bmforumlist $key $forum}-->
+<!--{if $key==0}-->
+<!--{if $cate_rows_type== 1}-->
+<!--{eval $start_count=$key;}-->
+
+
+		<table border="0" cellspacing="0" cellpadding="0" align="center" class="tableborder">
+			<tr>
+				<td class="noptd">
+				<table cellpadding="4" cellspacing="1" width="100%" border="0">
+					<tr>
+						<td class="announcement" colspan="{echo $fcaterows}">
+						<span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}">
+						{echo $forum_name} 
+						</a></span></td>
+					</tr>
+					
+<!--{else}-->
+
+				</td>
+				</tr>
+				</table>
+				<table border="0" cellspacing="0" cellpadding="0" align="center" class="tableborder">
+					<tr>
+						<td class="noptd">
+						<table cellpadding="4" cellspacing="1" width="100%" border="0">
+							<tr class="backtd">
+								<td style="width:auto;" class="left" colspan="2">
+								<span class="categoryfontcolor_normal">{forum_line[23]}</span></td>
+								<td style="width:40px;" class="middle">
+								<span class="categoryfontcolor_normal">{forum_line[25]}</span></td>
+								<td style="width:40px;" class="middle">
+								<span class="categoryfontcolor_normal">{forum_line[26]}</span></td>
+								<td style="width:40px;" class="middle">
+								<span class="categoryfontcolor_normal">{forum_line[27]}</span></td>
+							</tr>
+<!--{/if}-->
+<!--{/if}-->
+<!--{if !$cate_rows_type}-->
+							<tr align="center" valign="middle" class="forumcoloronecolor">
+								<td style="width:26px;" class="border_bottom_forum">
+								<a onfocus="this.blur()" href="forums.php?forumid={echo $bmforumlist[$key]['ID']}">
+								<img src="{echo $bmforumlist[$key]['forum_icon']}" border="0" alt="" /></a></td>
+								<td style="text-align:left;width:auto;" class="border_bottom_forum">
+								<table width="100%" cellpadding="1">
+									<tr>
+										<td style="width:auto;" rowspan="2">{if $bmforumlist[$key]['teamicon']}<img src='{echo $bmforumlist[$key]['teamicon']}' alt='' />{/if}</td>
+										<td style="width:1px;" rowspan="2"></td>
+										<td style="width:100%" height="10"><span class='forumnamelink'><a onfocus='this.blur();' href="{echo $bmforumlist[$key]['forumlabel']}">{echo $bmforumlist[$key]['NAME']}</a></span> ({echo $bmforumlist[$key]['ztnum2']})
+										</td>
+									</tr>
+									<tr>
+										<td valign="top">
+										{echo $bmforumlist[$key]['forum_des']}</span> 
+										{echo $bmforumlist[$key]['subforums']}</td>
+									</tr>
+								</table>
+								</td>
+								<td style="width:40px;" valign="middle" align="center" class="border_bottom_forum">
+								<span class="cau">{echo $bmforumlist[$key]['ztnum']}</span></td>
+								<td width="40" valign="middle" align="center" class="border_bottom_forum">
+								<span class="cau">{echo $bmforumlist[$key]['ztnum1']}</span></td>
+								<td style="width:160px;" align="right" class="border_bottom_forum">
+								<table width="100%" align="right">
+									<tr>
+										<td style="width:2%;" align="right">&nbsp;</td>
+										<td class="indexsummaryalgin">
+										{if $bmforumlist[$key]['title']}
+										<a title="{echo $bmforumlist[$key]['lastmodify_title']} - {echo $bmforumlist[$key]['flposter']}" href="{echo $bmforumlist[$key]['titlelink']}">{echo $bmforumlist[$key]['title']}</a><br />
+										{echo $bmforumlist[$key]['time']}
+										{/if}</td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+<!--{else}-->
+<!--{eval $count_rows++;}-->
+<!--{if $leiji==($fcaterows-1) || $forums_stat==$count_rows}-->
+<!--{eval $leiji=0;}-->
+<!--{eval for($row_i=0;$row_i<$fcaterows;$row_i++) { }-->
+<!--{if $row_i == 0}-->
+					<tr align="center" valign="middle" class="forumcolortwo_noalign backtdbottom">
+<!--{/if}-->
+								<td style="table-layout: fixed;word-wrap: break-word;" class="forumcoloronecolor" width="{echo $current_width}%" align="left">
+								<table width="100%" cellpadding="0" title="{echo $bmforumlist[$start_count+$row_i]['forumdes']}">
+									<tr>
+										<td width="*">{if $bmforumlist[$start_count+$row_i]['img_forum_icon']}<img src="{echo $bmforumlist[$start_count+$row_i]['img_forum_icon']}" border="0" alt="" />{/if}</td>
+										<td width="*">{if $bmforumlist[$start_count+$row_i]['forum_icon']}<img src='{echo $bmforumlist[$start_count+$row_i]['forum_icon']}' alt='' />{/if}</td>
+										<td width="100%" style="padding-left:2px;">
+											<!--{if $bmforumlist[$start_count+$row_i]['ID']}-->
+											<strong><span class='forumnamelink'><a title="{echo $bmforumlist[$start_count+$row_i]['forumdes']}" onfocus='this.blur()'  href="{echo $bmforumlist[$start_count+$row_i]['forumlabel']}">{echo $bmforumlist[$start_count+$row_i]['NAME']}</a></span></strong> ({echo $bmforumlist[$start_count+$row_i]['ztnum2']})<br />
+											<span class="forumdescolor">{popp[15]} {echo $bmforumlist[$start_count+$row_i]['ztnum']} / {popp[16]} {echo $bmforumlist[$start_count+$row_i]['ztnum1']}</span>
+											<!--{/if}-->
+										</td>
+									</tr>
+								</table>
+								</td>
+<!--{if $row_i == ($fcaterows-1)}-->
+				</tr>
+<!--{/if}-->
+<!--{eval } $start_count=$start_count+$fcaterows; }-->
+<!--{else}-->
+<!--{eval $leiji++;}-->
+<!--{/if}-->
+<!--{/if}-->
+<!--{/loop}-->
+<!--{if $cate_rows_type !=1 && $bmforumlist}-->
+</table>
+<!--{elseif $cate_rows_type ==1 && $bmforumlist}-->
+					</table></td></tr></table>
+<!--{/if}-->
+
+<!-- END 7 -->
+<!-- BEGIN tmptalefo -->
+				</td>
+			</tr>
+		</table>
+		<br />
+<!-- END 8 -->
+<!-- BEGIN po3r -->
+<script type="text/javascript">
+//<![CDATA[ 
+filetopn = '{echo $filetopn}';
+//]]>>
+</script>
+
+		<table class="tablewidth" style="padding-bottom:5px;" border="0" cellspacing="0" cellpadding="0" align="center">
+			<tr align="right" valign="middle" style="padding-bottom:10px;">
+				<td align="left" style="padding-bottom:10px;">
+				<button onclick="window.location='post.php?forumid={echo $forumid}';" class="btn">{forum_pos[newThread]}</button>
+				<button onclick="window.location='post.php?forumid={echo $forumid}&amp;type=vote';" class="btn">{forum_pos[newPoll]}</button>
+				</td>
+				<td width="70%" align="right" style="padding-bottom:10px;">
+				<table class="tableborder_withoutwidth radius" cellspacing="1" cellpadding="2"  width="400">
+					<tr>
+					<td align="center" class="list_color1">
+					<a href="plugins.php?p=tags&amp;forumid={echo $forumid}">{infoan[7]}</a>
+					</td>
+					<td align="center" class="list_color2">
+					<a href="forums.php?forumid={echo $forumid}&amp;trash=trash">{infoan[3]}</a>
+					</td>
+					<td align="center" class="list_color1">
+					<a href="forums.php?forumid={echo $forumid}&amp;jinhua=jinhua">{infoan[4]}</a>
+					</td>
+					<td align="center" class="list_color2">
+					<a href="forumlogs.php?forumid={echo $forumid}">{infoan[5]}</a>
+					</td>
+					<td align="center" class="list_color1">
+					<select style="width:120px;" onchange="if(this.value!='') window.location='profile.php?job=show&amp;target='+this.value;" name="jumpto1">
+					<option class="list_color2">{infoan[2]}</option>
+					{echo $echoinfoa}</select>
+					</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+
+	<table class="tableborder" cellspacing="0" cellpadding="0" align="center">
+		<tr>
+			<td class="noptd">
+				<table cellspacing="1" cellpadding="4" width="100%" align="center" border="0">
+					<tr style="height:20px;" class="backtd">
+						<td class="left">
+						<span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=title&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+						{listbyyy[0]}</a></span></td>
+						<td style="width:120px;" class="middle">
+						<span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=author&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+						{listbyyy[1]}</a></span></td>
+						<td style="width:55px;" class="middle">
+						<span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=reply&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+						{listbyyy[2]}</a></span></td>
+						<td style="width:55px;" class="middle">
+						<span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=hit&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+						{listbyyy[3]}</a></span></td>
+						<td style="width:140px;" class="right">
+						<span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=posttime&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+						{listbyyy[4]}</a></span></td>
+					</tr>
+				</table>
+
+<!-- END 9 -->
+
+<!--{loop $bbs_news_loop $key $loop_news}-->
+		<table cellspacing="0" cellpadding="4" style="width: 100%;" class="bmf_space_threed forumcoloronecolor" align="center">
+			<tr style="text-align:center; height: 25px;">
+				<td width="22" class="forum_border_2">&nbsp;
+				</td>
+				<td width="*" align="left" class="forum_border_1">
+				<table style="width: 100%;" border="0" cellspacing="0" cellpadding="4">
+					<tr>
+						<td>
+						<strong>
+						</strong><a href="{echo $loop_news['announceurl']}" title="{echo $loop_news['title']}">{echo $loop_news['topic_name']}</a>
+						</td>
+					</tr>
+				</table>
+				</td>
+				<td width="121" class="forum_border_2">
+				<a href="profile.php?job=show&amp;target={echo urlencode($loop_news['topic_author'])}" class="userinfoarea" username="{echo $loop_news['topic_author']}" cardpos="1">{echo $loop_news['topic_author']}</a><br />
+				{echo $loop_news['salmdtime']}</td>
+				<td width="118" class="forum_border_1">
+				<a href="announcesys.php?forumid={echo $forumid}">{coninfo[16]}</a></td>
+				<td width="140" align="left" class="forum_border_3">&nbsp;{echo $loop_news['almdtime']}<br />
+				<img src="{otherimages}/system/icon_post.gif" border="0" alt="" />
+				<a href="profile.php?job=show&amp;target={echo urlencode($loop_news['topic_author'])}" class="userinfoarea" username="{echo $loop_news['topic_author']}" cardpos="1">{echo $loop_news['topic_author']}</a></td>
+			</tr>
+		</table>
+<!--{/loop}-->
+<!--{if $hasatopic!=1}-->
+		<table cellspacing="0" cellpadding="4" style="width: 100%;" align="center">
+			<tr style="text-align:center;height: 25px;">
+				<td colspan="6" align="left" class="forum_border_1 forumcoloronecolor">
+				<table width="100%" border="0" cellspacing="1" cellpadding="4">
+					<tr>
+						<td align="center">
+						{coninfo[17]}
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+<!--{/if}-->
+<!--{if $admin_allow==1}-->
+<form style="margin:0px;" action="misc.php?p=manage4" method="post">
+<input type="hidden" name="forumid" value="{echo $forumid}" />
+<!--{/if}-->
+<!--{loop $bmf_threads $key $loop_thread}-->
+<!--{if $hereis_top==1 && ($key==0 || ($loop_thread['a_toptype']<8 && $loop_thread['a_type']<3)) }-->
+		<table class="importtopic_border" align="center" cellspacing="0" cellpadding="4">
+			<tr>
+				<td class="tablebg_important_topic">
+				<span class="important_topic_split">
+				<!--{if $key==0 && ($loop_thread['a_toptype']>7 || $loop_thread['a_type'] >= 3)}-->
+				{coninfo[13]}
+				<!--{elseif $loop_thread['a_toptype']<8 && $loop_thread['a_type'] < 3 }-->
+				{coninfo[14]}
+				<!--{eval $hereis_top=0;}-->
+				<!--{/if}-->
+				</span></td>
+			</tr>
+		</table>
+<!--{/if}-->
+		<table cellspacing="0" cellpadding="4" style="width: 100%;" class="bmf_space_threed forumcoloronecolor" align="center">
+			<tr style="text-align:center;height: 25px;">
+<!--{if $admin_allow==1}-->
+					<td width="22" class="forum_border_1">
+					<input type="hidden" name="listfilename" value="{echo $loop_thread['listfilename']}" />
+					<input type="checkbox" {if $forumid != $loop_thread['orgdata']['forumid']}disabled='disabled'{/if} name="filenamebym[]" value="{echo $loop_thread['filename']}" /></td>
+<!--{/if}-->
+					<td width="*" align="left" class="forum_border_1">
+					<table width="100%" border="0" cellspacing="0" cellpadding="4">
+						<tr {if $loop_thread['ajaxscript']}title="{coninfo[19]}" ondblclick="bmb_ajax_tabletitle('tname{$loop_thread['filename']}','{$loop_thread['filename']}','{coninfo[18]}','topic.php');"{/if}>
+							<td>{if $loop_thread['ajaxscript']}<script type='text/javascript'>tname['{$loop_thread['filename']}'] = '{$loop_thread['ajaxinfo']}';</script>{/if}
+							<!--{if !in_array($loop_thread['filename'], $readed_t)}-->
+							<a href="{echo $loop_thread['linktothreadPageLast']}#postend" title="{coninfo[15]}">
+							<img src="{otherimages}/openwindow.gif" border="0" alt="" /></a> 
+							<!--{/if}-->
+							<!--{if $loop_thread['first_tag_name']}--><span class='f_tags_link'><a href='plugins.php?p=tags&amp;tagname={echo $loop_thread['url_tag_name']}'>{echo $loop_thread['first_tag_name']}</a></span>&nbsp;<!--{/if}-->
+							<span id='t{$loop_thread['filename']}'><a onfocus='this.blur()' href='{if $bmfopt['rewrite']}topic_{echo $loop_thread['filename']}{else}topic.php?filename={echo $loop_thread['filename']}&amp;extra=page%3D$page{/if}' title="{echo $loop_thread['titlelong']}"{if $loop_thread['font_css']} style="{$loop_thread['font_css']}"{/if}>{echo $loop_thread['title']}</a></span>
+							<!--{if $loop_thread['orgdata']['other3']}-->&nbsp;<img src="images/attach/attach.gif" border="0" alt="" /><!--{/if}-->
+							<!--{if $loop_thread['orgdata']['islock'] == 2 || $loop_thread['orgdata']['islock'] == 3}--> <img title="{forum_mang_t[17]}" src="{otherimages}/system/jhinfo.gif" alt='' /><!--{/if}-->
+							<!--{if $loop_thread['multipage']}-->&nbsp;{eval small_pagelist($loop_thread['maxpageno'], $loop_thread['multipage']);}<!--{/if}-->
+							<!--{if $loop_thread['moveinfo']}--><strong><span class="jiazhongcolor">{echo $loop_thread['moveinfo']}</span></strong><!--{/if}--> </td>
+							<td style="width: 16px;" align="right">
+							<!--{if $loop_thread['scores_change'] > 0}-->
+								<img src='{otherimages}/hand2.gif' border='0' alt='+{$loop_thread['scores_change']}' title='+{$a_info['scores_change']}' />
+							<!--{elseif $loop_thread['scores_change'] < 0}-->
+								<img src='{otherimages}/hand.gif' border='0' alt='{$loop_thread['scores_change']}' title='{$a_info['scores_change']}' />
+							<!--{/if}-->
+							</td>
+							<!--{eval eval(load_hook('tpl_forums_topicline'));}-->
+						</tr>
+					</table>
+					</td>
+					<td width="120" class="forum_border_2">
+					<a href="profile.php?job=show&amp;target={echo $loop_thread['urlauthor']}" class="userinfoarea" username="{echo $loop_thread['viewauthor']}" cardpos="1">{echo $loop_thread['viewauthor']}</a><br />
+					{echo $loop_thread['aimetoshow']}</td>
+					<td width="55" class="forum_border_1">
+					{echo $loop_thread['reply']}</td>
+					<td width="55" class="forum_border_1">
+					{echo $loop_thread['hit']}</td>
+					<td width="140" align="left" class="forum_border_3">&nbsp;{echo $loop_thread['timetoshow']}<br />
+					<img src="{otherimages}/system/icon_post.gif" alt="" /> <a href="profile.php?job=show&amp;target={echo $loop_thread['lmdauthor']}" class="userinfoarea" username="{echo $loop_thread['lmd'][1]}" cardpos="1">{echo $loop_thread['lmd'][1]}</a></td>
+			</tr>
+		</table>
+<!--{/loop}-->
+<!--{if $admin_allow==1}-->
+		<table cellspacing="0" cellpadding="0" class="importtopic_border" align="center">
+			<tr>
+				<td width="50%" height="25" class="form-actions" valign="middle" align="center">
+				<input type="button" class="btn" name="chkall" value="{maninfo[0]}" onclick="CheckAll(this.form)" />
+				<input type="button" class="btn" name="clear2" value="{maninfo[1]}" onclick="FanAll(this.form)" />
+				<input type="reset" class="btn" name="reset" value="{maninfo[2]}"/>
+				<select name="action"><option value="move">{maninfo[4]}</option>
+				<option value="hebing">{maninfo[5]}</option>
+				<option value="del">{maninfo[6]}</option>
+				<option value="recycle">{maninfo[11]}</option>
+				<option value="resume">{maninfo[12]}</option>
+				<option value="lock">{maninfo[13]}</option>
+				<option value="unlock">{maninfo[14]}</option>
+				<option value="top">{maninfo[15]}</option>
+				<option value="untop">{maninfo[16]}</option>
+				<option value="jinhua">{maninfo[17]}</option>
+				<option value="unjinhua">{maninfo[18]}</option>
+				</select>
+				<input type="submit" class="btn btn-primary" value="{maninfo[7]}" />
+				</td>
+				</form>
+				<td width="*" class="form-actions">&nbsp; <a href="misc.php?p=badman&amp;forumid={echo $forumid}">{maninfo[8]}</a>&nbsp;
+				<a href="announcesys.php?forumid={echo $forumid}">{maninfo[9]}</a>&nbsp;
+				<a href="misc.php?p=modfix&amp;target={echo $forumid}">{maninfo[10]}</a></td>
+			</tr>
+		</table>
+<!--{/if}-->
+
+</td>
+</tr>
+</table>
+<table border="0" cellspacing="0" style="height: 30px;margin-top:15px;" cellpadding="0" class="tablewidth" align="center">
+	<tr>
+		<td align="left" valign="middle">
+		<table cellspacing="0" cellpadding="0" border="0">
+			<tr>
+			<td style="padding: 0">
+				<!--{eval pager($page, $maxpageno, $pagerLink);}-->
+			</td>
+			</tr>
+		</table>
+		</td>
+		<td width="40%" valign="middle" align="right" nowrap="nowrap">
+			<form method="post" style="margin:0px;" action="search.php?forumid={echo $forumid}">
+			{forum_pos[0]}<input type="text" name="keyword" class="input-medium search-query" />
+			<input type="submit" name="submit" value="{forum_pos[2]}" class="btn" />
+			</form>
+		</td>
+		
+</tr>
+</table>
+<br />
+<!--{if $allow_fast_post==1}-->
+<script type="text/javascript">
+//<![CDATA[ 
+helpstat = false;
+stprompt = true;
+basic = false;
+clckcnt = 0;
+var postmaxchars = {echo $max_post_length};
+var postminchars = {echo $min_post_length};
+
+ie = (document.all)? true:false
+function ctlent(eventobject){
+	if((eventobject.ctrlKey && eventobject.keyCode==13) || (eventobject.altKey && eventobject.keyCode == 83)) {
+		document.getElementById("quicksubmit").click();
+	}
+}
+
+function clckcntr() {
+clckcnt++;
+if(clckcnt > 1) {
+if(clckcnt > 2) { return false; }
+alert('{jsinfo[0]}');
+return false;
+}
+return true;
+}
+function thelp(swtch){
+if (swtch == 1){
+basic = false;
+stprompt = false;
+helpstat = true;
+} else if (swtch == 0) {
+helpstat = false;
+stprompt = false;
+basic = true;
+} else if (swtch == 2) {
+helpstat = false;
+basic = false;
+stprompt = true;
+}
+}
+function AddText(NewCode) {
+document.FORM.articlecontent.value+=NewCode
+}
+function validate(theform) {
+	
+	if(emotStatus) {
+		emotStatus = 0;
+		$("#emotLayer").toggle("fast");
+	}
+	
+	var usertype_z = "{usertype_z}";
+	if (theform.tags.value=="" && usertype_z == 1) {
+		alert("{jsinfo[6]}");
+		clckcnt=0;
+		return false; 
+	}
+if (theform.articletitle.value=="" || theform.articlecontent.value=="") {
+alert("{jsinfo[1]}");
+clckcnt=0;
+return false; }
+if (postmaxchars != 0) {
+if (theform.articlecontent.value.length > {echo $max_post_length} || theform.articlecontent.value.length < {echo $min_post_length}) {
+alert("{jsinfo[2]} "+theform.articlecontent.value.length+" {jsinfo[3]}");
+clckcnt=0;
+return false; }
+else { document.getElementById("quicksubmit").disabled=true; return true; }
+} else { document.getElementById("quicksubmit").disabled=true; return true; }
+}
+function checklength(theform) {
+if (postmaxchars != 0) { message = "{jsinfo[4]}"; }
+else { message = ""; }
+alert("{jsinfo[5]}"+theform.articlecontent.value.length+" {jsinfo[3]}"+message);
+}
+
+//]]>>
+</script>
+
+<form style="margin:0px;" name="FORM" method="post" action="post.php" onsubmit="return validate(this)" enctype="multipart/form-data">
+<table class="tableborder_post" cellspacing="0" cellpadding="0" align="center">
+	<tr>
+		<td>
+			<table cellspacing="1" style="height:25px;" cellpadding="0" width="100%" border="0">
+				<tr>
+					<td valign="middle" align="left" class="announcement">&nbsp;
+					<strong><span class="categoryfontcolor_normal">{forum_pos[28]}</span></strong>
+					</td>
+				</tr>
+			</table>
+
+<script type="text/javascript">
+//<![CDATA[ 
+function DoTitle(addTitle) {
+var revisedTitle;
+var currentTitle = document.FORM.articletitle.value;
+revisedTitle = currentTitle+addTitle;
+document.FORM.articletitle.value=revisedTitle;
+document.FORM.articletitle.focus();
+return; }
+function DoComments(addTitle) { 
+var revisedTitle; 
+var currentTitle = document.FORM.articlecontent.value; revisedTitle = currentTitle+addTitle; document.FORM.articlecontent.value=revisedTitle; document.FORM.articlecontent.focus(); 
+return; 
+}
+function check_file_ext(fobject,extcount) {
+	ext_exists = 0;
+	if (fobject.value!="") {
+		available_exts = "{echo $upload_type_available}"
+		available_ext = available_exts.split(' ');
+		for (i = 0; i < extcount; i++) {
+			currentext = available_ext[i].toLowerCase();
+			str1=fobject.value.toLowerCase();
+			s=str1.lastIndexOf("."); 
+			str2=str1.substring(s+1).toLowerCase(); 
+			if (str2==currentext) {
+				ext_exists = 1;
+			}
+		}
+	}
+	if (ext_exists != 1) {
+		alert("{echo $gl[527]}");
+		fobject.style.backgroundColor="#FFFF77";
+	} else {
+		fobject.style.backgroundColor="";
+	}
+}
+function turntopage(packedname,pagenum,layer,jstype){
+	var script = document.createElement('script'); 
+	script.type = 'text/javascript'; 
+	script.src = 'misc.php?p=emotlist&mode=2&packname='+packedname+'&layer='+layer+'&page='+pagenum+'&rnd='+ajaxtmp['times']; 
+	document.getElementsByTagName('head')[0].appendChild(script);  
+}
+var emotStatus = 0;
+function showemot()
+{
+	if(emotStatus == 0) {
+		EL_offset = $("#showemot_switch").offset();
+		EL_offset.top = EL_offset.top+$("#showemot_switch").height()+5;
+		$("#emotLayer").attr('style', '');
+		$("#emotLayer").offset(EL_offset);
+		emotStatus = 1;
+		$("#emotLayer").toggle("fast"); 
+	} else {
+		emotStatus = 0;
+		$("#emotLayer").toggle("fast");
+	}
+	
+}
+//]]>>
+</script>
+		<table cellspacing="0" cellpadding="4" width="100%" class="list_color1" id="fastpost_bottom">
+			<tr>
+				<td width="20%" class="{echo $fast_post['dbgcolor']}" align="left"><strong>{forum_pos[10]}</strong>
+				</td>
+				<td width="*" class="{echo $fast_post['dbgcolor']}_fast_reply">
+				<input type="text" name="articletitle" value="" style="width:457px;" size="45" maxlength="{echo $reply_post['max_post_title']}" />
+				<img src='{otherimages}/emot.png' style="vertical-align: middle;" title='{forum_pos[30]}' id="showemot_switch" onclick="javascript:showemot();" />
+				<input type="hidden" name="autourl" value="yes" />
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" width="20%" class="{echo $fast_post['dbgcolor']}" rowspan="2" align="left">
+				<strong>{forum_pos[4]}</strong><br />
+				<!--{if ($html_codeinfo != "yes")}--><input type='checkbox' name='' disabled='disabled' value='checkbox' id='closedhtml' /><label for='closedhtml'><strong>{forum_pos[24]}</strong></label><br /><!--{else}--><input checked='checked' type="checkbox" name="openhtmlcode" value="checkbox" id="open_1" /><label for="open_1">{forum_pos[6]}<strong>HTML Code</strong></label><br /><!--{/if}-->
+				<input type="checkbox" name="openbmbcode" value="checkbox" id="open_2" /><label for="open_2">{forum_pos[6]}<strong>BMB 
+				Code</strong></label><br />
+				
+				<input type="checkbox" name="openbmbemot" value="checkbox" id="open_3" /><label for="open_3">{forum_pos[6]}<strong>{forum_pos[29]}</strong></label><br />
+				  </td>
+				<td valign="top" width="*" class="{echo $fast_post['dbgcolor']}_reply_content" rowspan="2">
+				<textarea onkeydown="ctlent(event)" style="width:457px;" name="articlecontent" cols="90" rows="7"></textarea>&nbsp;<div id="emotLayer" class="fast_emot_selector_article"></div>
+				<input type="hidden" value="2" name="step" />
+				<input type="hidden" value="new" name="action" />
+				<input type="hidden" value="{echo $forumid}" name="forumid" />
+				<input type="hidden" value="{echo $filename}" name="filename" />
+				<br />
+			  </td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="form-actions" style="padding-left:20%;">
+			<input onclick="return clckcntr();" type="submit" value="{forum_pos[15]}" name="quicksubmit" id="quicksubmit" class="btn btn-primary" />
+			<input id="resetform" type="reset" value="{forum_pos[16]}" class="btn" />
+		</td>
+	</tr>
+</table>
+</form>
+<script type="text/javascript" id="dnscript" src="misc.php?p=emotlist&layer=emotLayer"></script>
+<!--{/if}-->
+<table cellspacing="0" cellpadding="0" class="tablewidth" align="center" border="0">
+	<tr>
+		<td align="left">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+			<tr>
+				<td align="left">
+					<form style="margin:0px;" action="forums.php?forumid={echo $forumid}" method="post">
+					<input type="hidden" value="{echo $listby}" name="listby" />
+					<select name="jinhua">
+					<option value="30">{forum_picie[20]}</option>
+					<option value="1">{forum_picie[21]}</option>
+					<option value="2">{forum_picie[22]}</option>
+					<option value="5">{forum_picie[23]}</option>
+					<option value="10">{forum_picie[24]}</option>
+					<option value="20">{forum_picie[25]}</option>
+					<option value="60">{forum_picie[26]}</option>
+					<option value="100">{forum_picie[27]}</option>
+					<option value="365">{forum_picie[28]}</option>
+					<option value="">{forum_picie[29]}</option>
+					</select>
+					<input type="submit" value="GO" />
+					</form>
+				</td>
+				<td width="30%" valign="middle" nowrap="nowrap" style="height:40px;" align="right">
+					<form style="margin:0px;" name="jump" action="forums.php" method="post">
+					{forum_pos[1]} <select onchange="menu()" name="jumpto">
+					<option value="index.php" selected="selected">{forum_pos[3]}</option>
+					{echo $listsinfo}</select>
+					</form>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+<!--{/if}-->

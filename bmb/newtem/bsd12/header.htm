@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="<?php echo $read_alignment;?>" lang="<?php echo $html_lang;?>">
+<head>
+<link rel="shortcut icon" href="/bmb/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" media="screen" href="{otherimages}/neweditor/editor.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="{otherimages}/styles.css" />
+<link title="{echo $oldbbs_title ? $oldbbs_title : $bbs_title;}" rel="search" type="application/opensearchdescription+xml" href="datafile/cache/search.xml" />
+<link rel="alternate" type="application/rss+xml" href="rss.php?forumid={$forumid}&amp;tagname={$urltagname}" title="{$displayTitle}" />
+<link rel="alternate" type="application/baidu+xml" href="baidu.php?forumid={$forumid}&amp;tagname={$urltagname}" title="{$displayTitle}" />
+<title>{$displayTitle} - powered by bmforum.com</title>
+<!--{if ($jumppagetrue=="yes")}-->
+<meta http-equiv="refresh" content="4; url={$url}" />
+<!--{elseif ($reauto)}-->
+<meta http-equiv="refresh" content="{$reauto} url={$_SERVER['REQUEST_URI']}" />
+<!--{/if}-->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="{$verandproname}" />
+<meta name="keywords" content="{$keyword_site}" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<script type="text/javascript">
+//<![CDATA[ 
+function openScript(url, width, height){
+    var win = window.open(url,"openscript",'width=' + width + ',height=' + height + ',resizable=1,scrollbars=yes,menubar=no,status=yes' );
+}
+function bbimg(o){
+<!--{if($openbbimg==1)}-->
+if (event.ctrlkey == true){
+var zoom=parseint(o.style.zoom,10)||100;zoom+=event.wheeldelta/12;if (zoom>0) o.style.zoom=zoom+'%';return false;
+}
+<!--{/if}-->
+}
+//]]>>
+</script>
+<script type="text/javascript" src="images/jquery-1.5.2.min.js" ></script>
+<script type="text/javascript" src="images/bmb_ajax.js" ></script>
+<script type="text/javascript" src="images/bsd01/sms.js"></script>
+<script type="text/javascript" src="datafile/navigator.js"></script>
+</head>
+
+<body>
+<div align="center">
+<div class="header_menu">
+    <div id="menu_left">
+        {if ($count_language > 1)}
+        <span class="bmforum_menu_text"><a title="Languages" href="#" onmouseover="showmenu(event,linkset[5],0)" onmouseout="delayhidemenu()">Languages</a>&nbsp;</span>
+        {/if}
+    </div>
+    <div id="menu_right">
+		<ul>
+			{if ($usertype[22]=="1" || $usertype[21]=="1")}<li><a href='admin.php'>{hefo[2]}</a></li>{/if}
+			{if ($login_status == 1)}<li><a href="usercp.php">{hefo[14]}</a></li>{/if} 
+			<li><a href="#">{hefo[37]}</a></li>
+			{if ($fnew_skin==1 && $stylecount > 1)}<li><a href="#" onmouseover="showmenu(event,linkset[2],0)" onmouseout="delayhidemenu()">{hefo[38]}</a></li>{/if}
+			<li><a href="search.php?searchfid={$forumid}">{hefo[12]}</a></li>
+			<li><a href="plugins.php?p=tags">{hefo[44]}</a></li>
+			<li><a href="faq.php">{hefo[13]}</a></li>
+			{$myplugin}
+		</ul>
+    </div>
+</div>
+<div id="totallayer" class="bmforum_background">
+<div style="height:23px;"></div>
+
+<div style="text-align:left;clear:both;width:96%;">
+<div class="main_contents">
+    <div class="main_box">
+        <table border="0" align="center" cellpadding="0" cellspacing="0" style="width:100%;">
+        <tr><td>        
+            <table width="100%" class="background_color" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="169" height="70"><a href="index.php">
+                    <img alt="Create The World With Creativity" title="Create The World With Creativity" border="0" src="<?php echo $otherimages;?>/logo.gif" /></a></td>
+                    <td width="*" align="center">
+                    <div align="right">
+        &nbsp; {$topads} </div>
+                    </td>
+                </tr>
+            </table>
+        </td></tr></table>
+    </div>
+    <br />
+    <div class="main_box">
+        <div id="popmenu" class="menuskin" onmouseover="clearhidemenu();highlightmenu(event,'on')" onmouseout="highlightmenu(event,'off');dynamichide(event)" style="z-index:100;"></div>
+        <div id="ajax_information" onclick="this.style.visibility='hidden';" title="{hefo[54]}">
+            <strong>{hefo[53]}</strong>
+            <br /><br />
+            <div id="ajax_error_detail"></div>
+        </div>
+

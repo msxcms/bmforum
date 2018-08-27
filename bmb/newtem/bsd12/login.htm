@@ -1,0 +1,117 @@
+<!--{if $ablelist}-->
+<table class="tableborder" cellspacing="1" align="center" cellpadding="4" border="0">
+<tr align='left'>
+	<td style='width:100%;' class='announcement'><span class="tile_back_title">{pr_1n[22]}</span></td>
+</td>
+</tr>
+<!--{loop $ablelist $key $value}-->
+<tr>
+<td align="left" onclick="window.location='login.php?step=2&amp;verify={echo $log_hash}&amp;accountid={echo $value['userid']}&amp;gourl={echo urlencode($gourl)}';" style="cursor: pointer;" class='forum_border_one'>
+	<table cellpadding='5' cellspacing='1' border='0' width='100%'>
+	<tr align='left'>
+	<td style='width:200px;text-align:center;'>{echo $value['usericon']}</td>
+	<td style='width:auto;'>{echo $value['name']}</td>
+	</tr>
+	</table>
+</td>
+</tr>
+<!--{/loop}-->
+</table>
+<br />
+<!--{/if}-->
+
+<!-- BEGIN logintable -->
+<form action="login.php" method="post" style="margin:0px;" name="login">
+<table cellspacing="0" cellpadding="0" class="tablewidth" align="center" border="0">
+	<tr>
+		<td>
+		<table cellspacing="1" cellpadding="4" width="100%" border="0" class="tableborder">
+			<tr>
+				<td class='announcement' colspan="2"><span class="tile_back_title">
+				{programname}</span><input type="hidden" value="{echo $gourl}" name="gourl" />
+				</td>
+			</tr>
+			<tr class="list_color1">
+					<td class="forum_border_one_3" width="25%">
+					<label for="with_name"><input type="radio" {echo $checked_wname} id="with_name" name="login_with" value="" onclick="document.login.loginuser.focus();"/> {pr_1n[2]}</label></li><br/>
+					<label for="with_id"><input type="radio" id="with_id" {echo $checked_iname} name="login_with" value="id" onclick="document.login.loginuser.focus();"/> {pr_1n[21]}</label></li>
+					</td>
+					<td class="forum_border_one_3">
+					<input type="text" tabindex="1" name="loginuser" value="{echo $loginuser}" size="25"  />
+					( <a href="register.php">{pr_1n[23]}</a>)
+					</td>
+				</tr>
+				<tr class="list_color1">
+					<td class="forum_border_one_3">{pr_1n[3]}</td>
+					<td class="forum_border_one_3">
+					<input type="password" tabindex="2" name="loginpwd" size="25"  /> 
+					( <a href="misc.php?p=sendpwd">{pr_1n[4]}</a>)</td>
+				</tr>
+<!--{if $log_va}-->
+				<tr class="list_color1">
+					<td class="forum_border_one_3">{gl[439]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" tabindex="3" size="25" maxlength="30" name="authinput"  /> 
+					{if $tmp23s}
+					<img style="vertical-align: middle;" src='authimg.php?p=1' alt='' onclick='javascript:randtime=Date.parse(new Date());this.src="authimg.php?p=1&amp;reget=1&amp;timerand="+randtime;' title='{gl[529]}' style='cursor: pointer;' />
+					{else}
+					<img style="vertical-align: middle;" src='authimg.php?p=1' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=2' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=3' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=4' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=5' alt='' />
+					{/if}
+					</td>
+				</tr>
+<!--{/if}-->
+				<tr class="list_color1">
+					<td class="forum_border_one_3">{pr_1n[18]}</td>
+					<td class="forum_border_one_3"><select tabindex="4" name="skinselectname">
+					<option value="">{pr_1n[19]}</option>
+					<!--{if $fnew_skin}-->{echo $usecutskin}<!--{/if}--></select> </td>
+				</tr>
+
+				<tr class="list_color1">
+					<td class="forum_border_one_3">{pr_1n[5]}</td>
+					<td class="forum_border_one_3">
+					<select tabindex="5" name="privacy">
+					<option value="0">{pr_1n[6]}</option>
+					<option value="1">{pr_1n[7]}</option>
+					</select> </td>
+				</tr>
+				<tr class="list_color1">
+					<td class="forum_border_one_3">{pr_1n[8]}</td>
+					<td class="forum_border_one_3">
+					<input tabindex="6" type="radio" name="cookie_time" value="0" id="ct_1" /><label for="ct_1"> 
+					{pr_1n[9]}&nbsp; </label>&nbsp;<input type="radio" name="cookie_time" value="3600" id="ct_2" /><label for="ct_2"> 
+					{pr_1n[10]}&nbsp; </label>&nbsp;<input type="radio" name="cookie_time" value="2592000" id="ct_3" /><label for="ct_3"> 
+					{pr_1n[11]}&nbsp; </label>&nbsp;<input type="radio" name="cookie_time" value="31536000" id="ct_4" /><label for="ct_4"> 
+					{pr_1n[12]}&nbsp; </label>&nbsp;<input type="radio" name="cookie_time" checked="checked" value="157680000" id="ct_5" /><label for="ct_5"> 
+					{pr_1n[24]}</label></td>
+				</tr>
+				<tr class="list_color1">
+					<td class="forum_border_one_3">{pr_1n[13]}</td>
+					<td class="forum_border_one_3"><select name="forumid">
+					<option value="0" selected="selected">{pr_1n[14]}</option>
+					{echo $aaa}</td>
+				</tr>
+				<tr class="list_color1">
+					<td class="forum_border_one_3" colspan="2">
+					<input tabindex="8" type="checkbox" value="yes" name="TNM" id="open_1" /><label for="open_1">{pr_1n[15]}</label>
+					<input tabindex="9" type="checkbox" value="1" name="close_ajax" id="open_2" /><label for="open_2">{pr_1n[20]}</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="form-actions">&nbsp;</td>
+					<td class="form-actions">
+						<input type="submit" value="{pr_1n[16]}" class="btn btn-primary" />
+						<input type="hidden" value="2" name="step" />&nbsp;<input type="reset" class="btn" value="{pr_1n[17]}" />
+					</td>
+				</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+<script type="text/javascript">
+//<![CDATA[ 
+document.login.loginuser.focus();
+//]]>>
+</script>
+<!-- END 3 -->

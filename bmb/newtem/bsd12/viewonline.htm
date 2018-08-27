@@ -1,0 +1,39 @@
+&nbsp;&nbsp;<strong><a href="misc.php?p=viewonline">{gl[443]}</a>&nbsp;&nbsp;<a href="misc.php?p=viewonline&amp;action=guest">{gl[442]}</a></strong>
+<br/>
+<table cellspacing="0" cellpadding="0" class="tableborder" align="center" border="0">
+<tr> 
+<td class="noptd"> 
+<table cellspacing="1" cellpadding="5" width="100%" border="0" class="bmbnewstyle_withoutwidth">
+<tr align="center" class="backtd">
+<td class="left"><span class="title">{gl[328]}</span></td>
+<td class="middle"><span class="title">IP</span></td>
+<td class="middle"><span class="title">{gl[329]}</span></td>
+<td class="middle"><span class="title">{gl[330]}</span></td>
+<td class="middle"><span class="title">{gl[331]}</span></td>
+<td class="right"><span class="title">{gl[332]}</span></td>
+
+</tr>
+<!--{loop $bmf_ollist $key $value}-->
+<tr align='center' valign='middle' class='forum_border_one'>
+<td width='110' align='left' class='forum_border_one_3'>{echo $value[0]}</td>
+<td width='90' class='forum_border_one_3' align='center'>{echo $value[1]}</td>
+<td width='100' class='forum_border_one_3' valign='middle' align='center'>{echo $value[2]}</td>
+<td width='90' class='forum_border_one_3' align='center'>{echo $value[3]}</td>
+<td class='forum_border_one_3' align='center'>{echo $value[4]}</td>
+<td width='150' class='forum_border_one_3' align='center'>{echo $value[5]}</td>
+</tr>
+<!--{/loop}-->
+<tr> 
+<td colspan="7" class="forumcolortwo_noalign">
+<form name="jump" style="margin: 0px;" action="misc.php?p=viewonline&amp;action={echo $action}" method="post">
+<div align="left">
+{echo $pageinfos}
+{echo $nowinfo}</div></form></td>
+
+</tr> 
+</table>
+</td>
+</tr>
+</table>
+
+<br />

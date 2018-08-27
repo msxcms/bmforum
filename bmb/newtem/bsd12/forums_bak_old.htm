@@ -1,0 +1,71 @@
+
+                <table cellspacing="1" cellpadding="4" width="100%" align="center" border="0" class="forum_border_one_3">
+                    <tr align="center" style="height:20px;" class="tile_back_nowidth">
+                        <td>
+                        <span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=title&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+                        {listbyyy[0]}</a></span></td>
+                        <td style="width:120px;">
+                        <span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=author&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+                        {listbyyy[1]}</a></span></td>
+                        <td style="width:55px;">
+                        <span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=reply&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+                        {listbyyy[2]}</a></span></td>
+                        <td style="width:55px;">
+                        <span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=hit&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+                        {listbyyy[3]}</a></span></td>
+                        <td style="width:140px;">
+                        <span class="categoryfontcolor_font"><a href="forums.php?forumid={echo $forumid}&amp;listby=posttime&amp;jinhua={echo $jinhua}&amp;page={echo $page}">
+                        {listbyyy[4]}</a></span></td>
+                    </tr>
+                </table>
+
+
+
+
+
+
+
+        <table cellspacing="0" cellpadding="4" style="width: 100%;" class="bmf_space_threed" align="center">
+            <tr style="text-align:center;height: 25px;" class="list_color1" onmouseover="javascript:this.className='forum_border_2_onmouseover';" onmouseout="javascript:this.className='list_color1';">
+                <td width="20" class="forum_border_1">
+                <a href="{echo $loop_thread['linktothread']}" target="_blank">{echo $loop_thread['stats']}</a></td>
+<!--{if $admin_allow==1}-->
+                    <td width="22" class="forum_border_1">
+                    <form style="margin:0px;" action="misc.php?p=manage4" method="post">
+                    <input type="hidden" name="forumid" value="{echo $forumid}" />
+                    <input type="hidden" name="listfilename" value="{echo $loop_thread['listfilename']}" />
+                    <input type="checkbox" name="filenamebym[]" value="{echo $loop_thread['filename']}" /></td>
+<!--{/if}-->
+                    <td width="22" class="forum_border_2">
+                    {echo $loop_thread['icon']}</td>
+                    <td width="*" align="left" class="forum_border_1">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="4">
+                        <tr {echo $loop_thread['ajaxscript']}>
+                            <td>{echo $loop_thread['ajaxinfo']}
+                            <!--{if !in_array($loop_thread['filename'], $readed_t)}-->
+                            <a href="{echo $loop_thread['linktothreadPageLast']}#postend" title="{coninfo[15]}">
+                            <img src="{otherimages}/openwindow.gif" border="0" alt="" /></a> 
+                            <!--{/if}-->
+                            {echo $loop_thread['title']} {echo $loop_thread['multipage']}
+                            <div align="right">
+                                <span class="jiazhongcolor">{echo $loop_thread['toplangg']}</span>
+                            </div>
+                            {echo $loop_thread['moveinfo']} </td>
+                            <td style="width: 16px;" align="right">
+                            {echo $loop_thread['pin_score']}
+                            </td>
+                            <!--{eval eval(load_hook('tpl_forums_topicline'));}-->
+                        </tr>
+                    </table>
+                    </td>
+                    <td width="120" class="forum_border_2">
+                    <a href="profile.php?job=show&amp;target={echo $loop_thread['urlauthor']}">{echo $loop_thread['viewauthor']}</a><br />
+                    </td>
+                    <td width="55" class="forum_border_1">
+                    {echo $loop_thread['reply']}</td>
+                    <td width="55" class="forum_border_1">
+                    {echo $loop_thread['hit']}</td>
+                    <td width="140" align="left" class="forum_border_3">&nbsp;{echo $loop_thread['timetoshow']}<br />
+                    <img src="{otherimages}/system/icon_post.gif" alt="" /> {echo $loop_thread['lmdauthor']}</td>
+            </tr>
+        </table>

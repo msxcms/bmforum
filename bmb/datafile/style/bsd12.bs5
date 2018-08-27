@@ -1,0 +1,23 @@
+<?php
+$skinrealname=		"新版主题";
+$styleidcode=		"default";
+$cachedstyle=		1;
+$newpost=		'images/bsd12/forum_new.gif';
+$onlyread=		'images/bsd12/forum_lock.gif';
+$nonewpost=		'images/bsd12/forum.gif';
+$npost=			'images/bsd12/t_new.gif';
+$npollicon=		'images/bsd12/t_poll.gif';
+$replyicon=		'images/bsd12/t_reply.gif';
+$otherimages=		'images/bsd12';
+// CSS Information
+//$cssinfo=<<<EOT
+//
+//EOT;
+// css end
+$logofile=		'images/bsd12/logo.gif';
+$headername=		'header/bsd12header.php';
+$temfilename=		'bsd12';
+$footername=		'footer/bsd12footer.php';
+$openstylereplace=	1;
+$notext_button =	0;
+//$bm_skin[name] = "默认主题";

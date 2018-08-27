@@ -1,0 +1,115 @@
+<!--{if $oauthProviderCounter}-->
+<br />
+<table cellpadding='0' cellspacing='0' border='0' class='tableborder' align='center'>
+<tr><td>
+<table cellpadding='5' cellspacing='1' border='0' width='100%'>
+<tr style='height:23px;' class='backtd'>
+<td style='width:auto;' colspan="3" class='left' style="font-weight:bold;">{oauthLang[actBind]}</td>
+</tr>
+<!--{loop $oauthLang['provider'] $providerId $providerName}-->
+<tr style='height:23px;' class='forum_border_one'>
+<td align='center' style='width:150px' align='center' class='forum_border_one_3'>{$providerName}</td>
+<td style='width:auto;' class='forum_border_one_3'>
+	<!--{if !$bindSites[$providerId]}-->
+		<button onclick='javascript:location.href="oauth.php?act=login&type={$providerId}";' class="btn">{oauthLang[bindAccount]} {$providerName}</button>
+	<!--{else}-->
+		<button onclick='javascript:location.href="oauth.php?act=unbind&type={$providerId}";' class="btn">{oauthLang[unbindAccount]} {$providerName}</button>
+	<!--{/if}-->
+	</td>
+</tr>
+<!--{/loop}-->
+</table>
+</td></tr>
+</table>
+<!--{/if}-->
+<br />
+<table cellpadding='0' cellspacing='0' border='0' class='tableborder' align='center'>
+<tr><td>
+<table cellpadding='5' cellspacing='1' border='0' width='100%'>
+<tr> 
+  <td colspan='6' class='announcement'><strong style="color:#fff;">{b_a[1]}</strong></td>
+</tr>
+<tr>
+<td colspan="6" class='list_color1' valign="middle">
+{b_a[2]}
+</td>
+</tr>
+<tr>
+<td colspan="6" class='list_color1' valign="middle">
+<form action="misc.php?p=accounts&amp;job=add" method="post" name="login" style="margin:0px;">
+<table width="100%">
+			<tr>
+					<td class="list_color1" width="25%">
+					<label for="with_name"><input type="radio" checked="checked" id="with_name" name="login_with" value="" onclick="document.login.loginuser.focus();"/> {b_a[4]}</label></li><br/>
+					<label for="with_id"><input type="radio" id="with_id" name="login_with" value="id" onclick="document.login.loginuser.focus();"/> {b_a[5]}</label></li>
+					</td>
+					<td class="list_color1">
+					<input type="text" tabindex="1" name="loginuser" value="" size="25"  />
+					</td>
+				</tr>
+				<tr>
+					<td class="list_color1">{b_a[6]}</td>
+					<td class="list_color1">
+					<input type="password" tabindex="2" name="loginpwd" size="25"  /> 
+				</td>
+				</tr>
+<!--{if $log_va}-->
+				<tr>
+					<td class="list_color1">{b_a[8]}</td>
+					<td class="list_color1">
+					<input type="text" tabindex="3" size="25" maxlength="30" name="authinput"  /> 
+					{if $tmp23s}
+					<img style="vertical-align: middle;" src='authimg.php?p=1' alt='' onclick='javascript:randtime=Date.parse(new Date());this.src="authimg.php?p=1&amp;reget=1&amp;timerand="+randtime;' title='{gl[529]}' style='cursor: pointer;' />
+					{else}
+					<img style="vertical-align: middle;" src='authimg.php?p=1' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=2' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=3' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=4' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=5' alt='' />
+					{/if}
+					</td>
+				</tr>
+<!--{/if}-->
+</table>
+<div class="form-actions"> 
+<input type="hidden" name="verify" value="{echo $log_hash}" />
+<input type="submit" value="{b_a[3]}" class="btn btn-primary" />
+<input type="reset" value="{b_a[7]}" class="btn"  /> 
+</div> 
+</form>
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+
+<!--{if $bindacc_arr}-->
+<br />
+<table cellpadding='0' cellspacing='0' border='0' class='tableborder' align='center'>
+<tr><td>
+<table cellpadding='5' cellspacing='1' border='0' width='100%'>
+<tr align='center' style='height:23px;' class='backtd'>
+<td style='width:auto;' class='left' style="font-weight:bold;">{b_a[13]}</td>
+<td style='width:100px;' class='middle' style="font-weight:bold;">{b_a[15]}</td>
+<td style='width:100px;' class='right' style="font-weight:bold;">{b_a[14]}</td>
+</tr>
+<!--{loop $bindacc_arr $key $value}-->
+<tr align='center' style='height:23px;' class='forum_border_one'>
+<td style='width:auto;' align='center' class='forum_border_one_3'><a href="profile.php?job=show&amp;memberid={echo $value['userid']}">{echo $value['username']}</a></td>
+<td style='width:100px;' class='forum_border_one_3' align='left'>{echo $value['lastlogin']}</td>
+<td style='width:100px;' class='forum_border_one_3'><a href="misc.php?p=accounts&amp;job=delete&amp;t_userid={echo $value['userid']}&amp;verify={echo $log_hash}">[{b_a[14]}]</a></td>
+</tr>
+<!--{/loop}-->
+</table>
+</td></tr>
+</table>
+<!--{/if}-->
+
+<!--{if $userddata['parusrid']}-->
+<br />
+<table cellpadding='0' cellspacing='0' border='0' class='tableborder' align='center'>
+<tr><td>
+<table cellpadding='5' cellspacing='1' border='0' width='100%'>
+<tr align='center' style='height:23px;' class='list_color1'>
+<td style='width:100%;' class='announcement' style="font-weight:bold;">{b_a[16]} {echo $target['username']} <span class="categoryfontcolor_normal"><a href="misc.php?p=accounts&amp;job=delself&amp;verify={echo $log_hash}">[{b_a[14]}]</a></span></td>
+</tr>
+</table>
+</td></tr>
+</table>
+<!--{/if}-->

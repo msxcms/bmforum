@@ -1,0 +1,51 @@
+<?php
+// BMB 语言文件 ： 中文
+$war[0]="警告";
+$war[1]="<center><p><p>你被本版班竹屏蔽了在本版发言，有问题向本版班竹询问，也可联系站长;<br /><br /><p><p>请你遵守本站发贴规则<a href=index.php>返回首页</a><p><p>";
+$errc[0]="发生错误";
+$errc[1]="找不到板块";
+$errc[2]="您要访问的板块不存在";
+$errc[3]="";
+$errc[4]="时间不够";
+$errc[5]="您必须到达{$logon_post_second}秒才可以发帖，您现在离登录到现在只有{$onlylps}秒。";
+$errc[6]="状态：对不起，资料错误，您无法登录，请检查您的数据";
+$errc[7]="客人：对不起，此用户是已注册用户，不可使用";
+$errc[8]="你没有权利在此版块发贴，如果有问题请向管理员咨询";
+$errc[ab9]="回收站内不能发帖。";
+$errc[9]="发帖时发生了错误，详情：";
+$errc[10]="返回前一页";
+$errc[11]="您必须在注册 $reg_posting 小时之后才可以发表文章.";
+$errc[12]="您的文章内容包含过多的敏感关键词，请等待审核。";
+$tipc[0]="辅助面板：";
+$tipc[1]="字体属性面板";
+$tipc[2]="字体特效面板";
+$tipc[3]="ASCII图案生成面板";
+$tipc[4]="点击切换";
+$tipc[5]="(未注册用户发帖不要填写密码)";
+$check_data_lng[0]="文章超过管理员指定的长度";
+$check_data_lng[1]="没有填写标题或内容，或内容太短";
+$check_data_lng[2]="标题太长了";
+$check_data_lng[3]="文章描述太长了";
+$check_data_lng[4]="不接受空选项";
+$check_data_lng[5]="没有填写U-推荐名称";
+$check_data_lng[6]="U-推荐名称太长";
+$check_data_lng[7]="填写大小特性怎么会超过25个字符？";
+$check_data_lng[8]="作者超长";
+$check_data_lng[9]="网址超过规定长度";
+$check_data_lng[10]="下载地址超过规定长度";
+$check_data_lng[11]="图片连接地址超长";
+$send_HTML_mail_lng[0]="您有回复:";
+$send_HTML_mail_lng[1]="这里是 BMB 邮件快递";
+$send_HTML_mail_lng[2]="你在 {$bbs_title} 发的文章:";
+$send_HTML_mail_lng[3]="现在有人回复了，快来看吧";
+$send_HTML_mail_lng[4]="你有回复~~~";
+$login_user[0]="你的用户名：";
+$login_user[1]="你的密码：";
+$login_user[2]="忘了密码?";
+$print_form[G1]="<strong>随意贴(Tags)：</strong>";
+$print_form[G2]="随意贴是针对主题的描述性的关键词，这将把您的主题放置到您希望的分类中，用空格隔开关键词。";
+$print_form[G3]="<a href='plugins.php?p=tags' target=_blank>[ 查看当前的随意贴(Tags)列表 ]</a>";
+$print_form[G4]="最大随意贴数: ";
+$print_form[tags]="您必须设置一个随意贴(Tags)";
+
+?>

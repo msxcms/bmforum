@@ -1,0 +1,111 @@
+<table class="tableborder" border="0" cellspacing="0" cellpadding="0" align="center">
+	<tr>
+		<td class="noptd">
+		<table width="100%" border="0" cellspacing="1" cellpadding="4">
+			<tr>
+				<td colspan="4" style="padding-bottom:15px;">
+				<span style="font-size:30px;" title="{echo $gl[512]} {echo $line['userid']}">{echo $username}</span></td>
+			</tr>
+			<tr align="center" class="forumcoloronecolor_nohover">
+				<td colspan="4" class="forum_border_one_3" style="background-image:url('{if $userAdd['cover']}{$userAdd['cover']}.large{else}{otherimages}/defaultimage_large.jpg{/if}');"><div style="height:156px;">&nbsp;</div></td>
+			</tr>
+			<tr align="left" class="list_color2">
+				<td colspan="4" class="forum_border_one_3"><span class="list_color2" style="font-size: 14px;">{smlng[10]}</span><div class="profileCardAvatar"><img src="misc.php?p=getavatar&uid={echo $line['userid']}" width="150" height="150" class="avatar"></div></td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td class="forum_border_one_3">&nbsp;{show_form_lng[134]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $seximages}</td>
+				<td class="forum_border_one_3">&nbsp;{smlng[11]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $regdate}</td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td class="forum_border_one_3">&nbsp;{smlng[12]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $smlng[13]}{echo $postamount}&nbsp; 
+				{smlng[14]}{echo $deltopic}&nbsp; {smlng[15]}{echo $delreply}&nbsp; <a href="search.php?keyword={echo $fileuname}&amp;method=or&amp;method1=2&amp;method2=&amp;forumid=&amp;digestonly=1">{smlng[44]}{echo $digestmount}</a>
+				<br/>
+				&nbsp;{smlng[41]}{echo $last_post_time}
+				</td>
+				<td class="forum_border_one_3">&nbsp;{smlng[16]}</td>
+				<td class="forum_border_one_3">&nbsp;{smlng[17]}{echo $tlastvisit}<br />
+&nbsp;{smlng[18]}{echo $lastlogin} {echo $check_on} </td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td class="forum_border_one_3">&nbsp;{smlng[19]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $shengxiao}</td>
+				<td class="forum_border_one_3">&nbsp;{smlng[20]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $starname}</td>
+			</tr>
+<!--{loop $custom_made $key $value}-->
+			<tr class='forum_border_one' >
+				<td class="forum_border_one_3">&nbsp;{echo $value[0][name]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $value[0][value]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $value[1][name]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $value[1][value]}</td>
+			</tr>
+<!--{/loop}-->
+			<tr align="left" class="list_color2">
+				<td colspan="4" class="forum_border_one_3"><span style="font-size: 14px;">{smlng[21]}</span</td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td class="forum_border_one_3">&nbsp;{smlng[23]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $headtitle}</td>
+				<td class="forum_border_one_3">&nbsp;{smlng[22]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $level}</td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td class="forum_border_one_3">&nbsp;{smlng[24]} / {echo $bbs_money} / {smlng[43]}:</td>
+				<td class="forum_border_one_3">&nbsp;{echo $bym} {smlng[24]} / {echo $money} 
+				{echo $bbs_money} / {echo $level_score}</td>
+				<td class="forum_border_one_3">&nbsp;{smlng[25]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $group}</td>
+			</tr>
+			<tr align="left" class="list_color2">
+				<td colspan="4" class="forum_border_one_3"><span style="font-size: 14px;">{smlng[26]}</span</td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td class="forum_border_one_3">&nbsp;{smlng[27]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $homepage}</td>
+				<td class="forum_border_one_3">&nbsp;{smlng[28]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $email}</td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td class="forum_border_one_3">&nbsp;{smlng[29]}</td>
+				<td class="forum_border_one_3">&nbsp;<a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={echo $oicq}&amp;Site={echo $url_bbs_title}&amp;Menu=yes" target="_blank"><img align="middle" src="{echo $qqshows}" border="0" alt="" />{echo $oicq}</a></td>
+				<td class="forum_border_one_3">&nbsp;{smlng[30]}</td>
+				<td class="forum_border_one_3">&nbsp;{echo $fromwhere} {echo $nationalname}</td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td class="forum_border_one_3">&nbsp;ICQ:</td>
+				<td class="forum_border_one_3">&nbsp;{echo $icq}</td>
+				<td class="forum_border_one_3">&nbsp;MSN:</td>
+				<td class="forum_border_one_3">&nbsp;<a href="mailto:{echo $msn}">{echo $msn}</a></td>
+			</tr>
+			<tr align="left" class="list_color2">
+				<td colspan="4" class="forum_border_one_3"><span style="font-size: 14px;">{smlng[31]}</span</td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td colspan="1" class="forum_border_one_3">&nbsp;{smlng[32]}</td>
+				<td class="forum_border_one_3" colspan="3">{echo $desper}&nbsp;</td>
+			</tr>
+			<tr class='forum_border_one' >
+				<td colspan="1" class="forum_border_one_3">&nbsp;{smlng[33]}</td>
+				<td class="forum_border_one_3" colspan="3">{echo $sign}&nbsp;</td>
+			</tr>
+			<!--{eval eval(load_hook('tpl_profile_display_blank'));}-->
+<!--{if $login_status}-->
+			<tr class="forumcolortwo_noalign" style="height:70px;">
+				<td colspan="4" align="center">
+				<a href="messenger.php?job=write&amp;target={echo $fileuname}">
+				<img src="{otherimages}/system/message.gif" border="0" alt="" />{smlng[37]}</a>
+				<a href="search.php?keyword={echo $fileuname}&amp;method=or&amp;method1=2&amp;method2=&amp;forumid=">
+				<img src="{otherimages}/system/gotop.gif" border="0">{smlng[38]}</a>
+				<a href="friendlist.php?action=add&amp;friendname={echo $fileuname}&amp;fusertype=f">
+				<img src="{otherimages}/system/friend.gif" border="0" alt="" />{smlng[39]}</a> 
+				{echo $sendaction} </td>
+			</tr>
+<!--{/if}-->
+
+		</table>
+		</td>
+	</tr>
+</table>

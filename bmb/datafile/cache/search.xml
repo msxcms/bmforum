@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>Blue Magic</ShortName>
+<Description>Blue Magic</Description>
+<InputEncoding>UTF-8</InputEncoding><Url type="text/html" template="http://127.0.0.1/b/bmb-db//search.php?keyword={searchTerms}&amp;method=or&amp;method1=1&amp;method2=120"/>
+</OpenSearchDescription>

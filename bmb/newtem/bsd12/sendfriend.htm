@@ -1,0 +1,48 @@
+<form action="misc.php?p=sendfriend&amp;step=2&amp;forumid={echo $forumid}&amp;filename={echo $filename}&amp;mode={echo $mode}" method="post" style="margin:0px;">
+<table class="tableborder" border="0" cellspacing="0" cellpadding="0" align="center" >
+    <tr>
+        <td>
+        <table cellpadding="6" cellspacing="1" border="0" width="100%">
+		    <tr>
+			    <td class="announcement" valign="middle" colspan="2" align="center"><strong>{gl[190]}</strong></td>
+			</tr>
+		    <tr class="article_color2">
+			    <td class="forum_border_one_3">
+			    <strong>{gl[204]}</strong></td>
+				 <td class="forum_border_one_3">	
+				{gl[205]}{echo $yopauthor} <a href="{if ($bmfopt['rewrite'])}topic_{echo $filename}{else}topic.php?filename={echo $filename}{/if}">{echo $yoptitle}</a> {gl[206]}
+			        </td>
+		     </tr>
+		    <tr class="article_color1">
+			    <td class="forum_border_one_3"><strong>{gl[207]}</strong></td>
+			    <td class="forum_border_one_3"><input type="text" size="40" name="postname" value="{echo $username}" /></td>
+		    </tr>
+		    <tr class="article_color2">
+			    <td class="forum_border_one_3"><strong>{gl[208]}</strong></td>
+			    <td class="forum_border_one_3"><input type="text" size="40" name="incept" /></td>
+			    </tr>
+			<tr class="article_color1">
+			    <td class="forum_border_one_3"><strong>{gl[209]}</strong></td>
+			    <td class="forum_border_one_3"><input type="text" size="40" name="fmail" /></td>
+		    </tr>
+		    <tr class="article_color2">
+			    <td class="forum_border_one_3"><strong>{gl[210]}</strong></td>
+			    <td class="forum_border_one_3"><textarea name="fcontent" cols="55" rows="6">{gl[211]}</textarea></td>
+			</tr>
+			<tr class="article_color1">
+			    <td class="forum_border_one_3"><strong>{gl[212]}</strong></td>
+			    <td class="forum_border_one_3"><input type="radio" name="method" value="only" checked="checked" />{gl[213]}
+				<input type="radio" name="method" value="all" />{gl[214]}</td>
+		    </tr>
+		    <tr align="center">
+				<td class="form-actions" colspan="2" align="center">
+				<input type="submit" value="{gl[29]}" class="btn btn-primary" />
+				&nbsp;
+				<input type="reset" value="{gl[215]}" class="btn" />
+				</td>
+			</tr>
+		</table>
+	</td>
+	</tr>
+</table>
+</form>

@@ -1,0 +1,49 @@
+<table class="tableborder" cellspacing="1" align="center" cellpadding="4" border="0">
+	<tr class="forumcolortwo_noalign">
+		<td class="announcement">
+		<span class="msg_box_categoryfontcolor">{echo $title}</span>
+	</td>
+	</tr>
+	<tr>
+		<td>
+		{echo $content_title}
+		<input type='hidden' name='verify' value='{echo $log_hash}' />
+<!--{loop $bmf_manage $key $loop_thread}-->
+		<table cellspacing="0" cellpadding="4" style="width: 100%;" align="center">
+			<tr style="text-align:center;height: 25px;{if $key == 0}border-top: 1px solid #DDDDDD;{/if}" class='forum_border_one'>
+				<td width="20" class="forum_border_one_3">
+				<a href="topic.php?filename={echo $loop_thread['filename']}" target="_blank">{echo $loop_thread['stats']}</a></td>
+					<td width="22" class="forum_border_one_3">
+					{echo $loop_thread['icon']}</td>
+					<td width="*" align="left" class="forum_border_one_3">
+					<table width="100%" border="0" cellspacing="0" cellpadding="4">
+						<tr>
+							<td>
+							<a href="{echo $loop_thread['linktothread']}" title="{coninfo[15]}" target="_blank">
+							<img src="{otherimages}/openwindow.gif" border="0" alt="" /></a> 
+							{echo $loop_thread['title']} {echo $loop_thread['multipage']}
+							<div align="right">
+								<span class="jiazhongcolor">{echo $loop_thread['toplangg']}</span>
+							</div>
+							{echo $loop_thread['moveinfo']} </td>
+						</tr>
+					</table>
+					</td>
+					<td width="120" class="forum_border_one_3">
+					<a href="profile.php?job=show&amp;target={echo $loop_thread['urlauthor']}">{echo $loop_thread['viewauthor']}</a><br />
+					{echo $loop_thread['aimetoshow']}</td>
+					<td width="55" class="forum_border_one_3">
+					{echo $loop_thread['reply']}</td>
+					<td width="55" class="forum_border_one_3">
+					{echo $loop_thread['hit']}</td>
+					<td width="140" align="left" class="forum_border_one_3">&nbsp;{echo $loop_thread['timetoshow']}<br />
+					<img src="{otherimages}/system/icon_post.gif" alt="" /> {echo $loop_thread['lmdauthor']}</td>
+			</tr>
+		</table>
+<!--{/loop}-->
+{echo $content}
+	</tr>
+	<tr class="form-actions" style="height:50px;text-align:center;"	>
+		<td><input type='submit' value='{gl[173]}' class="btn btn-primary" /></form></td>
+	</tr>
+</table>

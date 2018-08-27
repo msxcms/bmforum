@@ -1,0 +1,55 @@
+<form action='profile.php?job=show' style="margin:0px;" method="post">
+<table border="0" class="tableborder" cellspacing="0" cellpadding="0" align="center" >
+  <tr>
+    <td class="noptd">
+      <table width="100%" border="0" cellspacing="1" cellpadding="2">
+        <tr align="center"><td colspan="7" style="height:24px;" class="announcement"><span class="title">{gl[138]}</span></td></tr>
+        <tr class="forum_border_one_2">
+          <td width="15%" align="center"><a href='userlist.php?orderby=group&amp;type={echo $type}&amp;list={echo $list}&amp;jumppage={echo $jumppage}'>{gl[140]}</a></td>
+          <td width="14%" align="center"><a href='userlist.php?type={echo $type}&amp;list={echo $list}&amp;jumppage={echo $jumppage}'>{gl[512]}</a></td>
+          <td width="14%" align="center"><a href='userlist.php?orderby=name&amp;type={echo $type}&amp;list={echo $list}&amp;jumppage={echo $jumppage}'>{gl[130]}</a></td>
+          <td width="17%" align="center"><a href='userlist.php?orderby=date&amp;type={echo $type}&amp;list={echo $list}&amp;jumppage={echo $jumppage}'>{gl[133]}</a></td>
+          <td width="17%" align="center"><a href='userlist.php?orderby=amount&amp;type={echo $type}&amp;list={echo $list}&amp;jumppage={echo $jumppage}'>{gl[134]}</a></td>
+          <td width="17%" align="center"><a href='userlist.php?orderby=score&amp;type={echo $type}&amp;list={echo $list}&amp;jumppage={echo $jumppage}'>{gl[511]}</a></td>
+        </tr>
+        
+<!--{loop $bmf_userlist $key $value}-->
+<tr class="forum_border_one">
+<td align='center' class='forum_border_one_3'>{echo $value[0]}</td>
+<td align='center' class='forum_border_one_3'>{echo $value[1]}</a></td>
+<td align='center' class='forum_border_one_3'><a href='profile.php?job=show&amp;memberid={echo $value[1]}'>{echo $value[2]}</a></td>
+<td align='center' class='forum_border_one_3'>{echo $value[3]}</td>
+<td align='center' class='forum_border_one_3'>{echo $value[4]}</td>
+<td align='center' class='forum_border_one_3'>{echo $value[5]}</td></tr>
+
+<!--{/loop}-->
+
+<tr class='forumcoloronecolor'>
+<td align='center' colspan='6' class='forumcolortwo_noalign'>{gl[136]} <input name='target' type='text' value='{echo $username}' /></td></tr>
+
+      </table>
+    </td>
+  </tr>
+</table></form>
+<br />
+<!---Pages list begin-->
+
+<table class="tablewidth" style="padding-top:5px;" align="center" cellspacing="0" cellpadding="0">
+<tr> 
+    <td><form name="jump" action="userlist.php?orderby={echo $orderby}&amp;type={echo $type}&amp;list={echo $list}" method="post" style="margin:0px;">
+{echo $pagenumber}
+<td class="pagenumber_2" style="padding: 0"><input type='text' name='jumppage' size='4' onkeydown='javascript:javascript:if(event.keyCode == 13) { document.jump.submit();  }' maxlength='4' /></td>
+</tr>
+</table>
+</form></td>
+<td align="right">
+<form action="userlist.php" method="post" style="margin: 0px;">
+{gl[436]}<select name='type'><option value=''>{gl[437]}</option>
+{echo $uginfo_list}
+</select> 
+<input type='submit' class="btn" value='{gl[137]}' name='submit' />
+</form>
+</td>
+</tr>
+</table>
+<br />

@@ -1,0 +1,115 @@
+<!-- BEGIN tags -->
+<table class="tablewidth" border="0" align="center">
+	<tr>
+		<td colspan="6" align="left">
+			{t_l[2]} {echo $tagname}
+		</td>
+	</tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0" align="center" class="tableborder">
+  <tr> 
+    <td>
+	<table cellspacing="1" cellpadding="0" width="100%" border="0" align="center">
+			<tr align="center" class="backtd" style="height:29px;">
+				<td class="left" colspan="2" width="*">
+				<span class="title"><a href="plugins.php?p=tags&amp;jinhua={echo $jinhua}&amp;listby=title&amp;forumid={echo $forumid}&amp;tagname={echo $urltagname}">
+				<strong>{gl[154]}</strong></a></span></td>
+				<td class="middle" width="90">
+				<span class="title"><a href="plugins.php?p=tags&amp;jinhua={echo $jinhua}&amp;listby=forum&amp;forumid={echo $forumid}&amp;tagname={echo $urltagname}">
+				<strong>{gl[155]}</strong></a></span></td>
+				<td class="middle" width="85">
+				<span class="title"><a href="plugins.php?p=tags&amp;jinhua={echo $jinhua}&amp;listby=author&amp;forumid={echo $forumid}&amp;tagname={echo $urltagname}">
+				<strong>{gl[156]}</strong></a></span></td>
+				<td class="middle" width="45">
+				<span class="title"><a href="plugins.php?p=tags&amp;jinhua={echo $jinhua}&amp;listby=reply&amp;forumid={echo $forumid}&amp;tagname={echo $urltagname}">
+				<strong>{gl[157]}</strong></a></span></td>
+				<td class="middle" width="45">
+				<span class="title"><a href="plugins.php?p=tags&amp;jinhua={echo $jinhua}&amp;listby=hit&amp;forumid={echo $forumid}&amp;tagname={echo $urltagname}">
+				<strong>{gl[158]}</strong></a></span></td>
+				<td class="right" width="165">
+				<span class="title"><a href="plugins.php?p=tags&amp;jinhua={echo $jinhua}&amp;listby=posttime&amp;forumid={echo $forumid}&amp;tagname={echo $urltagname}">
+				<strong>{gl[159]}</strong></a></span></td>
+			</tr>
+
+<!--{if $outputed != 1}-->
+	<tr style="text-align:center;height: 25px;" class="forum_border_one">
+		<td colspan="6" align="left">
+		<table width="100%" border="0" cellspacing="1" cellpadding="4">
+			<tr>
+				<td align="center">
+				{t_l[11]}
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+
+<!--{/if}-->
+<!--{loop $tags_output $key $tagt}-->
+	<tr style="height: 35px;" class="forum_border_one">
+		<td align="center" width="4%" class="forum_border_one_3"><a href="{echo $prefix_file}{echo $tagt['tid']}" target="_blank">{echo $tagt['stats']}</a></td>
+		<td width="*" class="forum_border_one_3" >
+		<table width="100%" cellspacing="0" cellpadding="0">
+		<tr><td>
+		&nbsp;<!--{if !in_array($tagt['tid'], $readed_t)}--><a href="{echo $tagt['pageLastLink']}#postend"><img alt="" src="{otherimages}/openwindow.gif" border="0" /></a>&nbsp;<!--{/if}-->
+		{echo $tagt['title']} {echo $tagt['multipage']} 
+		</td><td style="width: 16px;">
+		{echo $tagt['pin_score']} 
+		</td>
+		</tr>
+		</table>
+		</td>
+		<td width="90" align="center" class="forum_border_one_3">
+		<a href="forums.php?forumid={echo $tagt['forumid']}">{echo $tagt['forum_name']}</a></td>
+		<td width="85" align="center" class="forum_border_one_3">
+		<a href="profile.php?job=show&amp;target={echo $tagt['urlauthor']}" target="_blank">{echo $tagt['author']}</a><br />
+		{echo $tagt['aimetoshow']}</td>
+		<td width="45" align="center" class="forum_border_one_3">{echo $tagt['replys']}</td>
+		<td width="45" align="center" class="forum_border_one_3">{echo $tagt['hits']}</td>
+		<td width="165" align="left" class="forum_border_one_3">&nbsp;{echo $tagt['lmdtime']}<br />
+&nbsp;<img src="{otherimages}/system/icon_post.gif" border="0"> {echo $tagt['lmdauthor']}</td>
+	</tr>
+<!--{/loop}-->
+
+</table>
+</td>
+</tr>
+</table>
+
+<!-- BEGIN tags_d -->
+<script type="text/javascript">
+//<![CDATA[ 
+	function gotopages(eventobject) {
+		if(eventobject.keyCode == 13) {
+			window.location.href="plugins.php?p=tags&jinhua={echo $jinhua}&listby={echo $listby}&tagname={echo $urltagname}&forumid={echo $forumid}&page="+document.getElementById('pagej').value;
+		}
+	}
+//]]>>
+</script>
+<br/>
+    <table cellspacing="0" cellpadding="0" class="tablewidth" border="0" align="center" >
+	<tr>
+		<td colspan="7" style="height: 24px;">{echo $pageinfos}
+		</td>
+			<td colspan="1" style="height: 24px;" align="right">
+			<form style="margin: 0px;" action="plugins.php?p=tags&amp;listby={echo $listby}&amp;tagname={echo $urltagname}&amp;forumid={echo $forumid}" method="post">
+			&nbsp;
+			<select name="jinhua">
+			<option value="30">{forum_picie[20]}</option>
+			<option value="1">{forum_picie[21]}</option>
+			<option value="2">{forum_picie[22]}</option>
+			<option value="5">{forum_picie[23]}</option>
+			<option value="10">{forum_picie[24]}</option>
+			<option value="20">{forum_picie[25]}</option>
+			<option value="60">{forum_picie[26]}</option>
+			<option value="100">{forum_picie[27]}</option>
+			<option value="365">{forum_picie[28]}</option>
+			<option value="">{forum_picie[29]}</option>
+			</select>
+			<input type="submit" value=" GO " />
+			</form>
+			</td>
+	</tr>
+</table>
+<br />
+<!-- END 4 -->

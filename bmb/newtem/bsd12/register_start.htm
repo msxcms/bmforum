@@ -1,0 +1,75 @@
+<!-- BEGIN rlicence -->
+<table class="tableborder" cellspacing="0" cellpadding="0" align="center" border="0">
+	<tr>
+		<td class="noptd">
+		<table class="bmbnewstyle_withoutwidth" cellspacing="1" cellpadding="4" width="100%" border="0">
+			<tr>
+				<td class="announcement">
+				<span class="title">{reglang[41]}</span></td>
+			</tr>
+			<tr class="forumcolortwo_noalign">
+				<td>
+				<table cellpadding="0" cellspacing="0" border="0" width="94%" class="forumcolortwo_noalign" align="center">
+					<tr>
+						<td>
+						<table width="100%" cellpadding="5" cellspacing="1" border="0">
+							<tr>
+								<td class="forumcolortwo_noalign" style="text-align:center;">
+									<strong>{reglang[42]}</strong>
+								</td>
+							</tr>
+							<tr>
+								<td class="forumcolortwo_noalign">
+									{echo $reginfo}
+								</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+				</table>
+				<table width="100%" cellpadding="5" cellspacing="1" border="0" align="right">
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+						<div align="center">
+&nbsp;&nbsp;
+							<form style="margin: 0px;" action="register.php" name="agree" method="get">
+								<input type="hidden" name="reg" value="bym" />
+								<input type="hidden" name="invitecode" value="{echo $invitecode}" />
+								<input type="submit" value="{reglang[43]}" id="agreeb" class="btn btn-primary" />
+							</form>
+						</div>
+						</td>
+						<td>
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[ 
+var secs = 3;
+document.getElementById("agreeb").disabled=true;
+for(i=1;i<=secs;i++) {
+ window.setTimeout("update(" + i + ")", i * 1000);
+}
+function update(num) {
+ if(num == secs) {
+ document.getElementById("agreeb").value ="{reglang[43]}";
+ document.getElementById("agreeb").disabled=false;
+ }
+else {
+ printnr = secs-num;
+ document.getElementById("agreeb").value = "{reglang[44]}";
+ }
+}
+//]]>>
+</script>
+
+<!-- END rlicence -->

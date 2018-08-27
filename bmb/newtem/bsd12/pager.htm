@@ -1,0 +1,44 @@
+<!--{eval function template_page($pageno, $pageLink, $firstpagelink, $maxpageno, $pageArr, $jsJump) { }-->
+<!--{eval $random = uniqid();}-->
+<div class="pagination" style="margin: 0px;">
+	<ul>
+		<li><a href="{$firstpagelink}" title="1">«</a></li>
+<!--{loop $pageArr $key $page}-->
+<!--{if $page}-->
+		<li><a href="$page">$key</a></li>
+<!--{else}-->
+		<li class="active"><a href="#">$key</a></li>
+<!--{/if}-->
+<!--{/loop}-->
+		<li><a href="{$maxpageno['link']}" title="{$maxpageno['page']}">»</a></li>
+<!--{if $jsJump}-->
+		<li>&nbsp;<input type="text" name="pager_pagej_{$random}" id="pager_pagej_{$random}" style="height:26px;" onkeydown="javascript:_pagerGotoPages_{$random}(event, '$pageLink');" size="2" /></li>
+<!--{/if}-->
+	</ul>
+</div>
+<!--{if $jsJump}-->
+<script type="text/javascript">
+function _pagerGotoPages_{$random}(eventobject, pagelink) {
+if(eventobject.keyCode == 13) {
+	window.location.href=pagelink.replace("\{page\}", document.getElementById('pager_pagej_{$random}').value);
+}
+}
+</script>
+<!--{/if}-->
+
+<!--{eval }}-->
+<!--{eval function template_smallpage($pageArr, $maxpageno) { }-->
+<strong><span class="forum_page_links">
+<!--{loop $pageArr $key $page}-->
+<!--{if $key == 1}-->
+ ... 
+	<!--{else}-->
+	<!--{if is_array($page) && $page['max']}-->
+	 ... <a href="{$page['str']}">$key</a>
+	<!--{else}-->
+	<a href="$page">$key</a>&nbsp;
+	<!--{/if}-->
+<!--{/if}-->
+<!--{/loop}-->
+</span></strong>
+<!--{eval }}-->

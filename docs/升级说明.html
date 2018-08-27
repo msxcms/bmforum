@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh-CN">
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+<title>BMForum 简要说明文件</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div id="totallayer" style="position:relative; left:1.3%; top:0px; width:95%; height:auto; z-index:1; border: none; " class="bmforum_background">
+
+<br/><table cellspacing="0" cellpadding="0" class="tableborder" align="center"> <tr><td>
+<table cellspacing="1" cellpadding="5" class="faq_table" style='width:100%'>
+<tr><td colspan="100" class="faq_table_tr"> 
+<span class="categoryfontcolor_font"><a name="top"></a>说明文件导航</span>
+</td></tr>
+<tr>
+<td class="forumcoloronecolor" style="text-align:center;"><a href="../简要说明.html">简要说明</a></td>
+<td class="forumcolortwo_noalign" style="text-align:center;"><a href="全新安装说明.html">全新安装说明</a></td>
+<td class="forumcoloronecolor" style="text-align:center;"><a href="升级说明.html">升级说明</a></td>
+<td class="forumcolortwo_noalign" style="text-align:center;"><a href="以往版本升级说明.html">以往版本升级说明</a></td>
+<td class="forumcoloronecolor" style="text-align:center;"><a href="http://wiki.bmforum.com" target="_blank">在线手册</a></td>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="forumcoloronecolor" style="text-align:center;"><a href="#fromlast">从 2007 5.6 升级安装说明</a></td>
+<td colspan="2" class="forumcolortwo_noalign" style="text-align:center;"><a href="#newslist">新版改动列表</a></td>
+<td colspan="1" class="forumcolortwo_noalign" style="text-align:center;"><a href="#fromplus">从 BMForum Plus! 升级说明</a></td>
+</td>
+</tr>
+</table>
+</td></tr></table>
+
+
+<br/><table cellspacing="0" cellpadding="0" class="tableborder" align="center"> <tr><td>
+<table cellspacing="1" cellpadding="5" class="faq_table" style='width:100%'>
+<tr><td class="faq_table_tr"> 
+<span class="categoryfontcolor_font">
+<div><div style='color:#FFFFFF;display:inline;float:left;'>
+	   <strong><a name="fromlast"></a>从 6.0 升级安装说明</strong>
+	  </div>
+  <div style='display:inline;float:right;'><a href="#top" style='color:#FFFFFF;'>返回顶部</a></div>
+</div>
+</span>
+</td></tr>
+<tr><td class="forumcoloronecolor"> 
+<table style='width:95%' align="center"><tr><td>
+
+ <img src="images/caution.gif" alt="注意" /> 注意 改动较大，建议先测试灰度升级后再进行全量升级！<br />
+ <img src="images/caution.gif" alt="注意" /> 请注意上传文件的完整性<br />
+<br /><br />
+
+<ol><li>升级途中请务必关闭论坛。建议先备份一下论坛数据。</li>
+
+ <li>上传、变更下列文件或目录：
+
+<ol><li>上传下列文件
+
+<ul><li>压缩包中 <strong>bmb 目录下的所有文件</strong><u>（1、不包括 bmb 目录里面的文件夹；2、不要上传install.php 和 install目录）</u></li>
+    <li>目录:lang</li>
+    <li>目录:newtem</li>
+    <li>目录:plugins</li>
+    <li>目录:include</li>
+    <li>目录:upgrade</li>
+    <li>目录:editor</li>
+    <li>目录:images</li>
+</ul></li>
+</ol><br />
+    
+<li>打开浏览器，进入论坛网址目录下的 upgrade （例如：http://www.yourname.com/bbs/upgrade/ ），按照程序步骤操作。</li>
+
+<li>管理中心，<strong>开始</strong>菜单中<strong>调整论坛数据</strong>，<strong>刷新风格缓存</strong></li>
+
+<li>常规选项、用户组内有新设置，请务必进入管理中心设置（尤其是需要在常规选项内设置默认表情包）</li>
+
+<li>如果您制作了自己的语言包，请访问官方 Blog 下载升级手册</li>
+
+<li>论坛旧表情已经在刚才转移到了 images/oldface，如果需要，请参考开发手册设计新表情包。</li>
+
+<li>论坛备份数据结构有变动，建议进行一次备份。</li>
+
+<li><img src="images/caution.gif" alt="注意" /> 注意检查 install.php 是否存在，若存在，删之。</li>
+
+<li><img src="images/yes.gif" alt="完成" />升级完成 </li>
+
+</ol>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+
+<br/>
+<table cellspacing="0" cellpadding="0" class="tableborder" align="center"> <tr><td>
+<table cellspacing="1" cellpadding="5" class="faq_table" style='width:100%'>
+<tr><td class="faq_table_tr"> 
+<span class="categoryfontcolor_font">
+<div><div style='color:#FFFFFF;display:inline;float:left;'>
+	   <strong><a name="newslist"></a>新版改动列表</strong>
+	  </div>
+  <div style='display:inline;float:right;'><a href="#top" style='color:#FFFFFF;'>返回顶部</a></div>
+</div>
+</span>
+</td></tr>
+<tr><td class="forumcoloronecolor"> 
+<table style='width:95%' align="center"><tr><td>
+
+<h3> 新亮点 </h3>
+<ul>
+<li> 全新界面</li>
+<li> 通知中心</li>
+<li> 全新头像操作</li>
+<li> 个性封面</li>
+<li> 用户资料卡</li>
+<li> 第三方API登录</li>
+<li> 兼容 PHP7</li>
+</ul>
+
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+
+<br />
+
+
+<table cellspacing="0" cellpadding="0" class="tableborder" align="center"> <tr><td>
+<table cellspacing="1" cellpadding="5" class="faq_table" style='width:100%'>
+<tr><td class="faq_table_tr"> 
+<span class="categoryfontcolor_font">
+<div><div style='color:#FFFFFF;display:inline;float:left;'>
+	   <strong><a name="fromplus"></a>从 BMForum Plus! 升级说明</strong>
+	  </div>
+  <div style='display:inline;float:right;'><a href="#top" style='color:#FFFFFF;'>返回顶部</a></div>
+</div>
+</span>
+</td></tr>
+<tr><td class="forumcoloronecolor"> 
+<table style='width:95%' align="center"><tr><td>
+
+<img src="images/caution.gif" alt="注意" /> 注：从 BMForum Plus! 升级前请确保已经成功安装了本版本<br />
+<br />
+首先将 add-on 下的plus2datium.php放置于 Datium! 版目录下，然后用适当编辑器（如 Emeditor）打开文件，设置文件头的以下内容： 
+<br /><br />
+以下是代码: <br />
+$pluspostdir="C:/Apache/database/post/"; // Plus! 版帖子目录<br />
+$plususerdir="C:/Apache/database/user/"; // Plus! 版用户目录<br />
+$plusdatadir="C:/Apache/htdocs/bmb/datafile/"; // Plus! 版 datafile 目录<br />
+<br /><br />
+然后进入论坛管理中心(MySQL版本)，删除所有版块、分类，接着删掉自己的管理帐户<br />
+在浏览器执行 plus2datium.php。按照步骤一步一步操作即可。<br />
+
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+
+<br />
+
+<center><table align="center">
+	<tr>
+		<td width="100%"> </td>
+	</tr>
+</table>
+
+</center>
+</div>
+</body>
+</html>

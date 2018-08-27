@@ -1,0 +1,23 @@
+<?php
+/*
+密码重置程序
+
+使用说明：
+
+先将本文件扩展名修改为 .php （如 pwdreset.php，下文例同），然后放置于论坛根目录下，
+再打开浏览器运行 pwdreset.php，提示 “DONE” 之后删除 pwdreset.php。
+
+进入管理中心，以用户名 adminbmfnew 密码 12345 登录论坛即可。
+*/
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+include("datafile/config.php");
+include("include/db/db_{$sqltype}.php");
+
+bmbdb_connect($db_server, $db_username, $db_password, $db_name, 0, $mysqlchar);
+$MEMBER_NAME="adminbmfnew"; // Name
+$MEMBER_PASS="12345"; // Password
+
+$MEMBER_PASS_W=md5($MEMBER_PASS);
+
+$result = bmbdb_query("INSERT INTO `{$database_up}userlist` (`userid`, `username`, `pwd`, `avarts`, `mailadd`, `qqmsnicq`, `regdate`, `signtext`, `homepage`, `fromwhere`, `desper`, `headtitle`, `lastpost`, `postamount`, `publicmail`, `mailtype`, `point`, `pwdask`, `pwdanswer`, `ugnum`, `money`, `birthday`, `team`, `sex`, `national`, `lastlogin`, `tlastvisit`, `deltopic`, `delreply`, `uploadfiletoday`, `lastupload`, `foreuser`, `hisipa`, `hisipb`, `hisipc`, `newmess`, `baoliu1`, `baoliu2`, `personug`) VALUES ('','$MEMBER_NAME', '$MEMBER_PASS_W', '', '$EMAIL', '※※', '" . time() . "', '', '', '', '', '', '', 0, '0', 'text', '0', '', '', '0', '0', '', '', '', '', '', '', '0', '0', '0', '', '', '', '', '', '', '', '', '')");
+echo "done";

@@ -1,0 +1,36 @@
+<!--{template usercp}-->
+<!--{if $msgBox}-->
+<!--{eval msg_box($notificationLang['_blockbtn'], $notificationLang['_blocksaved'], 1, true);}-->
+<!--{/if}-->
+<form action="misc.php?p=notification&act=block" method="POST">
+<table cellspacing="0" cellpadding="0" border="0" align="center" class="tableborder">
+  <tr> 
+    <td>
+	<table cellspacing="1" cellpadding="4" width="100%" border="0" align="center">
+	  <tr align="center" style="height:24px;"> 
+	    <td class="announcement" colspan="2" width="*"><strong class="title">{notificationLang[_navbar]}</strong></td>
+	  </tr>
+	<tr class="forumcolortwo_noalign">
+	<td align="center" colspan="2" class="forum_border_one_3"><strong>{notificationLang[_blocktitle]}</strong>
+	</td>
+	</tr>
+	<tr>
+		<td align="left" width="100%" style="padding:20px;" class="forum_border_one_3">
+<!--{loop $notificationTitle $typeKey $typeText}-->
+			<label><input type="checkbox" value="1" {if $userBlockData[$typeKey]}checked='checked'{/if} name="nFilter[{$typeKey}]" />{$typeText}</label><br />
+<!--{/loop}-->
+
+		</td>
+	</tr>
+	<tr style="height: 25px;">
+		<td align="center" class="form-actions">
+			<input type="hidden" value="1" name="save" />
+			<input type="submit" value="{gl[137]}" class="btn btn-primary" />
+			<input type="button" onclick="window.location='misc.php?p=notification';" value="{gl[82]}" class="btn" />
+		</td>
+	</tr>
+</table>
+</td></tr></table>
+</form>
+<br />
+<!--{template usercp_foot}-->

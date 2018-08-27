@@ -1,0 +1,45 @@
+<table cellspacing="1" cellpadding="0" border="0" align="center" class="tableborder">
+  <tr align="center" style="height:24px;" class="backtd"> 
+    <td class="left" width="120" align="center"><strong class="title">{gl[67]}</strong></td>
+	<td class="middle"><strong class="title">{gl[64]}</strong></td>
+	<td class="right"><strong class="title">{gl[65]}</strong></td>
+
+  </tr>
+<tr style="height:22px;" class="list_color2">
+    <td colspan="3" align="center" class="forum_border_one_3"><strong>{gl[66]}</strong></td>
+
+</tr>
+<!--{loop $mtitle_array $key $value}-->
+<tr style="height:22px;" class='forum_border_one'>
+    <td class="forum_border_one_3" width="120" align="center"><strong>{echo $value[0]}</strong></td>
+	<td class="forum_border_one_3" align="center"><strong>{echo $value[1]}</strong></td>
+	<td class="forum_border_one_3" align="center"><img src="{otherimages}/system/{echo $value[2]}" alt="{echo $value[0]}" /></td>
+</tr>
+<!--{/loop}-->
+<tr style="height:22px;" class="list_color2">
+    <td class="forum_border_one_3" colspan="3" align="center"><strong>{gl[68]}</strong></td>
+
+</tr>
+<!--{if !empty($motitle) || !empty($modgraphic)}-->
+<tr style="height:22px;" class='forum_border_one'>
+    <td class="forum_border_one_3" width="120" align="center"><strong>{echo $motitle}</strong></td>
+	<td class="forum_border_one_3" align="center"><strong>{gl[69]}</strong></td>
+	<td class="forum_border_one_3" align="center"><img src="{otherimages}/system/{echo $modgraphic}" alt="{echo $motitle}" /></td>
+</tr>
+<!--{/if}-->
+<!--{if !empty($supmotitle) || !empty($supmodgraphic)}-->
+	<tr style="height:22px;" class='forum_border_one'>
+    <td class="forum_border_one_3" width="120" align="center"><strong>{echo $supmotitle}</strong></td>
+	<td class="forum_border_one_3" align="center"><strong>{gl[70]}</strong></td>
+	<td class="forum_border_one_3" align="center"><img src="{otherimages}/system/{echo $supmodgraphic}" alt="{echo $supmotitle}" /></td>
+</tr>
+<!--{/if}-->
+<!--{if !empty($admintitle) || !empty($admingraphic)}-->
+	<tr style="height:22px;" class='forum_border_one'>
+    <td class="forum_border_one_3" width="120" align="center"><strong>{echo $admintitle}</strong></td>
+	<td class="forum_border_one_3" align="center"><strong>{gl[71]}</strong></td>
+	<td class="forum_border_one_3" align="center"><img src="{otherimages}/system/{echo $admingraphic}" alt="{echo $admintitle}" /></td>
+</tr>
+<!--{/if}-->
+</table>
+<br />

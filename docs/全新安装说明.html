@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="zh-CN">
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+<title>BMForum 简要说明文件</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<div id="totallayer" style="position:relative; left:1.3%; top:0px; width:95%; height:auto; z-index:1; border: none; " class="bmforum_background">
+
+<br/><table cellspacing="0" cellpadding="0" class="tableborder" align="center"> <tr><td>
+<table cellspacing="1" cellpadding="5" class="faq_table" style='width:100%'>
+<tr><td colspan="100" class="faq_table_tr"> 
+<span class="categoryfontcolor_font"><a name="top"></a>说明文件导航</span>
+</td></tr>
+<tr>
+<td class="forumcoloronecolor" style="text-align:center;"><a href="../简要说明.html">简要说明</a></td>
+<td class="forumcolortwo_noalign" style="text-align:center;"><a href="全新安装说明.html">全新安装说明</a></td>
+<td class="forumcoloronecolor" style="text-align:center;"><a href="升级说明.html">升级说明</a></td>
+<td class="forumcolortwo_noalign" style="text-align:center;"><a href="以往版本升级说明.html">以往版本升级说明</a></td>
+<td class="forumcoloronecolor" style="text-align:center;"><a href="http://wiki.bmforum.com" target="_blank">在线手册</a></td>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="forumcoloronecolor" style="text-align:center;"><a href="#require">系统需求</a></td>
+<td colspan="3" class="forumcolortwo_noalign" style="text-align:center;"><a href="#install">安装说明</a></td>
+</td>
+</tr>
+</table>
+</td></tr></table>
+
+
+<br/><table cellspacing="0" cellpadding="0" class="tableborder" align="center"> <tr><td>
+<table cellspacing="1" cellpadding="5" class="faq_table" style='width:100%'>
+<tr><td class="faq_table_tr"> 
+<span class="categoryfontcolor_font">
+<div><div style='color:#FFFFFF;display:inline;float:left;'>
+	   <strong><a name="require"></a>系统需求</strong>
+	  </div>
+  <div style='display:inline;float:right;'><a href="#top" style='color:#FFFFFF;'>返回顶部</a></div>
+</div>
+</span>
+</td></tr>
+<tr><td class="forumcoloronecolor"> 
+<table style='width:95%' align="center"><tr><td>
+要运行 BMForum，请确保论坛处于以下<strong>最低需求</strong>或更高的环境中：<br />
+<ul>
+<li>PHP 环境: PHP 5.3.0 或更高</li>
+<li>Web 环境: Apache, IIS, Nginx 等服务器</li>
+<li>数据环境: MySQL 5.4</li>
+<li>磁盘环境: 最低 50MB</li>
+</ul>
+<br />
+<strong>推荐配置：</strong>
+<ul>
+<li>PHP 环境: PHP 7.0.0</li>
+<li>Web 环境: Nginx</li>
+<li>数据环境: MariaDB 10.0</li>
+<li>磁盘环境: 1 GB</li>
+</ul>
+
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+
+<br/><table cellspacing="0" cellpadding="0" class="tableborder" align="center"> <tr><td>
+<table cellspacing="1" cellpadding="5" class="faq_table" style='width:100%'>
+<tr><td class="faq_table_tr"> 
+<span class="categoryfontcolor_font">
+<div><div style='color:#FFFFFF;display:inline;float:left;'>
+	   <strong><a name="install"></a>安装说明</strong>
+	  </div>
+  <div style='display:inline;float:right;'><a href="#top" style='color:#FFFFFF;'>返回顶部</a></div>
+</div>
+</span>
+</td></tr>
+<tr><td class="forumcoloronecolor"> 
+<table style='width:95%' align="center"><tr><td>
+<ol>
+<li>打开压缩包，将 bmb 目录所有文件按照原来路径上传到服务器你新建的目录下(例如bmb)目录下。</li>
+<li>设置权限，请根据服务器类型选择。
+   <ol><li><strong>Unix/Linux/FreeBSD 等 *nix 类服务器设置权限：</strong>(注:部分空间可能设置777后出错,请设置为755)<br />
+
+    <ul><li><strong>目录 datafile</strong><br /><span style='color:red;'>目录内的文件和文件夹设置为 777</span></li>
+    <li><strong>目录 tmp</strong> <br /><span style='color:red;'>目录内的文件和文件夹设置为 777</span></li>
+    <li><strong>目录 upload</strong> <br /><span style='color:red;'>目录内的文件和文件夹设置为 777</span></li>
+    <li><strong>目录 upload/usravatars</strong> <br /><span style='color:red;'>目录内的文件和文件夹设置为 777</span></li>
+    <li><strong>目录 datafile/cache</strong> <br /><span style='color:red;'>目录内的文件和文件夹设置为 777</span></li>
+    <li><strong>目录 datafile/cache/levels</strong> <br /><span style='color:red;'>目录内的文件和文件夹设置为 777</span></li>
+    <li><strong>目录 datafile/cache/themes</strong> <br /><span style='color:red;'>目录内的文件和文件夹设置为 777</span> <br />
+    </li>
+</ul>
+    </li>
+<li><strong>Windows 类服务器（如IIS），一般不用设置，若无法使用，请联系管理员打开 IIS 进程权限。</strong><br /><br /></li></ol></li>
+
+<li>上传完文件之后，打开您的浏览器，输入 install.php 文件的 URL 运行。
+ (例如：http://www.yourdomain.com/bmb/install.php) 输入正确详细的资料即可，输入前请仔细看清楚每个
+选项前面的说明。</li>
+
+<li>设置完毕后，程序会自动删除 install.php 文件的(如果无法自动删除的话，请利用 FTP 软件登陆后手动
+删除)，并进入管理中心，你可以在管理面板中建立论坛，设置参数</li>
+
+<li>在"常规选项"中设置所有的空白变量。</li>
+
+<li>设置用户组</li>
+
+<li>管理中心的设置结束后，就可以运行 index.php 来看你的论坛啦 :D</li>
+</ol>
+最后重复提示一次： 检查服务器上是不是还存在 install.php 和 install 目录，
+如果有，请务必删除，否则非常危险，切记切记！
+
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+
+<br />
+
+<center><table align="center">
+	<tr>
+		<td width="100%"> </td>
+	</tr>
+</table>
+
+</center>
+</div>
+</body>
+</html>

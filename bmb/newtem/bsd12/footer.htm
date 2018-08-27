@@ -1,0 +1,72 @@
+			<table align="center">
+	<tr>
+		<td width="100%">
+{$ads}
+</td>
+	</tr>
+			</table>
+			<br />
+			{$licence_display}
+			</div>
+			<div style="height:23px;"></div>
+		</div>
+		<div class="right_contents">
+			<div class="main_box">
+				<div class="cell">
+					<div style="clear:both;width:100%;height:50px;">
+						<div style="float:left;width:55px;">
+							{eval echo get_user_portait($thisavarts, 48, 48)}
+						</div>
+						<div style="float:left;line-height:50px; ">
+							{if ($login_status==0)} 
+							<a href='login.php'>{hefo[4]}</a> | <a href='register.php'>{hefo[5]}</a>
+							{else}
+							<a href='login.php?job=switch' title='{echo $prioption_title}'>{$username}</a> | <a href='login.php?job=quit&amp;verify={$log_hash}'>{hefo[8]}</a>
+							{/if}
+						</div>
+					</div>
+				</div>
+				<div class="inner">
+					<a href="messenger.php?job=receivebox" class="fade">{$gotNewMessage} {hefo[15]}</a>
+				</div>
+			</div>
+			<!--{eval eval(load_hook('tpl_footer_panels'));}-->
+			<!--{if ($addPanelRows)}-->
+				<!--{eval include i_template($addPanelRows);}-->
+			<!--{/if}-->
+		</div>
+	</div>
+</div>
+
+<div style="text-align:center;clear:both;width:100%;">
+    <table border="0" align="center" cellpadding="0" cellspacing="0" style="width:96%;">
+    <tr><td>
+    <div style="width:100%;clear:both;padding-top:20px;padding-bottom:80px;">
+        <div style="float:left;width:32px;">
+            <a href="http://www.bmforum.com/" target="_blank"><img src='{otherimages}/logosmall.gif' border='0' title='Powered by BMForum' alt='Powered by BMForum' /></a>
+        </div>
+        <div style="float:left;width:30%;">
+            {$footer_copyright}
+        </div>
+        <div style="float:right;width:24px;">
+            <a href='javascript:window.scroll(0,0);'><img alt="Top" border="0" src="{otherimages}/system/top.gif" /></a> 
+        </div>
+		<div style="float:right;">Powered by <a href="http://www.bmforum.com/" target="_blank">{$verandproname}</a> {$licence_display}
+			<a href="rss.php?forumid={$forumid}&amp;tagname={$urltagname}">
+            <img alt="RSS Feed" border="0" src="{otherimages}/xml_button.gif" /></a> 
+            &nbsp;<br />
+
+    {if ($showtime==1)}
+        Processed in {$spend} second(s) {$querynum} queries
+    {/if}&nbsp;&nbsp;
+        </div>
+    </div>
+    </td></tr>
+    </table>
+</div>
+
+
+
+
+</body>
+</html>

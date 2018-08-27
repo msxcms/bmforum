@@ -1,0 +1,32 @@
+<!--{if $hot_tags_list}-->
+<br />
+<div class="main_box">
+	<div class="cell">
+		<a href="plugins.php?p=tags" class="fade">{indexinfo[11]}</a>
+	</div>
+	<div class="inner" style="text-align:left">
+		{echo $hot_tags_list}
+	</div>
+</div>
+<!--{/if}-->
+<br />
+<div class="main_box">
+	<div class="cell">
+		<a href="plugins.php?p=tags" class="fade">论坛状态</a>
+	</div>
+	<div class="inner" style="text-align:left">
+		<div style="clear:both;width:100%;">
+			<div style="float:left;width:50%;">
+				{popp[20]} <strong>{echo $thelastest['todaynew']}</strong><br />
+				{popp[21]} <strong>{echo $thelastest['ydaynew']}</strong><br />
+				{popp[22]} <strong>{echo $thelastest['maxnews']}</strong><br />
+			</div>
+			<div style="float:left;width:49%;">
+				{popp[3]} <strong>{echo $infotwotwo}</strong><br />
+				{popp[24]} <strong>{echo $thelastest['threadnum']}</strong> <br />
+				{popp[4]} <strong>{echo $thelastest['regednum']}</strong><br />
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+</div>

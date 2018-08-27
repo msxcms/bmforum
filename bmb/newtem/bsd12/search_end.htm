@@ -1,0 +1,52 @@
+<table class="tableborder" cellspacing="0" cellpadding="0" align="center" border="0">
+<tr>
+	<td class="noptd">
+			<table cellspacing="0" cellpadding="4" width="100%" align="center" border="0">
+				<tr align="center" style="height:20px;" class="backtd">
+					<td class="left" width="*" colspan="3"><strong class="title">{gl[280]}</strong></td>
+					<td class="middle" width="85"><strong class="title">{gl[281]}</strong></td>
+					<td class="middle" width="45"><strong class="title">{gl[282]}</strong></td>
+					<td class="middle" width="45"><strong class="title">{gl[283]}</strong></td>
+					<td class="right" width="165"><strong class="title">{gl[284]}</strong></td>
+				</tr>
+			</table>
+<!--{loop $bmf_search $key $thread}-->
+<table cellspacing="0" class="bmf_space_threed" cellpadding="4" style="width:100%;" align="center">
+	<tr class="forumcoloronecolor" style="text-align:center; height: 25px;">
+		<td align="center" width="4%" class="forum_border_1"><a href="{if ($bmfopt['rewrite'])}topic_{echo $thread['filename']}{else}topic.php?filename={echo $thread['filename']}{/if}" target="_blank">{echo $thread['stats']}</a></td>
+		<td width="*" class="forum_border_1" align="left">&nbsp;<acronym title="{echo $thread['des']}">{echo $thread['title']}</acronym></td>
+		<td width="90" class="forum_border_1">{echo $thread['forumInfo']}</td>
+		<td width="85" class="forum_border_1"><a href="profile.php?job=show&amp;target={echo $thread['urlauthor']}">{echo $thread['viewauthor']}</a><br />
+		{echo $thread['aimetoshow']}</td>
+		<td width="45"  class="forum_border_1">{echo $thread['reply']}</td>
+		<td width="45"  class="forum_border_1">{echo $thread['hit']}</td>
+		<td width="165" align="left" class="forum_border_1">&nbsp;{echo $thread['lmdtime']}<br />
+&nbsp;<img src="{otherimages}/system/icon_post.gif" border="0" alt="" /> {echo $thread['lmdauthor']}</td>
+	</tr>
+</table>
+<!--{/loop}-->
+
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[ 
+function gotopages(eventobject) {
+if(eventobject.keyCode == 13) {
+window.location.href="search.php?keyword={echo $keywordurl}&id={echo $id}&newid=yes&page="+document.getElementById('pagej').value;
+}
+}
+//]]>>
+</script>
+<br/>
+<table cellspacing="0" cellpadding="0" class="tablewidth" align="center" border="0">
+<tr><td>
+	<table cellspacing="0" cellpadding="0" align="left" border="0">
+		<tr>
+			<td align="left">{echo $showre}</td>
+		</tr>
+	</table>
+</td></tr>
+</table>
+<br />
+<!-- END 2 -->

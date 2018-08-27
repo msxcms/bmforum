@@ -1,0 +1,42 @@
+<?php
+
+bmbdb_query("ALTER TABLE `{$database_up}invite` ADD `accepted` TINYINT UNSIGNED DEFAULT '0' NOT NULL ");
+bmbdb_query("ALTER TABLE `{$database_up}invite` ADD INDEX ( `accepted` ) ");
+bmbdb_query("ALTER TABLE `{$database_up}invite` ADD INDEX ( `datetime` )");
+bmbdb_query("ALTER TABLE `{$database_up}invite` ADD INDEX ( `inviter` ) ");
+bmbdb_query("ALTER TABLE `{$database_up}invite` ADD `newmember` VARCHAR( 60 ) NOT NULL ");
+bmbdb_query("ALTER TABLE `{$database_up}posts` DROP `replymail` ,DROP `replypm` ");
+bmbdb_query("CREATE TABLE `{$database_up}contacts` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `type` tinyint(1) unsigned NOT NULL default '0',
+  `adddate` int(11) NOT NULL default '0',
+  `owner` mediumint(8) NOT NULL default '0',
+  `contacts` mediumint(8) NOT NULL default '0',
+  `conname` varchar(60) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `owner` (`owner`),
+  KEY `type` (`type`,`owner`),
+  KEY `contacts` (`type`,`owner`,`contacts`)
+) TYPE=MyISAM{$sqlcharset}");
+bmbdb_query("CREATE TABLE `{$database_up}favorites` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tid` int(11) NOT NULL default '0',
+  `owner` mediumint(8) NOT NULL default '0',
+  `subscribe` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `owner` (`owner`),
+  KEY `tid` (`tid`,`owner`),
+  KEY `subscribe` (`tid`,`subscribe`)
+) TYPE=MyISAM{$sqlcharset}");
+bmbdb_query("ALTER TABLE `{$database_up}posts` ADD `posttrash` TINYINT( 1 ) UNSIGNED DEFAULT '0' NOT NULL ");
+bmbdb_query("ALTER TABLE `{$database_up}forumdata` DROP `needpostver` ");
+bmbdb_query("ALTER TABLE `{$database_up}posts` ADD INDEX ( `posttrash`) ");
+
+$version_file_info='<?php
+if (!defined("INBMFORUM")) die("Access Denied");
+// Kernel version ,do NOT change this!
+define("VERTYPE", 1); // Datium!
+
+$verandproname = "BMForum 2007 5.6 Beta 1";
+$kernel_build  = "520070221";
+';

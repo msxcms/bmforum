@@ -1,0 +1,26 @@
+<?php 
+$simlist[':titter:']='default/20.gif';
+$simlist[':smoking:']='default/29.gif';
+$simlist[':blackman:']='default/36.gif';
+$simlist['[:o]']='default/icon1000.gif';
+$simlist[':’( ']='default/icon1001.gif';
+$simlist['[:S]']='default/icon1100.gif';
+$simlist[':mad:']='default/icon1200.gif';
+$simlist['[:P]']='default/icon1300.gif';
+$simlist['[:D]']='default/icon1400.gif';
+$simlist['[:)]']='default/icon1500.gif';
+$simlist['[:(]']='default/icon1600.gif';
+$simlist[':blush:']='default/icon1800.gif';
+$simlist[':ninja:']='default/icon2000.gif';
+$simlist[':excl:']='default/icon2001.gif';
+$simlist[':glare:']='default/icon2100.gif';
+$simlist[':lol:']='default/icon3000.gif';
+$simlist[':wacko:']='default/icon4000.gif';
+$simlist[':happy:']='default/icon4600.gif';
+$simlist['[;)]']='default/icon5000.gif';
+$simlist[':wub:']='default/icon7000.gif';
+$simlist[':mellow:']='default/icon8000.gif';
+$simlist[':sleeply:']='default/icon9000.gif';
+$simlist[':disdainful:']='default/icon9100.gif';
+$simlist[':knife:']='default/icon9200.gif';
+$simlist[':dejecta:']='default/a.gif';

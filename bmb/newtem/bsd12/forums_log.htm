@@ -1,0 +1,28 @@
+<table cellpadding='0' cellspacing='0' border='0' class='tableborder' align='center'>
+<tr><td class="noptd">
+<table cellpadding='5' cellspacing='1' border='0' width='100%'>
+  <tr align="center" style="height:26px;" class="backtd">
+    <td width="*" class="left"><strong>{forumlogs[3]}</strong></td>
+    <td width="72" class="middle"><strong>{forumlogs[0]}</strong></td>
+    <td width="72" class="middle"><strong>{forumlogs[1]}</strong></td>
+    <td width="120" class="right"><strong>{forumlogs[2]}</strong></td>
+  </tr>
+<!--{loop $bmf_loginfo $key $line}-->
+<tr align="center" class="forum_border_one" style="height:25px;">
+<td width="*" class="forum_border_one_3" align="left">
+<table class="tablewidth" border="0" cellspacing="0" cellpadding="4">
+<tr>
+<td><strong>{echo $line['actdetail']}</strong> {echo $line['actionshow']}
+</td>
+</tr>
+</table>
+</td>
+<td width="72" class="forum_border_one_3"><a href="profile.php?job=show&amp;target={echo $line['urlacter']}">{echo $line['acter']}</a></td>
+<td width="72" class="forum_border_one_3">{echo $line['actreason']}</td>
+<td width="120" class="forum_border_one_3" align="center">&nbsp;{echo $line['acttime']}</td>
+</tr>
+<!--{/loop}-->
+</table></td></tr></table>
+<!--{if $clean_true}-->
+<br /><center><a href='forumlogs.php?verify={echo $log_hash}&amp;forumid={echo $forumid}&amp;addon=clean'>{forumlogs[4]}</a></center>
+<!--{/if}-->

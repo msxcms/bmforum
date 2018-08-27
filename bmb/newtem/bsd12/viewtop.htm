@@ -1,0 +1,17 @@
+<table cellspacing="1" cellpadding="0" border="0" align="center" class="tableborder">
+  <tr align="center" style="height:24px;" class="backtd"> 
+    <td class="left" width="120" align="center"><strong class="title">{gl[11]}</strong></td>
+	<td class="middle"><strong class="title">{gl[12]}</strong></td>
+	<td class="right">&nbsp;</td>
+  </tr>
+<!--{loop $bmf_rank $key $value}-->
+<tr style="height:22px;" class="forum_border_one">
+<td align="center" class="forum_border_one_3"><a href="profile.php?job=show&amp;memberid={echo $value[0]}">{echo $value[1]}</a></td>
+<td align="center" class="forum_border_one_3">{echo $value[2]} {gl[13]}</td>
+<td class="forum_border_one_3">
+<img src="{otherimages}/system/bar1.gif" width="{echo $value[3]}" height="10" alt="" /></td>
+</tr>
+<!--{/loop}-->
+
+</table>
+<br />

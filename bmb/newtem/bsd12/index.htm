@@ -1,0 +1,348 @@
+<!--{eval eval(load_hook('tpl_index_top'));}-->
+<!--{if !($allow_ajax_browse && $ajax_online)}-->
+
+<!--{if $cateid}-->
+<!--{eval naviBar(array(array('name' => '{programname}')), "<a href='forums.php?trash=trash&cateid=$cateid'>{fenleiq[2]}</a>");}-->
+<!--{else}-->
+<!--{eval naviBar(array(array('name' => '{programname}')), "{popp[23]} ".$thelastest['todaynew']." <span class='divider'>/</span> {popp[22]} ".$thelastest['maxnews']." <span class='divider'>/</span> {popp[20]} ".$thelastest['postsnum']." <span class='divider'>/</span> {popp[4]} ".$thelastest['regednum']);}-->
+<!--{/if}-->
+
+<!--{if $login_status == 0 && $index_regtips == "1" && $page_regtips <> "1" && $all_regtips <> "1"}-->
+<div id="bmbsms" class="bordercolor" style="filter:Alpha(Opacity=70); visibilty: hidden;position: absolute; top: 0px; width: 220px; height: 80px; background-color: ffffff">
+	<table cellspacing="0" cellpadding="5" width="100%" class="forumcoloronecolor" border="0" onclick="document.getElementById('bmbsms').style.visibility='hidden';">
+		<tr>
+			<td>{hefo[29]}</td>
+		</tr>
+		<tr>
+			<td height="90" align="center">{hefo[30]}<br />
+			<br />
+			<strong><a href="register.php">{hefo[31]}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="login.php">{hefo[32]}</a></strong><br />
+			<br />
+			{hefo[33]}<br />
+			</td>
+		</tr>
+	</table>
+</div>
+<!--{/if}-->
+<!--{if $bbs_news && $announcement}-->
+<table cellpadding="5" cellspacing="1" border="0" class="tableborder" align="center">
+	<tr>
+		<td class="announcement" colspan="5">
+		<span class="categoryfontcolor_normal"><a href="announcesys.php">{indexinfo[10]}</a></span></td>
+	</tr>
+	<tr>
+	<td style="padding-left:0px;padding-right:0px;">
+	<div id="announcement_c" class="backtdbottom">
+		<ul class="line">
+			<!--{loop $announcement $announce}-->
+				<!--{if $announce['text']}-->
+					<li>
+					<span class='jiazhongcolor'><strong>
+					<!--{if $announce['link']}--><a href="{echo $announce['link']}"><!--{/if}-->
+					{echo $announce['text']}
+					<!--{if $announce['link']}--></a><!--{/if}-->
+					</strong></span> ({echo $announce['time']})
+					</li>
+				<!--{/if}-->
+			<!--{/loop}-->
+		</ul>
+	</div>
+	</td>
+	</tr>
+</table>
+<script>
+$(function(){
+	var _wrap=$('ul.line');
+	var _interval=4000;
+	var _moving;
+	_wrap.hover(function(){
+		clearInterval(_moving);
+	},function(){
+		_moving=setInterval(function(){
+			var _field=_wrap.find('li:first');
+			var _h=_field.height();
+			_field.animate({marginTop:-_h+'px'},600,function(){
+				_field.css('marginTop',0).appendTo(_wrap);
+			})
+		},_interval)
+	}).trigger('mouseleave');
+});
+</script>
+<!--{/if}-->
+
+<!--{eval eval(load_hook('tpl_index_after_announcement'));}-->
+<script type="text/javascript">
+//<![CDATA[ 
+function adminjump(list) { 
+var myindex1  = list.selectedIndex;  
+var newwindow = list.options[myindex1].value; 
+if (newwindow != "") { var msgwindow = window.open(newwindow,"",""); }
+}
+//]]>>
+</script>
+<!--{eval show_row_ads("showindex");}-->
+<!--{if $hot_tags_list}-->
+<br />
+<table cellpadding="5" cellspacing="1" border="0" class="tableborder" align="center">
+	<tr>
+		<td class="announcement" colspan="5">
+		<span class="categoryfontcolor_normal"><a href="plugins.php?p=tags">{indexinfo[11]}</a></span></td>
+	</tr>
+	<tr>
+	<td class="backtdbottom" style="text-align:left;width:100%;">
+		<!--{loop $hot_tags_list $_HTags}-->
+			<a title='{$_HTags['name']} - ({$_HTags['threads']})' style='text-decoration:underline;font-size:{$_HTags['size']}px' href='plugins.php?p=tags&amp;tagname={$_HTags['urlname']}'>{$_HTags['name']}</a>&nbsp;&nbsp;
+		<!--{/loop}-->
+	</td>
+	</tr>
+</table>
+<!--{/if}-->
+
+<!--{loop $bmforumlist $key $forum}-->
+<!--{if $bmforumlist[$key]['TYPE']== "category"}-->
+<!--{eval $t_c_id = $forum[ID]; if($forums_stat[$t_c_id] == 0) continue;}-->
+<!--{if $key>0}-->
+		</table>
+		</td>
+	</tr>
+</table>
+<!--{/if}-->
+<!--{if !$bmforumlist[$key]['TROW']}-->
+<!--{eval $now_row=0;}-->
+<br />
+<table border="0" cellspacing="0" cellpadding="0" align="center" class="tableborder">
+	<tr>
+		<td class="noptd">
+		<table cellpadding="4" cellspacing="1" width="100%" border="0">
+			<tr>
+				<td colspan="7" class="announcement">
+				<span class="categoryfontcolor_normal"><div style='display:inline;float:left;'><a href="index.php?cateid={echo $bmforumlist[$key]['ID']}">
+				<img src='{otherimages}/category.gif' border="0" alt="" />{echo $bmforumlist[$key]['NAME']}<img src='{otherimages}/category.gif' alt="" border="0" />
+				</a></div><div style='display:inline;float:right;'>{if $bmforumlist[$key]['admin_list']}{fenleiq[5]}{loop $bmforumlist[$key]['admin_list'] $_sAdmin}<a href="profile.php?job=show&amp;target={$_sAdmin['urlname']}">{$_sAdmin['name']}</a>{/loop}{/if}</div></span>
+				</td>
+			</tr>
+			<tr class="indexalign2">
+				<td width="*" class="tablebg" colspan="2">
+				<span class="titlefontcolor">{popp[13]}</span></td>
+				<td width="40" class="tablebg">
+				<span class="titlefontcolor">{popp[15]}</span></td>
+				<td width="40" class="tablebg">
+				<span class="titlefontcolor">{popp[16]}</span></td>
+				<td width="168" class="tablebg">
+				<span class="titlefontcolor">{popp[17]}</span></td>
+			</tr>
+
+<!--{else}-->
+<!--{eval $now_row=1;$count_rows=0;$current_cid=$bmforumlist[$key]['ID'];$start_count=$key+1;}-->
+
+
+		<br />
+		<table border="0" cellspacing="0" cellpadding="0" align="center" class="tableborder">
+			<tr>
+				<td class="noptd">
+				<table cellpadding="4" cellspacing="1" width="100%" border="0">
+					<tr>
+						<td colspan="{echo $bmforumlist[$key]['current_rows']}" class="announcement">
+						<span class="categoryfontcolor_normal"><div style='display:inline;float:left;'><a href="index.php?cateid={echo $bmforumlist[$key]['ID']}">
+						<img src='{otherimages}/category.gif' border="0" alt="" />{echo $bmforumlist[$key]['NAME']}<img src='{otherimages}/category.gif' border="0" alt="" />
+						</a></div><div style='display:inline;float:right;'>{if $bmforumlist[$key]['admin_list']}{fenleiq[5]}{loop $bmforumlist[$key]['admin_list'] $_sAdmin}<a href="profile.php?job=show&amp;target={$_sAdmin['urlname']}">{$_sAdmin['name']}</a>{/loop}{/if}</div></span></td>
+					</tr>
+<!--{/if}-->
+<!--{elseif $bmforumlist[$key]['TYPE']!= "category" && $now_row != 1}-->
+
+
+
+					<tr align="center" valign="middle">
+						<td width="26" class="border_bottom_forum">
+							<a onfocus="this.blur()" href="forums.php?forumid={echo $bmforumlist[$key]['ID']}">{if $bmforumlist[$key]['forum_icon']}<img src='{echo $bmforumlist[$key]['forum_icon']}' border="0" alt="" /></a>{/if}
+						</td>
+						<td width="*" align="left" class="border_bottom_forum">
+						<table width="100%" cellpadding="1">
+							<tr>
+								<td width="*" rowspan="2">{if $bmforumlist[$key]['teamicon']}<img src='{echo $bmforumlist[$key]['teamicon']}' alt='' /></a>{/if}</td>
+								<td width="1" rowspan="2"></td>
+								<td width="100%" height="10"><span class='forumnamelink'><a onfocus='this.blur();' href="{echo $bmforumlist[$key]['forumlabel']}">{echo $bmforumlist[$key]['NAME']}</a></span> ($bmforumlist[$key]['ztnum2'])
+								</td>
+							</tr>
+							<tr>
+								<td valign="top"><span class="forumdescolor">
+								{echo $bmforumlist[$key]['forum_des']}</span> 
+								{if $bmforumlist[$key]['subforums']}<br />{forum_line[20]}{echo $bmforumlist[$key]['subforums']}{/if}</td>
+							</tr>
+						</table>
+						</td>
+						<td width="40" valign="middle" align="center" class="border_bottom_forum">
+						<span class="cau">{echo $bmforumlist[$key]['ztnum']}</span></td>
+						<td width="40" valign="middle" align="center" class="border_bottom_forum">
+						<span class="cau">{echo $bmforumlist[$key]['ztnum1']}</span></td>
+						<td width="168" align="right" class="border_bottom_forum">
+						<table width="100%" align="right">
+							<tr>
+								<td width="2%" align="right">&nbsp;</td>
+								<td class="indexsummaryalgin">
+								<!--{if $bmforumlist[$key]['title']}-->
+								<a title="{echo $bmforumlist[$key]['orgtitle']} - {echo $bmforumlist[$key]['flposter']}" href="{echo $bmforumlist[$key]['titlelink']}">{echo $bmforumlist[$key]['title']}</a><br />
+								{echo $bmforumlist[$key]['time']}
+								<!--{/if}--></td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+
+<!--{elseif $bmforumlist[$key]['TYPE']!= "category" && $now_row == 1}-->
+<!--{eval $count_rows++;}-->
+<!--{if $leiji==($bmforumlist[$key]['current_rows']-1) || $forums_stat[$current_cid]==$count_rows}-->
+<!--{eval $leiji=0;}-->
+<!--{eval for($row_i=0;$row_i<$bmforumlist[$key]['current_rows'];$row_i++) { }-->
+<!--{eval if ($bmforumlist[$start_count+$row_i]['ROWF'] != 1) $start_count = -1000; }-->
+<!--{if $row_i == 0}-->
+					<tr align="center" valign="middle" class="forumcolortwo_noalign backtdbottom">
+<!--{/if}-->
+						<td style="table-layout: fixed;word-wrap: break-word;" width="{echo $bmforumlist[$key]['current_width']}%" align="left">
+						<table width="100%" cellpadding="0" title="{echo $bmforumlist[$start_count+$row_i]['forumdes']}">
+							<tr>
+								<td width="*">{if $bmforumlist[$start_count+$row_i]['img_forum_icon']}<img src="{echo $bmforumlist[$start_count+$row_i]['img_forum_icon']}" border="0" alt="" />{/if}</td>
+								<td width="*">{if $bmforumlist[$start_count+$row_i]['forum_icon']}<img src='{echo $bmforumlist[$start_count+$row_i]['forum_icon']}' alt='' />{/if}</td>
+								<td width="100%" style="padding-left:2px;">
+									<!--{if $bmforumlist[$start_count+$row_i]['ID']}-->
+									<strong><span class='forumnamelink'><a onfocus='this.blur();' title="{echo $bmforumlist[$start_count+$row_i]['cdes']}" href="{echo $bmforumlist[$start_count+$row_i]['forumlabel']}">{echo $bmforumlist[$start_count+$row_i]['bbsname']}</a></span></strong> ({echo $bmforumlist[$start_count+$row_i]['ztnum2']})<br />
+									<span class="forumdescolor">{popp[15]} {echo $bmforumlist[$start_count+$row_i]['ztnum']} / {popp[16]} {echo $bmforumlist[$start_count+$row_i]['ztnum1']}</span> <br />
+									<!--{/if}-->
+								</td>
+							</tr>
+						</table>
+						</td>
+<!--{if $row_i == ($bmforumlist[$key]['current_rows']-1)}-->
+				</tr>
+<!--{/if}-->
+<!--{eval } $start_count=$start_count+$bmforumlist[$key]['current_rows']; }-->
+<!--{else}-->
+<!--{eval $leiji++;}-->
+<!--{/if}-->
+
+
+<!--{/if}-->
+
+<!--{/loop}-->
+<!--{if $key>0 || $forumscount<2}-->
+				</table>
+				</td>
+			</tr>
+		</table>
+<!--{/if}-->
+		<br />
+		<!--{eval eval(load_hook('tpl_index_before_birthday'));}-->
+
+		<table border="0" cellspacing="0" cellpadding="0" align="center" class="tableborder">
+			<tr>
+				<td class="noptd">
+				<table cellpadding="4" cellspacing="1" width="100%" border="0">
+<!--{if $todayb_show}-->
+					<tr class="tile_back_color">
+						<td class='announcement'>
+						<span class="categoryfontcolor_normal"><strong>{todaybd[0]}&nbsp; 
+						{todaybd[1]} {echo $counowtd} {todaybd[2]} </strong></span></td>
+					</tr>
+					<tr>
+						<td class='forum_border_one_3' align="left">
+						<!--{if $tdbdshow}-->
+							<!--{loop $tdbdshow $_sTBUser}-->
+							<a href='profile.php?job=show&amp;target={$_sTBUser['urlname']}'>{$_sTBUser['name']}</a> {if $_sTBUser['cluage']}({$_sTBUser['cluage']} {todaybd[3]}){/if} &nbsp;
+							<!--{/loop}-->
+						<!--{else}-->
+							{todaybd[4]}
+						<!--{/if}-->
+						</td>
+					</tr>
+<!--{/if}-->
+					<tr>
+						<td class='announcement'>
+						<span class="categoryfontcolor_normal"><strong>{poteo[8]}&nbsp;-&nbsp;<span class="categoryfontcolor_normal"><a href="misc.php?p=lmcode">{poteo[11]}</a></span></strong></span></td>
+					</tr>
+					<tr class="forumcolorone_align">
+						<td class='forum_border_one_3' style="width:100%;word-wrap: break-all;">
+						<span class="jiazhongcolor"><strong>{poteo[0]}</strong></span>
+						<div style='width:100%' id='simgnow'> 
+							<!--{loop $simgnow $_sAImg}-->
+								<a href='{$_sAImg['url']}' target='_blank'><img width='88' height='31' title='{$_sAImg['name']} - {$_sAImg['info']}' src='{$_sAImg['img']}' border='0' /></a>&nbsp;
+							<!--{/loop}-->
+						</div>
+						</td>
+					</tr>
+					<tr class="forumcolorone_align">
+						<td class='forum_border_one_3' style="width:100%;word-wrap: break-all;">
+						<span class="jiazhongcolor"><strong>{poteo[1]}</strong></span>
+						<div style='width:100%' id='stextnow'> 
+							<!--{loop $stextnow $_sAText}-->
+								<a title='{$_sAText['name']} - {$_sAText['info']}' href='{$_sAText['url']}' target='_blank'>{$_sAText['name']}</a>&nbsp;
+							<!--{/loop}-->
+						</div>
+						</td>
+					</tr>
+				</table>
+				</td>
+				</tr>
+			</table>
+<!--{if $cachejs}-->
+<script src='datafile/cache/sharepic.js' type='text/javascript'></script>
+<script src='datafile/cache/sharetext.js' type='text/javascript'></script>
+<!--{/if}-->
+<!--{/if}-->
+
+<div id="onlinelist">
+<br />
+<script type="text/javascript">
+//<![CDATA[ 
+var online_show_anti="{echo $whois_online['online_show_anti']}";
+//]]>>
+</script>
+		<table border="0" cellspacing="0" cellpadding="0" align="center" class="tableborder">
+			<tr>
+				<td class="noptd">
+				<table cellpadding="4" cellspacing="1" width="100%" border="0">
+					<tr class="tile_back_online">
+						<td class='announcement'>
+						<strong>
+						<a name="onlinearea"></a><span class="categoryfontcolor_normal"><a href="misc.php?p=viewonline" >{echo $online_c}</a></span><span class="categoryfontcolor_normal">&nbsp;-</span>
+						<span class="categoryfontcolor_normal"><a onclick="bmb_ajax_preprocess('index.php','?','{echo $allow_ajax_browse}');" href="#onlinearea">
+						{whosonlinelang[6]} <strong>{$whois_online['suma']}</strong> {whosonlinelang[7]} (<strong>{$whois_online['usernoc']}</strong> {whosonlinelang[8]}) {whosonlinelang[10]} <strong>{$whois_online['guestno']}</strong> {whosonlinelang[11]}<strong>{$whois_online['sum']}</strong>{whosonlinelang[12]} | {whosonlinelang[13]} <strong>{$whois_online['zyinfo'][0]}</strong> {whosonlinelang[14]} {$whois_online['zy_info']}</a></span>
+						</strong></td>
+					</tr>
+					<!--{if $whois_online['usergroup']}-->
+					<tr class="forumcolorone_align">
+						<td class='forum_border_one_3'>{echo $online_p}
+						<!--{loop $onlinests $onlineusergroup}-->
+							<img src='{otherimages}/system/{$onlineusergroup['icon']}' alt='' /> {$onlineusergroup['name']}&nbsp;
+						<!--{/loop}-->
+						</td>
+					</tr>
+					<!--{if $whois_online['usergroup']}-->
+					<tr><td class='backtdbottom'><table width='100%'><tr>
+					<td width='100%'>
+					<!--{loop $whois_online['usergroup'] $onlineuser}-->
+						<div style='width:12%;float:left;'>&nbsp;{if $onlineuser['guest'] !== true && $onlineuser['anonymous'] != 'yes'}<a href="messenger.php?job=write&amp;target={$onlineuser['urlname']}">{/if}<img border='0' src='{otherimages}/system/{$onlineuser['icon']}'{if $onlineuser['groupname']} title='{whosonlinelang[2]}{$onlineuser['groupname']}{whosonlinelang[3]}'{/if} />{$onlineuser['name']}{if $onlineuser['guest'] !== true && $onlineuser['anonymous'] != 'yes'}</a>{/if}</div>
+					<!--{/loop}-->
+					</td>
+					</table></td></tr>
+					<!--{/if}-->
+					<!--{/if}-->
+				</table>
+				</td>
+			</tr>
+		</table>
+</div>
+<!--{if !($allow_ajax_browse && $ajax_online)}-->
+
+		<br />
+		<table border="0" align="center" cellpadding="5" cellspacing="1" class="bmbnewstyle_withoutwidth">
+			<tr>
+				<td class="forumcolorone_ex">
+				<img alt="{poteo[2]}" src="{nonewpost}" /> {poteo[3]}
+				<img alt="{poteo[4]}" src="{newpost}" /> {poteo[5]}
+				<img alt="{poteo[6]}" src="{onlyread}" /> {poteo[7]}
+				</td>
+			</tr>
+		</table>
+<!--{/if}-->
+

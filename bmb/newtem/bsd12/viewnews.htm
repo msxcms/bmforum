@@ -1,0 +1,32 @@
+<table cellspacing="0" cellpadding="0" border="0" align="center" class="tableborder">
+  <tr> 
+    <td class="noptd">
+	<table cellspacing="1" cellpadding="4" width="100%" border="0" align="center">
+	  <tr align="center" style="height:24px;" class="backtd"> 
+	    <td class="left" colspan="2" width="*"><strong class="title">{gl[154]}</strong></td>
+	    <td class="middle" width="10%"><strong class="title">{gl[156]}</strong></td>
+	    <td class="middle" width="5%"><strong class="title">{gl[157]}</strong></td>
+	    <td class="middle" width="5%"><strong class="title">{gl[158]}</strong></td>
+	    <td class="right" width="22%"><strong class="title">{gl[159]}</strong></td>
+	  </tr>
+<!--{loop $bmf_news $key $value}-->
+	<tr class="forum_border_one" style="height: 25px;">
+		<td style="width:auto;" class="forum_border_one_3">&nbsp;<!--{if !in_array($value[0], $readed_t)}--><a href="{if ($bmfopt['rewrite'])}topic_{echo $value[0]}_last#postend{else}topic.php?filename={echo $value[0]}&amp;page=last#postend{/if}"><img alt="" src="{otherimages}/openwindow.gif" border='0' /></a>&nbsp;<!--{/if}--><a href='{$value['titlelink']}'>{echo $value[3]}</a>
+		<!--{if $value[4]}-->&nbsp;{eval small_pagelist($value['maxpageno'], $value[4]);}<!--{/if}-->
+		 </td> 
+		<td align="center" width="15%" class="forum_border_one_3"><a href="forums.php?forumid={echo $value[5]}">{echo $value[6]}</a></td> 
+		<td align="center" width="10%" class="forum_border_one_3"><a href="profile.php?job=show&amp;target={echo $value[7]}" target='_blank'>{echo $value[8]}</a><br/>{echo $value[9]}</td>
+		<td align="center" width="5%" class="forum_border_one_3">{echo $value[10]}</td>
+		<td align="center" width="5%" class="forum_border_one_3">{echo $value[11]}</td>
+		<td align="left" width="22%" class="forum_border_one_3">&nbsp;<img src='{otherimages}/system/icon_post.gif' border='0' alt="" />&nbsp;{echo $value[12]}&nbsp;|&nbsp;<a href="profile.php?job=show&amp;target={echo $value['urllmdauthor']}">{echo $value[13]}</a></td>
+	</tr>
+
+<!--{/loop}-->
+
+
+</table>
+</td></tr></table>
+
+
+
+<br />

@@ -1,0 +1,31 @@
+<table align="center" border="0" cellspacing="0" cellpadding="0" class="tableborder">
+  <tr> 
+    <td>
+	<form action="misc.php?p=sendmail" method="post" style="margin:0px;">
+            <table width="100%" border="0" cellspacing="1" cellpadding="3">
+              <tr> 
+                <td colspan="2" class="announcement">&nbsp;{gl[39]} {echo $status}</td>
+              </tr>
+              <tr class="article_color2"> 
+                <td style="width:5%;">{gl[40]}</td>
+                <td><input value="{echo $title}" type="text" name="title" size="40" maxlength="80" /></td>
+                </td>
+              </tr>
+              <tr class="article_color1">
+                <td style="width:5%;">{gl[41]}</td>
+                <td><textarea name="emailcontent" rows="10" cols="58">{echo $emailcontent}</textarea></td>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="form-actions" style="padding-left:5%;">
+                  <input type="submit" value="{gl[42]}" class="btn btn-primary" />
+                  <input type="reset" value="{gl[43]}" class="btn" />
+                  <input type="hidden" value="send" name="action" />
+                  <input type="hidden" value="{echo $target}" name="target" />
+     	     </td>
+       	 </tr>
+      </table>
+     </form>
+</td>
+</tr>
+</table>

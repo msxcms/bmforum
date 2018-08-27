@@ -1,0 +1,26 @@
+<!--{template pm_head}-->
+<!-- content -->
+<table width='100%' cellspacing='0' cellpadding='0' class='tableborder'><tr><td>
+<table width='100%' cellspacing='1' cellpadding='4' class='bordercolor_background'>
+<tr>
+    <td colspan='2' class='announcement'><strong class='title_color_pm'>{echo $row['prtitle']}</strong></td>
+</tr>
+<tr class='forum_border_one_1'>
+    <td class='forum_border_one_3' width='60' valign='top'>{gl[86]}</td>
+    <td class='forum_border_one_3' valign='top'><a href="messenger.php?job=write&amp;target={echo urlencode($row['sendto'])}">{echo $row['sendto']}</a> (<a href="profile.php?job=show&amp;target={echo urlencode($row[sendto])}" target="_blank">{gl[336]}</a>)</td>
+</tr>
+<tr class='forum_border_one_2'>
+    <td class='forum_border_one_3' width='60' valign='top'>{gl[454]}</td>
+    <td class='forum_border_one_3' valign='top'>{echo $ctime}</td>
+</tr>
+<tr class='forum_border_one_1'>
+    <td class='forum_border_one_3' width='60' valign='top'>{mmssms[7]}</td>
+    <td class='forum_border_one_3' valign='top'>{echo $content} {echo $attaches}</td>
+</tr>
+<tr class='forum_border_one_2'>
+    <td class='forum_border_one_3' width='60' valign='top'>{gl[78]}</td>
+    <td class='forum_border_one_3' valign='top'>[<a href="messenger.php?job=write&amp;target={echo urlencode($row['sendto'])}&amp;fwid={echo $row['id']}&amp;sendagain=1&amp;timu={echo urlencode($row['prtitle'])}">{gl[88]}</a>]  [<a href='messenger.php?job=delone&amp;verify={echo $log_hash}&amp;deltype=snd&amp;msg={echo $row['id']}'>{gl[81]}</a>] [<a href='messenger.php?job=sendbox'>{gl[82]}</a>]</td>
+</tr>
+
+<!-- content -->
+<!--{template pm_foot}-->

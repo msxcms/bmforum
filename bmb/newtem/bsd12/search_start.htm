@@ -1,0 +1,70 @@
+<!-- BEGIN startpage -->
+<table class="tableborder" cellspacing="0" cellpadding="0" align="center" border="0">
+    <tr>
+        <td class="noptd">
+        <form style="margin: 0px;" name="sform" action="search.php" method="post" onsubmit="javascript:check_submit();">
+            <table cellspacing="1" cellpadding="4" width="100%" border="0">
+                <tr>
+                    <td colspan="2" class="announcement">
+                    <span class="categoryfontcolor_normal">{gl[275]}</span></td>
+                </tr>
+                <tr class="forumcoloronecolor_nohover">
+                    <td style="vertical-align: top;width:50%;"><br />
+                    {gl[291]}
+                    <input type="text" name="keyword" size="30" class="input-medium search-query" speech x-webkit-speech /> 
+                    {gl[292]} <br />
+                    <br />
+                    {gl[470]}
+                    <input type="text" name="tags" size="30" class="input-medium search-query" /> 
+                    {gl[292]} <br />
+                    <br />
+                    {gl[293]}
+                    <input type="radio" name="method" value="or" checked="checked" id="open_1" /><label for="open_1"> 
+                    {gl[294]}</label>
+                    <input type="radio" name="method" value="and" id="open_2" /><label for="open_2"> 
+                    {gl[295]}</label> <br />
+                    <br />
+                    {gl[298]} <select name="method1">
+                    <option value="1">{gl[299]}</option>
+                    <option value="2">{gl[300]}</option>
+                    <option value="7">{gl[301]}</option>
+                    </select> 
+                    <input type="checkbox" name="digestonly" value="1" id="open_d" /><label for="open_d">
+                    {gl[488]}</label>
+                    <br />
+                    <br />
+                    {gl[302]} <select name="method2">
+                    <option value="60">{gl[303]}</option>
+                    <option value="1">{gl[304]}</option>
+                    <option value="7">{gl[305]}</option>
+                    <option value="30">{gl[306]}</option>
+                    <option value="90">{gl[307]}</option>
+                    <option value="0">{gl[308]}</option>
+                    </select>{gl[309]} </td>
+                    <td style="vertical-align: top;width:50%;"><br />
+                    {gl[296]}<br/><br />
+                    <select multiple="multiple" size="8" style="width:98%;" name="forumid[]">
+                    <option {echo $selected_all} value="all">{gl[297]}</option>
+                    {echo $searchforum}</select> 
+                    </td>
+                </tr>
+                <tr class="forumcolortwo">
+                    <td colspan="2" style="height:24px;" class="form-actions">
+                    <input type="submit" value="{gl[29]}" id="quicksubmit" class="btn btn-primary" />&nbsp;&nbsp;
+                    <input type="reset" value="{gl[215]}" class="btn" />
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[ 
+function check_submit(){
+    document.getElementById("quicksubmit").disabled=true;
+}
+document.sform.keyword.focus();
+
+//]]>>
+</script>

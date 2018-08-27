@@ -1,0 +1,13 @@
+<?php
+
+bmbdb_query("ALTER TABLE `{$database_up}search` ADD `bulitdate` INT UNSIGNED DEFAULT '0' NOT NULL");
+bmbdb_query("ALTER TABLE `{$database_up}search` ADD INDEX ( `bulitdate` ) ");
+
+$version_file_info='<?php
+if (!defined("INBMFORUM")) die("Access Denied");
+// Kernel version ,do NOT change this!
+define("VERTYPE", 1); // Datium!
+
+$verandproname = "BMForum 2007 5.6";
+$kernel_build  = "520070609";
+';

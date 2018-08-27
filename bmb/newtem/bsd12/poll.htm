@@ -1,0 +1,22 @@
+	<tr class="forumcoloronecolor_nohover">
+		<td class="forum_border_one_3" valign="top"><strong>{poll_form[12]}</strong><br />
+		<br />
+		{poll_form[13]}<br />
+		<br />
+		</td>
+		<td class="forum_border_one_3" valign="middle">
+		<textarea name="selections" rows="7" cols="60">{echo $selections}</textarea>
+		</td>
+		<td class="forum_border_one_3" valign="top"><strong>{poll_form[14]}</strong><br />
+		<br />
+		<input type="radio" checked="checked" value="s" name="votetype" id="p_open_1" /><label for="p_open_1"> 
+		{poll_form[15]}</label><br />
+		<input type="radio" value="m" name="votetype" id="p_open_2" /><label for="p_open_2"> 
+		{poll_form[16]}</label>
+		<input value="{echo $max_poll}" type="text" name="vtm" size="2" />
+		<br />
+		<input type="checkbox" name="viewafter" value="1" id="p_open_3" /><label for="p_open_3">{poll_form[18]}</label><br />
+		<input type="checkbox" name="maturetrue" value="1" id="p_open_4" /><label for="p_open_4">{poll_form[46]}</label><input value="{echo $todaydate}" type="text" name="maturedate" size="10" /><br />
+		<input type="checkbox" name="maturepatrue" value="1" id="p_open_5" /><label for="p_open_5">{poll_form[47]}</label><input value="0" type="text" name="maturepa" size="5" />
+		</td>
+	</tr>

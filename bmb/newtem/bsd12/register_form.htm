@@ -1,0 +1,160 @@
+<script type="text/javascript">
+//<![CDATA[ 
+var signmaxchars = {echo $max_sign_length};
+function setrepeat() {
+document.creator.addpassword2.value=document.creator.addpassword.value;
+}
+function validate(theform) {
+	if (theform.addusername.value=="" || theform.addpassword.value=="") {
+		alert("{reglang[50]}");
+		return false; }
+	if (signmaxchars != 0 && theform.signature) {
+		if (theform.signature.value.length > {echo $max_sign_length}) {
+			alert("{reglang[51]}");
+			return false; }
+		else { document.getElementById("quicksubmit").disabled=true; return true; }
+	} else { document.getElementById("quicksubmit").disabled=true; return true; }
+}
+function CheckUsername_AJAX(autocheck){
+	var Name=document.creator.addusername.value;
+	if(Name==""){
+		document.getElementById("checkuser").innerHTML="{reglang[52]}";
+		return false;
+	}else{
+		document.body.style.cursor = 'wait';
+		makeRequest("register.php?action=check&addusername="+bmb_ajax_encode(Name),null,bmb_ajax_checkuser_back,"GET");
+	}
+}
+function bmb_ajax_checkuser_back() {
+	if (http_request.readyState == 4) {
+		if (http_request.status == 200) {
+		    document.body.style.cursor = '';
+			result = http_request.responseText;
+			document.getElementById("checkuser").innerHTML = result;
+		} else {
+		    document.body.style.cursor = '';
+			alert('Error: '+http_request.responseText);
+		}
+	}
+}
+function openavarts(){
+openscript("misc.php?p=listpic&dir=face",700,500);
+}
+function showimage(){
+     document.images.useravatars.src="images/avatars/"+document.creator.sysusericon.options[document.creator.sysusericon.selectedIndex].value;
+}
+//]]>>
+</script>
+<form style="margin: 0px;" action="register.php" method="post" name="creator" onsubmit="return validate(this)">
+<input type="hidden" value="{echo $method}" name="method" />
+<table class="tableborder" cellspacing="0" cellpadding="0"  align="center" border="0">
+	<tr>
+		<td class="noptd">
+		<table cellspacing="1" cellpadding="4" width="100%" border="0">
+				<tr>
+					<td class="announcement" colspan="2" >
+					<span class="title">{reglang[53]}</span></td>
+				</tr>
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" width="20%" valign="middle">&nbsp;{reglang[54]}<span class="jiazhongcolor">*</span></td>
+					<td class="forum_border_one_3" width="80%"><strong>
+					<input type="text" title="{reglang[55]}" size="25" maxlength="{echo $max_regname_length}" value="{echo $addusername}" onblur="javascript:CheckUsername_AJAX(1);" name="addusername"  /></strong><div id="checkuser"></div></td>
+				</tr>
+<!--{if $send_pass!=1 }-->
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" valign="middle">&nbsp;{reglang[57]}<span class="jiazhongcolor">*</span></td>
+					<td class="forum_border_one_3">
+					<input type="password" size="25" maxlength="75" value="{echo $addpassword}" name="addpassword" title="{reglang[58]}" /></td>
+				</tr>
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" valign="middle">&nbsp;{reglang[59]}<span class="jiazhongcolor">*</span></td>
+					<td class="forum_border_one_3">
+					<input type="password" size="25" maxlength="75" value="{echo $addpassword2}" name="addpassword2" title="{reglang[60]}" /></td>
+				</tr>
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" valign="middle">&nbsp;{reglang[61]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="25" maxlength="30" value="{echo $passask}" name="passask"  /></td>
+				</tr>
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" valign="middle">&nbsp;{reglang[63]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="25" maxlength="30" value="{echo $passanswer}" name="passanswer"  /></td>
+				</tr>
+<!--{/if}-->
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" valign="middle">&nbsp;{reglang[64]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="25" maxlength="30" value="{echo $tuijianren}" name="tuijianren" title="{reglang[65]}"  /></td>
+				</tr>
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" valign="middle">&nbsp;E-MAIL:<span class="jiazhongcolor">*</span><br />
+					</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="25" maxlength="75" value="{echo $addemail}" name="addemail" title="{show_form_lng[123]}" /><br />
+					<input type="checkbox" title="{show_form_lng[122]}" name="publicmail" value="yes" checked="checked" id="open_1" /><label for="open_1">
+					<span class="jiazhongcolor">{show_form_lng[124]} </span></label>
+					</td>
+				</tr>
+<!--{if $reg_va == "1"}-->
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" valign="middle">&nbsp;{gl[439]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="25" maxlength="30" name="authinput"  /> 
+					{if $showautonum}
+					<img style="vertical-align: middle;" src='authimg.php?p=1' alt='' onclick='javascript:randtime=Date.parse(new Date());this.src="authimg.php?p=1&amp;reget=1&amp;timerand="+randtime;' title='{gl[529]}' style='cursor: pointer;' />
+					{else}
+					<img style="vertical-align: middle;" src='authimg.php?p=1' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=2' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=3' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=4' alt='' /><img style="vertical-align: middle;" src='authimg.php?p=5' alt='' />
+					{/if}
+					</td>
+				</tr>
+<!--{/if}-->
+<!--{if $reg_invit}-->
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" valign="middle">&nbsp;{show_form_lng[165]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="25" value="{echo $invitecode}" maxlength="30" name="invitecode"  />
+					</td>
+				</tr>
+<!--{/if}-->
+<!--{loop $reg_sc $key $value}-->
+				<tr class="forumcoloronecolor_nohover">
+					<td class="forum_border_one_3" valign="middle">&nbsp;<strong>{echo $value[1]}</strong>
+<!--{if $value[2]}--><br />
+&nbsp;{echo $value[2]}<!--{/if}--></td>
+					<td class="forum_border_one_3">
+
+
+	<!--{if $value[3] == 1}-->
+	<input type="text" size="20" maxlength="{echo $value[10]}" name="custom_var[{echo $value[0]}]" value="{echo $custom[$value[0]]}" />
+	<!--{elseif $value[3] == 2}-->
+	<textarea cols="50" name="custom_var[{echo $value[0]}]" rows="4">{echo $custom[$value[0]]}</textarea>
+	<!--{elseif $value[3] == 3}-->
+	<select name="custom_var[{echo $value[0]}]">
+	<option value=""></option>
+	{echo base64_decode($value[11])}
+	</select>
+	<!--{/if}-->
+
+					</td>
+				</tr>
+<!--{/loop}-->
+				<!--{eval eval(load_hook('tpl_register_blank'));}-->
+				<tr>
+					<td colspan="2" align="center" class="form-actions">
+					<input type="submit" id="quicksubmit" value="{gl[29]}" class="btn btn-primary" />&nbsp;&nbsp;
+					<input type="hidden" value="2" name="step" />
+					<input type="reset" value="{gl[215]}" class="btn" />
+					</td>
+				</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+
+</form>
+<script type="text/javascript">
+//<![CDATA[ 
+document.creator.addusername.focus();
+//]]>>
+</script>

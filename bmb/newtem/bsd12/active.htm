@@ -1,0 +1,33 @@
+<table class="tableborder" cellspacing="1" align="center" cellpadding="4" border="0">
+	<tr>
+		<td class="announcement">
+		<span class="msg_box_categoryfontcolor">{echo $r_a[0]}</span>
+	</td>
+	</tr>
+	<tr class="forumcoloronecolor_nohover">
+		<td>{echo $msg}
+		<!--{if $types == 1}-->
+		<form action='usercp.php?step=i&act=active&mod=add' method='post'><br />{r_a[8]}<br /><input type='text' name='emailinv' /><br />{r_a[11]}<br /><input type='text' name='friendname' />
+		<!--{/if}-->
+		
+		<!--{if $bmforumlist}-->
+		<br /><br />
+		<table cellspacing='1' cellpadding='4'  width='90%' border='0'>
+		<!--{/if}-->
+		<!--{loop $bmforumlist $key $forum}-->
+			<!--{if $sentlist != 1}-->
+			<tr><td colspan='4' class='announcement'><span class='title'>$r_a[14]</span></td></tr>
+			<tr><td class='forumcolortwo_noalign'>$r_a[16]</td><td class='forumcolortwo_noalign'>$r_a[15]</td><td class='forumcolortwo_noalign'>$r_a[17]</td><td class='forumcolortwo_noalign'>$r_a[19]</td></tr>
+			<!--{eval $sentlist = 1;}-->
+			<!--{/if}-->
+			<tr class='forum_border_one'><td class='forum_border_one_3'>{echo $forum['targetmail']}</td><td class='forum_border_one_3'>{echo $forum['fulldate']}</td><td class='forum_border_one_3'>{echo $forum['invitecode']}</td><td class='forum_border_one_3'>{echo $forum['c_status']}</td></tr>
+		<!--{/loop}-->
+		<!--{if $bmforumlist}-->
+		</table>
+		<!--{/if}-->
+		</td>
+	</tr>
+	<tr>
+		<td class="form-actions"><input type='submit' value='{r_a[9]}' class="btn btn-primary" /></td>
+	</tr></form>
+</table>

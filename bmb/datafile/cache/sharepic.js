@@ -1,0 +1,1 @@
+document.getElementById('simgnow').innerHTML+="<a href='http://www.bmforum.com/bmb/' target='_blank'><img width='88' height='31' alt='BMForum Official Site - BMForum 官方讨论区,最好的 PHP 论坛' src='http://www.bmforum.com/bmb/logo8.gif' border='0' /></a>&nbsp;            ";

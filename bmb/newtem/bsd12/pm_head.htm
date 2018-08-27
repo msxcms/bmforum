@@ -1,0 +1,23 @@
+<script type="text/javascript">
+//<![CDATA[ 
+function clearpm(){
+if(confirm("{smlng[42]}", "{smlng[42]}")){
+window.location.href="messenger.php?job=clear&verify={echo $log_hash}";
+}
+}
+function CheckAll(form){
+for (var i=0;i<form.elements.length;i++){
+var e = form.elements[i];
+e.checked = true;
+}}
+function FanAll(form){
+for (var i=0;i<form.elements.length;i++){
+var e = form.elements[i];
+if (e.checked == true){ e.checked = false; }
+else { e.checked = true;}
+}}
+function ctlent(eventobject){
+if((event.ctrlKey && window.event.keyCode==13) || (event.altKey && event.keyCode == 83)){this.document.FORM.submit();}
+}
+//]]>>
+</script>

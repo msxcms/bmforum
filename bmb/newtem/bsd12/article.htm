@@ -1,0 +1,365 @@
+<!-- BEGIN main -->
+<script type="text/javascript">
+//<![CDATA[ 
+function gotopages(eventobject,object) {
+if(eventobject.keyCode == 13) {
+window.location.href="article.php?forumid={echo $forumid}&filename={echo $filename}&page="+object.value;
+}
+}
+//]]>>
+</script>
+<table border="0" class="article_background" cellspacing="0" cellpadding="1" align="center">
+	<tr>
+		<td valign="top" align="center" width="120">
+		<table class="tablewidth" border="0" cellspacing="0" cellpadding="1" align="center">
+			<tr>
+				<td valign="top" align="center" class="tableborder_withoutwidth">
+				<table cellspacing="0" cellpadding="0" width="100%" border="0">
+					<tr class="tile_back_nowidth">
+						<td align="center" class="tile_back_nowidth" style="height:28px;">
+						<div align="center">
+							<strong><span class="title">{alang[9]}</span></strong></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="list_color1" align="center" style="height: 28px;" onmouseover="javascript:this.className='list_color2';" onmouseout="javascript:this.className='list_color1'">
+						<a href="profile.php?job=show&amp;target={echo $urlmainauthor}">
+						{alang[10]}</a></td>
+					</tr>
+					<tr>
+						<td class="list_color1" align="center" style="height: 28px;" onmouseover="javascript:this.className='list_color2';" onmouseout="javascript:this.className='list_color1'">
+						<a href="{echo $homepage}">{alang[11]}</a></td>
+					</tr>
+					<tr>
+						<td class="list_color1" align="center" style="height: 28px;" onmouseover="javascript:this.className='list_color2';" onmouseout="javascript:this.className='list_color1'">
+						<a href="viewfav.php?action=add&amp;forumid={echo $forumid}&amp;filename={echo $filename}&amp;topic_author={echo $urlmainauthor}">
+						{alang[12]}</a></td>
+					</tr>
+					<tr>
+						<td class="list_color1" align="center" style="height: 28px;" onmouseover="javascript:this.className='list_color2';" onmouseout="javascript:this.className='list_color1'">
+						<a href="post.php?forumid={echo $forumid}">{alang[13]}</a></td>
+					</tr>
+					<tr>
+						<td class="list_color1" align="center" style="height: 28px;" onmouseover="javascript:this.className='list_color2';" onmouseout="javascript:this.className='list_color1'">
+						<a href="misc.php?p=sendfriend&amp;forumid={echo $forumid}&amp;filename={echo $filename}&amp;mode=">
+						{alang[14]}</a></td>
+					</tr>
+					<tr>
+						<td class="list_color1" align="center" style="height: 28px;" onmouseover="javascript:this.className='list_color2';" onmouseout="javascript:this.className='list_color1'">
+						<a href="post.php?action=modify&amp;forumid={echo $forumid}&amp;article={echo $filename}&amp;filename={echo $filename}">
+						{alang[19]}</a></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+		<td valign="top">
+		<table cellspacing="0" cellpadding="0" width="100%" border="0" style="table-layout: fixed;">
+			<tr>
+				<td width="22"></td>
+				<td valign="top"><span class="article_headline">
+				{echo $maintopname}</span><br />
+				<span class="article_information">{alang[2]}
+				{echo $topic_hit} {alang[3]} / {alang[0]}{echo $maintopic_date} / {alang[1]}{echo $mainauthor}</span><br />
+				<br /><span class="article_content">
+				{echo $maintopic_con}<br />
+				{echo $afileshow}<br />
+				</span><br />
+<!--{if $sthread_list}-->
+<table class="tableborder" cellspacing="0" cellpadding="0" align="center" border="0">
+<tr>
+<td>
+<table style="width:100%;" cellspacing="1" cellpadding="0" align="center" border="0">
+	<tr class="tile_back_nowidth" align="center" style="height:29px;">
+		<td class="tile_back_nowidth">
+		<span class="categoryfontcolor_font">
+		{l_similar[0]}</span></td>
+		<td class="tile_back_nowidth" style="width:160px;">
+		<span class="categoryfontcolor_font">
+		{l_similar[1]}</span></td>
+		<td class="tile_back_nowidth" style="width:100px;">
+		<span class="categoryfontcolor_font">
+		{l_similar[2]}</span></td>
+		<td class="tile_back_nowidth" style="width:55px;">
+		<span class="categoryfontcolor_font">
+		{l_similar[3]}</span></td>
+		<td class="tile_back_nowidth" style="width:55px;">
+		<span class="categoryfontcolor_font">
+		{l_similar[4]}</span></td>
+		<td class="tile_back_nowidth" style="width:110px;">
+		<span class="categoryfontcolor_font">
+		{l_similar[5]}</span></td>
+	</tr>
+
+<!--{loop $sthread_list $key $sthread}-->
+	<tr style="text-align:center;height: 33px;" class="forum_border_one_1" onmouseover="javascript:this.className='forum_border_one_2';" onmouseout="javascript:this.className='forum_border_one_1';">
+			<td width="*" align="left" class="forum_border_one_3" id="tags_similar_1">
+			<table width="100%" border="0" cellspacing="0" cellpadding="4">
+				<tr>
+					<td>
+						<a href="{echo $sthread['tagstothread']}" target="_blank">
+						<img src="{otherimages}/openwindow.gif" border="0" alt="" /></a> 
+						<a href="{echo $sthread['tagstothread']}">{echo $sthread['title']}</a>
+					</td>
+				</tr>
+			</table>
+			</td>
+			<td class="forum_border_one_3" style="width:160px;" id="tags_similar_2">
+			<a href="{echo $sthread['tagstoforums']}">{echo $sthread['forum_name']}</a></td>
+			<td class="forum_border_one_3" style="width:100px;" id="tags_similar_3">
+			<a href="profile.php?job=show&amp;target={echo $sthread['urlauthor']}">{echo $sthread['viewauthor']}</a></td>
+			<td class="forum_border_one_3" style="width:55px;" id="tags_similar_4">
+			{echo $sthread['reply']}</td>
+			<td class="forum_border_one_3" style="width:55px;" id="tags_similar_5">
+			{echo $sthread['hit']}</td>
+			<td align="center" class="forum_border_one_3" style="width:110px;" id="tags_similar_6">&nbsp;{echo $sthread['timetoshow']}</td>
+	</tr>
+<!--{/loop}-->
+</table>
+</td>
+</tr>
+</table>
+<br/>
+<!--{/if}-->
+				<table cellspacing="0" cellpadding="0" width="100%" border="0">
+					<tr>
+						<td class="article_toolbar_row">
+						<div align="center">
+							<span class="title"><a href="post.php?action=quote&amp;forumid={echo $forumid}&amp;filename={echo $filename}&amp;article={echo $filename}&amp;tid={echo $filename}">{alang[18]}</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="post.php?action=reply&amp;forumid={echo $forumid}&amp;filename={echo $filename}">{alang[17]}</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="misc.php?p=sendfriend&amp;forumid={echo $forumid}&amp;filename={echo $filename}&amp;mode=">{alang[16]}</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:window.close();">{alang[15]}</a></span>
+						</div>
+						</td>
+					</tr>
+
+					<tr>
+						<td width="100%" style="height:18px;">{alang[5]}<span class="jiazhongcolor"><a href="{if ($bmfopt['rewrite'])}topic_{echo $filename}{else}topic.php?filename={echo $filename}{/if}">{alang[8]}</a></span></td>
+					</tr>
+					<tr>
+						<td width="100%" style="height:5px;"><hr noshade="noshade" size="1" width="100%" class="bordercolor" /></td>
+					</tr>
+
+					<tr>
+						<td width="100%" style="height:18px;">
+						<!--{if ($newreplyes)}-->
+						<!--{loop $newreplyes $key $replyes}-->
+						<strong>{forum_line[1]}</strong> 
+						{echo $replyes['topic_author']} 
+						<!--{if ($replyes['topic_name'])}-->
+						<strong>{forum_pos[10]}</strong> {echo $replyes['topic_name']} 
+						<!--{/if}-->
+						<strong>{forum_line[2]}</strong> 
+						{echo $replyes['topic_date']} 
+						<br />
+						{echo $replyes['topic_content']}
+						<br />
+						{echo $replyes['uploadfileshow']}
+						<hr noshade='noshade' size='1' width='100%' class='bordercolor' />
+						<!--{/loop}-->
+						<!--{/if}-->
+						</td>
+					</tr>
+					<tr>
+						<td width="100%" style="height:18px;">{echo $multi_page_bar}</td>
+					</tr>
+					<!--{if $allow_fast_reply}-->
+					<tr>
+						<td width="100%" style="height:18px;">
+							<br />
+							<script type="text/javascript">
+							//<![CDATA[ 
+							helpstat = false;
+							stprompt = true;
+							basic = false;
+							clckcnt = 0;
+							var postmaxchars = {echo $reply_post['max_post_length']};
+							var postminchars = {echo $reply_post['min_post_length']};
+							var ajax_open = {echo $reply_post['allow_ajax_reply']};
+
+							ie = (document.all)? true:false
+							function ctlent(eventobject){
+								if((eventobject.ctrlKey && eventobject.keyCode==13) || (eventobject.altKey && eventobject.keyCode == 83)) {
+									document.getElementById("quicksubmit").click();
+								}
+							}
+							function clckcntr() {
+							clckcnt++;
+							if(clckcnt > 1) {
+							if(clckcnt > 2) { return false; }
+							alert('{jsinfo[0]}');
+							return false;
+							}
+							return true;
+							}
+							function thelp(swtch){
+							if (swtch == 1){
+							basic = false;
+							stprompt = false;
+							helpstat = true;
+							} else if (swtch == 0) {
+							helpstat = false;
+							stprompt = false;
+							basic = true;
+							} else if (swtch == 2) {
+							helpstat = false;
+							basic = false;
+							stprompt = true;
+							}
+							}
+							function AddText(NewCode) {
+							document.FORM.articlecontent.value+=NewCode
+							}
+							function validate(theform) {
+								upload_filename = document.getElementById("upload_filename").value;
+
+								if (theform.articlecontent.value=="") {
+									alert("{jsinfo[1]}");
+									clckcnt=0;
+									return false;
+								}
+								if (postmaxchars != 0) {
+									if (theform.articlecontent.value.length > {echo $reply_post['max_post_length']} || theform.articlecontent.value.length < {echo $reply_post['min_post_length']}) {
+										alert("{jsinfo[2]} "+theform.articlecontent.value.length+" {jsinfo[3]}");
+										clckcnt=0;
+										return false; 
+									} else {  
+										if (ajax_open == 1 && upload_filename == "") {bmb_ajax_replythread(theform);return false;}
+									    else{ return true; }
+									}
+								} else { 
+									if (ajax_open == 1 && upload_filename == "") {bmb_ajax_replythread(theform);return false;}
+									else{ return true; }
+								}
+							}
+							function checklength(theform) {
+							if (postmaxchars != 0) { message = "{jsinfo[4]}"; }
+							else { message = ""; }
+							alert("{jsinfo[5]}"+theform.articlecontent.value.length+" {jsinfo[3]}"+message);
+							}
+							//]]>>
+							</script>
+							<form name="FORM" style="margin:0px;" method="post" action="post.php" onsubmit="return validate(this)" enctype="multipart/form-data">
+							<table class="tableborder_post" cellspacing="0" cellpadding="0" align="center">
+							<tr><td>
+									<table style="height:25px;width:100%;" cellspacing="1" cellpadding="0" border="0">
+										<tr>
+											<td valign="middle" class="tile_back_nowidth" align="left">&nbsp;
+											<strong><span class="categoryfontcolor_normal">{forum_pos[28]}</span></strong>
+											</td>
+										</tr>
+									</table>
+
+							<script type="text/javascript">
+							//<![CDATA[ 
+							function qrtrans(qri) {
+							document.FORM.article.value=qri;
+							document.FORM.quickquote.checked='checked';
+							}
+							function DoTitle(addTitle) {
+							var revisedTitle;
+							var currentTitle = document.FORM.articletitle.value;
+							revisedTitle = currentTitle+addTitle;
+							document.FORM.articletitle.value=revisedTitle;
+							document.FORM.articletitle.focus();
+							return; }
+							function DoComments(addTitle) { 
+							var revisedTitle; 
+							var currentTitle = document.FORM.articlecontent.value; revisedTitle = currentTitle+addTitle; document.FORM.articlecontent.value=revisedTitle; document.FORM.articlecontent.focus(); 
+							return; 
+							}
+							function checklayer(objs){
+							if(objs.checked==true){
+							MM_showHideLayers('Layer1','','show');
+							}else{
+							MM_showHideLayers('Layer1','','hide');
+							}
+							}
+							function MM_findObj(n, d) { //v4.01
+							  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+							    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+							  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+							  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+							  if(!x && d.getElementById) x=d.getElementById(n); return x;
+							}
+
+							function MM_showHideLayers() { //v6.0
+							  var i,p,v,obj,args=MM_showHideLayers.arguments;
+							  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+							    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+							    obj.visibility=v; }
+							}
+							function moreemots(){
+								var script = document.createElement('script'); 
+								script.type = 'text/javascript'; 
+								script.src = 'misc.php?p=emotlist&mode=2&rnd='+ajaxtmp['times']; 
+								document.getElementsByTagName('head')[0].appendChild(script);  
+								document.getElementById('Layer1').style.width = '240px';
+								document.getElementById('Layer1').style.height = '220px';
+							}
+							function turntopage(packedname,pagenum,layer,jstype){
+								var script = document.createElement('script'); 
+								script.type = 'text/javascript'; 
+								script.src = 'misc.php?p=emotlist&mode=2&packname='+packedname+'&page='+pagenum+'&rnd='+ajaxtmp['times']; 
+								document.getElementsByTagName('head')[0].appendChild(script);  
+							}
+							//]]>>
+							</script>
+
+
+									<table cellspacing="0" cellpadding="4" style="width:100%;height:100%;" class="list_color1" id="fastpost_bottom">
+										<tr>
+											<td class="{echo $reply_post['dbgcolor']}" style="width:204px;text-align:left;"><strong>{forum_pos[10]}</strong>
+											</td>
+											<td style="width:auto;" class="{echo $reply_post['dbgcolor']}_fast_reply">
+											<input type="text" name="articletitle" value="" size="35" maxlength="{echo $reply_post['max_post_title']}" />
+											<input class="input3" type="checkbox" checked="checked" value="yes" name="actioneot" id="open_6" /><label for="open_6"></label>
+											<select onchange="DoComments(this.options[this.selectedIndex].value)">
+											<option selected="selected">{forum_pos[14]}</option>
+											{echo $reply_post['actshows']}</select>
+											<input type="checkbox" name="usesignature" value="checkbox" checked="checked" id="open_4" /><label for="open_4"> 
+											{forum_pos[11]}</label>
+											<input type="checkbox" name="autourl" value="yes" checked="checked" id="open_5" /><label for="open_5">{forum_pos[12]}</label>
+											<input class="input3" type="checkbox" value="yes" name="quickquote" id="open_7" /><label for="open_7">{forum_pos[29]}</label>	<input type="checkbox" value="" name="nouseemot" onclick="checklayer(this);" id="open_switch" /><label for="open_switch">{forum_pos[31]}</label>
+											</td>
+										</tr>
+										<tr>
+											<td valign="top" style="width:204px;" class="{echo $reply_post['dbgcolor']}" rowspan="2" align="left">
+											<strong>{forum_pos[4]}</strong><br />
+											{echo $reply_post['htmlcodeinfo']}
+											<input type="checkbox" name="openbmbcode" value="checkbox" id="open_2" /><label for="open_2">{forum_pos[6]}<strong>BMB 
+											Code</strong></label><br />
+											<input type="checkbox" name="openbmbemot" value="checkbox" id="open_3" /><label for="open_3">{forum_pos[6]}<strong>{forum_pos[30]}</strong></label><br />
+											<br />
+											<strong>{forum_pos[7]}:{echo $reply_post['uploadinfoshow']}{echo $reply_post['addinfoone']}
+											</td>
+											<td valign="top" width="*" class="{echo $reply_post['dbgcolor']}_reply_content" rowspan="2">
+											<textarea onkeydown="ctlent(event)" name="articlecontent" cols="90" rows="7"></textarea>&nbsp;<div id="Layer1" class="fast_emot_selector_article"></div>
+											<br />
+											<input type="hidden" value="2" name="step" />
+											<input type="hidden" value="reply" name="action" />
+											<input type="hidden" value="{echo $forumid}" name="forumid" />
+											<input type="hidden" value="" name="article" />
+											<input type="hidden" value="{echo $filename}" name="filename" />{echo $reply_post['showuploads']}<br />
+											<input onclick="return clckcntr();" type="submit" value="{forum_pos[15]}" name="quicksubmit" id="quicksubmit" />
+											<input id="resetform" type="reset" value="{forum_pos[16]}" />
+											</td>
+										</tr>
+									</table>
+
+							</td>
+							</tr>
+							</table>
+							</form>
+							<script type="text/javascript" id="dnscript" src="misc.php?p=emotlist"></script>
+							<br/>
+						</td>
+					</tr>
+					<!--{/if}-->
+					</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+
+<!-- END 0 -->

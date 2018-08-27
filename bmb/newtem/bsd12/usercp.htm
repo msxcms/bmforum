@@ -1,0 +1,94 @@
+<!--{eval define("USERCP_LOGGED", 1); }-->
+<script type="text/javascript">
+//<![CDATA[ 
+function clearpm(){
+if(confirm("{navbarshow[11]}", "{navbarshow[11]}")){
+window.location.href="messenger.php?job=clear&verify={echo $log_hash}";
+}
+}
+function warningrun(url){
+if(confirm("{navbarshow[12]}", "{navbarshow[12]}")){
+window.location.href=url;
+}
+}
+</script>
+
+<table class="tablewidth" cellspacing="0" cellpadding="0" align="center">
+<tr>
+    <td width="220" valign="top">
+
+	<ul class="nav nav-list">
+	  <li class="nav-header">
+	    {navbarshow[1]}
+	  </li>
+	  <li {if $currentMod['usercp']} class="active"{/if}>
+	    <a href="usercp.php">{navbarshow[1]}</a>
+	  </li>
+	  <li {if $currentMod['notification']} class="active"{/if}>
+	    <a href="misc.php?p=notification">{navbarshow[13]}</a>
+	  </li>
+	  
+	  <li class="nav-header">
+	    {navbarshow[8]}
+	  </li>
+	  <li {if $currentMod['profile']} class="active"{/if}>
+	    <a href="profile.php">{navbarshow[2]}</a>
+	  </li>
+	  <li {if $currentMod['ua']} class="active"{/if}>
+	    <a href="misc.php?p=ua">{navbarshow[10]}</a>
+	  </li>
+	  <li {if $currentMod['uacover']} class="active"{/if}>
+	    <a href="misc.php?p=ua&cover=1">{navbarshow[14]}</a>
+	  </li>
+	  <li {if $currentMod['accounts']} class="active"{/if}>
+	    <a href="misc.php?p=accounts">{navbarshow[7]}</a>
+	  </li>
+	  
+	  <li class="nav-header">
+	    {navbarshow[9]}
+	  </li>
+	  <li {if $currentMod['viewfav']} class="active"{/if}>
+	    <a href="viewfav.php">{navbarshow[3]}</a>
+	  </li>
+	  <li {if $currentMod['friendlist']} class="active"{/if}>
+	    <a href="friendlist.php">{navbarshow[5]}</a>
+	  </li>
+	  <li {if $currentMod['active']} class="active"{/if}>
+	    <a href="usercp.php?act=active">{navbarshow[6]}</a>
+	  </li>
+	  
+	  <li class="nav-header">
+	    {mmssms[0]}
+	  </li>
+	  <li {if $currentMod['receivebox']} class="active"{/if}>
+	    <a href="messenger.php?job=receivebox">{mmssms[1]}</a>
+	  </li>
+	  <li {if $currentMod['sendbox']} class="active"{/if}>
+	    <a href="messenger.php?job=sendbox">{mmssms[2]}</a>
+	  </li>
+	  <li {if $currentMod['writepm']} class="active"{/if}>
+	    <a href="messenger.php?job=write">{mmssms[3]}</a>
+	  </li>
+	  <li {if $currentMod['clearpm']} class="active"{/if}>
+	    <a href="#" onclick="javascript:clearpm();">{mmssms[4]}</a>
+	  </li>
+	<!--{if defined("BMF_MESSSYSTEM")}-->
+	  <li class="nav-header">
+	    {mmssms[0]}
+	  </li>
+	  <li>
+		<div class="progress progress-striped">
+		  <div class="bar" title="{mmssms[6]} {echo $usage}" style="width: {echo $usage};"></div>
+		</div>
+	  </li>
+
+	<!--{/if}-->
+	  
+	</ul>
+
+
+
+	</td>
+    <td style="width:10px;">
+    </td>
+    <td valign="top">

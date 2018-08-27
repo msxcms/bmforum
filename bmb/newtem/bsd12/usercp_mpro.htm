@@ -1,0 +1,255 @@
+<!-- BEGIN startform -->
+<script type="text/javascript">
+//<![CDATA[ 
+function showimage(){
+   userpic=document.creator.sysusericon.options[document.creator.sysusericon.selectedIndex].value;
+   if(userpic=="nopic"){
+  	 document.images.useravatars.src="images/avatars/no_portait.gif";
+   }else{
+  	 document.images.useravatars.src="images/avatars/"+userpic;
+   }
+}
+function openavarts(){
+openScript("misc.php?p=listpic&dir=face",700,500);
+}
+//]]>>
+</script>
+<form action="profile.php" style="margin: 0px;" method="post" name="creator">
+<table class="tableborder" cellspacing="0" cellpadding="0" align="center" border="0">
+	<tr>
+		<td>
+		<table cellspacing="1" cellpadding="4" width="100%" border="0">
+				<tr class="tile_back_title">
+					<td colspan="2" class="announcement">
+					<span class="tile_back_title">{show_form_lng[116]}</span></td>
+				</tr>
+				<tr class="forumcolortwo_noalign">
+					<td align="center" colspan="2" class="forum_border_one_3"><strong>{show_form_lng[164]} </strong>
+					</td>
+				</tr>
+				<tr class="article_color1">
+					<td width="30%" valign="middle" class="forum_border_one_3">&nbsp;{show_form_lng[x118]}<br />
+&nbsp;({show_form_lng[119]}) </td>
+					<td width="70%" class="forum_border_one_3">
+					<input type="password" size="20" maxlength="75" name="oldpassword" />
+					</td>
+				</tr>
+				<tr class="article_color1">
+					<td width="30%" valign="middle" class="forum_border_one_3">&nbsp;{show_form_lng[118]}<br />
+&nbsp;({show_form_lng[119]}) </td>
+					<td width="70%" class="forum_border_one_3">
+					<input type="password" size="20" maxlength="75" name="addpassword" />
+					({show_form_lng[120]})</td>
+				</tr>
+				<tr class="article_color1">
+					<td width="30%" valign="middle" class="forum_border_one_3">&nbsp;{show_form_lng[168]}<br />
+&nbsp;({show_form_lng[119]}) </td>
+					<td width="70%" class="forum_border_one_3">
+					<input type="password" size="20" maxlength="75" name="addpassword_s" />
+					</td>
+				</tr>
+				<tr class="article_color1">
+					<td valign="middle" class="forum_border_one_3">&nbsp;{show_form_lng[161]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="20" maxlength="30" value="{echo $pwdask}" name="newpassask" /></td>
+				</tr>
+				<tr class="article_color1">
+					<td valign="middle" class="forum_border_one_3">&nbsp;{show_form_lng[162]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="20" maxlength="30" name="oldpassanswer" /></td>
+				</tr>
+				<tr class="article_color1">
+					<td valign="middle" class="forum_border_one_3">&nbsp;{show_form_lng[163]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="20" maxlength="30" name="newpassanswer" /></td>
+				</tr>
+				<tr class="forumcolortwo_noalign">
+					<td align="center" colspan="2" class="forum_border_one_3"><strong>{show_form_lng[117]} </strong>
+					</td>
+				</tr>
+				
+<!--{loop $reg_sc $key $value}-->
+<!--{eval $disabled="";}-->
+				<tr class="article_color1">
+					<td valign="middle" class="forum_border_one_3">&nbsp;<strong>{echo $value[1]}</strong>
+<!--{if $value[7] == 1 && $custom[$value[0]] != "" }-->
+	<strong>* {show_form_lng[166]} </strong>
+	<!--{eval $disabled="disabled='disabled'";}-->
+<!--{/if}-->
+<!--{if $value[2]}--><br />
+&nbsp;{echo $value[2]}<!--{/if}--></td>
+					<td class="forum_border_one_3">
+
+
+	<!--{if $value[3] == 1}-->
+	<input type="text" {echo $disabled} size="20" maxlength="{echo $value[10]}" name="custom_var[{echo $value[0]}]" value="{echo $custom[$value[0]]}" />
+	<!--{elseif $value[3] == 2}-->
+	<textarea cols="50" {echo $disabled} name="custom_var[{echo $value[0]}]" rows="4">{echo $custom[$value[0]]}</textarea>
+	<!--{elseif $value[3] == 3}-->
+	<select {echo $disabled} name="custom_var[{echo $value[0]}]">
+	<option value="{echo $custom[$value[0]]}">{show_form_lng[103]}</option>
+	{echo base64_decode($value[11])}
+	</select>
+	<!--{/if}-->
+
+					</td>
+				</tr>
+<!--{/loop}-->
+				
+				<tr class="article_color1">
+					<td valign="middle" class="forum_border_one_3" class="forum_border_one_3">&nbsp;{show_form_lng[121]}<br />
+&nbsp;({show_form_lng[122]})</td>
+					<td><strong>
+					<input type="text" size="20" maxlength="75" name="addemail" value="{echo $mailadd}" />
+					</strong>({show_form_lng[123]})<br />
+					<input type="checkbox" name="publicemail" value="1" {echo $pe} id="open_1" /><label for="open_1">
+					<span class="jiazhongcolor">{show_form_lng[124]}</span></label></td>
+				</tr>
+				<!--{eval eval(load_hook('tpl_profile_blank'));}-->
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[125]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="20" maxlength="14" name="oicqnumber" value="{echo $oldoicq}" /></td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[126]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="20" name="msnurl" value="{echo $msn}" /></td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[127]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="20" maxlength="14" name="icqnumber" value="{echo $icq}" /></td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[128]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" size="20" maxlength="75" name="newhomepage" value="{echo $homepage}" /></td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[129]}<br />
+&nbsp;{show_form_lng[130]} <br />
+&nbsp;<a href="#" onclick="javascript:openScript('bmbcode.php',700,500);">BMB 
+					Code</a> {echo $bmfcode_info} </td>
+					<td class="forum_border_one_3">
+					<textarea cols="50" name="signature" rows="4">{echo $sign}</textarea></td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[131]}</td>
+					<td class="forum_border_one_3">
+					<input type="text" value="{echo $fromwhere}" size="20" maxlength="30" name="fromwhere" /></td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[132]}<br />
+&nbsp;{show_form_lng[133]}</td>
+					<td class="forum_border_one_3">
+					<textarea name="addcomment" rows="4" cols="50">{echo $desper}</textarea></td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[134]}</td>
+					<td class="forum_border_one_3"><select name='addsex'><option value="Unknown">{show_form_lng[2]}</option>
+					<option value="Male" {echo $genorselect[Male]}>{show_form_lng[0]}</option>
+					<option value="Female" {echo $genorselect[Female]}>{show_form_lng[1]}</option></select>
+ </td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[135]}</td>
+					<td class="forum_border_one_3"> 
+					<select name='addnational'><option value='' selected='selected'>{show_form_lng[3]} {echo $nownational}</option><option value='dont'>{show_form_lng[non]}</option><option value="China">{show_form_lng[4]}</option><option value="Angola">{show_form_lng[5]}</option><option value="Antigua">{show_form_lng[6]}</option><option value="Argentina">{show_form_lng[7]}</option><option value="Armenia">{show_form_lng[8]}</option><option value="Australia">{show_form_lng[9]}</option><option value="Austria">{show_form_lng[10]}</option><option value="Bahamas">{show_form_lng[11]}</option><option value="Bahrain">{show_form_lng[12]}</option><option value="Bangladesh">{show_form_lng[13]}</option><option value="Barbados">{show_form_lng[14]}</option><option value="Belgium">{show_form_lng[15]}</option><option value="Bermuda">{show_form_lng[16]}</option><option value="Bolivia">{show_form_lng[17]}</option><option value="Brazil">{show_form_lng[18]}</option><option value="Brunei">{show_form_lng[19]}</option><option value="Canada">{show_form_lng[20]}</option><option value="Chile">{show_form_lng[21]}</option><option value="Colombia">{show_form_lng[22]}</option><option value="Croatia">{show_form_lng[23]}</option><option value="Cuba">{show_form_lng[24]}</option><option value="Cyprus">{show_form_lng[25]}</option><option value="Czech_Republic">{show_form_lng[26]}</option><option value="Denmark">{show_form_lng[27]}</option><option value="Dominican_Republic">{show_form_lng[28]}</option><option value="Ecuador">{show_form_lng[29]}</option><option value="Egypt">{show_form_lng[30]}</option><option value="Estonia">{show_form_lng[31]}</option><option value="Finland">{show_form_lng[32]}</option><option value="France">{show_form_lng[33]}</option><option value="Germany">{show_form_lng[34]}</option><option value="Great_Britain">{show_form_lng[35]}</option><option value="Greece">{show_form_lng[36]}</option><option value="Guatemala">{show_form_lng[37]}</option><option value="Honduras">{show_form_lng[38]}</option><option value="Hungary">{show_form_lng[39]}</option><option value="Iceland">{show_form_lng[40]}</option><option value="India">{show_form_lng[41]}</option><option value="Indonesia">{show_form_lng[42]}</option><option value="Iran">{show_form_lng[43]}</option><option value="Iraq">{show_form_lng[44]}</option><option value="Ireland">{show_form_lng[45]}</option><option value="Israel">{show_form_lng[46]}</option><option value="Italy">{show_form_lng[47]}</option><option value="Jamaica">{show_form_lng[48]}</option><option value="Japan">{show_form_lng[49]}</option><option value="Jordan">{show_form_lng[50]}</option><option value="Kazakstan">{show_form_lng[51]}</option><option value="Kenya">{show_form_lng[52]}</option><option value="Kuwait">{show_form_lng[53]}</option><option value="Latvia">{show_form_lng[54]}</option><option value="Lebanon">{show_form_lng[55]}</option><option value="Lithuania">{show_form_lng[56]}</option><option value="Malaysia">{show_form_lng[57]}</option><option value="Malawi">{show_form_lng[58]}</option><option value="Malta">{show_form_lng[59]}</option><option value="Mauritius">{show_form_lng[60]}</option><option value="Morocco">{show_form_lng[61]}</option><option value="Mozambique">{show_form_lng[62]}</option><option value="Netherlands">{show_form_lng[63]}</option><option value="New_Zealand">{show_form_lng[64]}</option><option value="Nicaragua">{show_form_lng[65]}</option><option value="Nigeria">{show_form_lng[66]}</option><option value="Norway">{show_form_lng[67]}</option><option value="Pakistan">{show_form_lng[68]}</option><option value="Panama">{show_form_lng[69]}</option><option value="Paraguay">{show_form_lng[70]}</option><option value="Peru">{show_form_lng[71]}</option><option value="Poland">{show_form_lng[72]}</option><option value="Portugal">{show_form_lng[73]}</option><option value="Romania">{show_form_lng[74]}</option><option value="Russia">{show_form_lng[75]}</option><option value="Saudi_Arabia">{show_form_lng[76]}</option><option value="Singapore">{show_form_lng[77]}</option><option value="Slovakia">{show_form_lng[78]}</option><option value="Slovenia">{show_form_lng[79]}</option><option value="Solomon_Islands">{show_form_lng[80]}</option><option value="Somalia">{show_form_lng[81]}</option><option value="South_Africa">{show_form_lng[82]}</option><option value="South_Korea">{show_form_lng[83]}</option><option value="Spain">{show_form_lng[84]}</option><option value="Sri_Lanka">{show_form_lng[285]}</option><option value="Surinam">{show_form_lng[85]}</option><option value="Sweden">{show_form_lng[86]}</option><option value="Switzerland">{show_form_lng[87]}</option><option value="Thailand">{show_form_lng[88]}</option><option value="Trinidad_Tobago">{show_form_lng[89]}</option><option value="Turkey">{show_form_lng[90]}</option><option value="Ukraine">{show_form_lng[91]}</option><option value="United_Arab_Emirates">{show_form_lng[92]}</option><option value="United_States">{show_form_lng[93]}</option><option value="Uruguay">{show_form_lng[94]}</option><option value="Venezuela">{show_form_lng[95]}</option><option value="Vietnam">{show_form_lng[160]}</option><option value="Yugoslavia">{show_form_lng[96]}</option><option value="Zambia">{show_form_lng[97]}</option><option value="Zimbabwe">{show_form_lng[98]}</option></select>
+</td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[136]}</td>
+					<td class="forum_border_one_3"><input type="text" name="addborn" size='20' maxlength='10' value="{echo $birthday}" />({show_form_lng[99]})</td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[137]}{echo $use_group}</td>
+					<td class="forum_border_one_3"><input type="text" size="20" {echo $disabledgroup} maxlength="75" name="addgroup" value="{echo $team}"  /></td>
+				</tr>
+				<tr class="article_color1">
+					<td class="forum_border_one_3">&nbsp;{show_form_lng[138]}{echo $use_honor}</td>
+					<td class="forum_border_one_3">
+					<input name="newhonor" {echo $disabledhonor} value="{echo $headtitle}" type="text" size="20" maxlength="20" /></td>
+				</tr>
+<!--{if $use_own_portait == "1" || $usertype[22] == "1" || $usertype[21] == "1"}-->
+				<tr align="left" class="article_color1">
+					<td align="left" valign="middle" class="forum_border_one_3">&nbsp;<strong>{show_form_lng[105]}</strong><br />{show_form_lng[106]}</td>
+					<td align="left" valign="middle" class="forum_border_one_3">
+					{show_form_lng[107]}<input value="{echo $usericon[1]}" type="text" size="35" name="own_portait[a0]" />{show_form_lng[110]}({show_form_lng[111]} {echo $maxwidth}*{echo $maxheight})<br />
+					{show_form_lng[108]}<input value="{echo $usericon[2]}" type="text" size="2" maxlength="3" name="own_portait[a1]" />{show_form_lng[112]} 20 -- {echo $maxwidth} {show_form_lng[113]}<br />
+					{show_form_lng[109]}<input value="{echo $usericon[3]}" type="text" size="2" maxlength="3" name="own_portait[a2]" />{show_form_lng[112]} 20 -- {echo $maxheight} {show_form_lng[113]}
+					</td>
+				</tr>
+<!--{/if}-->
+<!--{if $openupusericon == "1" || $usertype[22] == "1"}-->
+				<tr class="article_color1"><td class="forum_border_one_3">&nbsp;<strong>{show_form_lng[114]}</strong></td><td class="forum_border_one_3">
+				{show_form_lng[115]}</td></tr>
+<!--{/if}-->
+<!--{if $fnew_skin == 1}-->
+				<tr class="article_color1"><td class="forum_border_one_3">&nbsp;{show_form_lng[102]}</td><td class="forum_border_one_3">
+				<select name='skinselectname'><option value=''>{show_form_lng[104]}</option>
+				{echo $usecutskin}
+				</select></td></tr>
+<!--{/if}-->
+				<tr class="article_color1"><td class="forum_border_one_3">&nbsp;{show_form_lng[151]}</td><td class="forum_border_one_3">
+				<select name='usecutlangname'><option value=''>{show_form_lng[104]}</option>
+				{echo $usecutlang}
+				</select></td></tr>
+				<tr class="article_color1"><td class="forum_border_one_3">&nbsp;{show_form_lng[153]}</td><td class="forum_border_one_3">
+				<input type="radio" value="1" {echo $time_2_a} name="timeshowmode" id="open_ffa" /><label for="open_ffa">{show_form_lng[154]}</label><br />
+				<input type="radio" value="0" {echo $time_2_b} name="timeshowmode" id="open_ffb" /><label for="open_ffb">{show_form_lng[155]}</label></td>
+				</tr>
+				<tr class="article_color1"><td class="forum_border_one_3">&nbsp;{show_form_lng[159]}</td><td class="forum_border_one_3">
+				<input type="radio" {echo $uv_a} value="0" name="userchpirmode" id="open_sfa" /><label for="open_sfa">{show_form_lng[157]}</label>
+				<input type="radio" {echo $uv_b} value="cancel" name="userchpirmode" id="open_sfb" /><label for="open_sfb">{show_form_lng[158]}</label></td>
+				</tr>
+				<tr class="article_color1"><td class="forum_border_one_3">
+				&nbsp;{show_form_lng[152]}</td>
+				<td class="forum_border_one_3"><select name='s_timezone' {echo $checktimezone[-12]}>
+				<option value='-12'>(GMT - 12:00 hours) Enitwetok, Kwajalien</option>
+				<option value='-11' {echo $checktimezone[-11]} >(GMT - 11:00 hours) Midway Island, Samoa</option>
+				<option value='-10' {echo $checktimezone[-10]}>(GMT - 10:00 hours) Hawaii</option>
+				<option value='-9' {echo $checktimezone[-9]}>(GMT - 9:00 hours) Alaska</option>
+				<option value='-8' {echo $checktimezone[-8]}>(GMT - 8:00 hours) Pacific Time (US &amp; Canada)</option>
+				<option value='-7' {echo $checktimezone[-7]}>(GMT - 7:00 hours) Mountain Time (US &amp; Canada)</option>
+				<option value='-6' {echo $checktimezone[-6]}>(GMT - 6:00 hours) Central Time (US &amp; Canada), Mexico City</option>
+				<option value='-5' {echo $checktimezone[-5]}>(GMT - 5:00 hours) Eastern Time (US &amp; Canada), Bogota, Lima, Quito</option>
+				<option value='-4' {echo $checktimezone[-4]}>(GMT - 4:00 hours) Atlantic Time (Canada), Caracas, La Paz</option>
+				<option value='-3.5' {echo $checktimezone[-3.5]}>(GMT - 3:30 hours) Newfoundland</option>
+				<option value='-3' {echo $checktimezone[-3]}>(GMT - 3:00 hours) Brazil, Buenos Aires, Georgetown, Falkland Is.</option>
+				<option value='-2' {echo $checktimezone[-2]}>(GMT - 2:00 hours) Mid-Atlantic, Ascention Is., St Helena</option>
+				<option value='-1' {echo $checktimezone[-1]}>(GMT - 1:00 hours) Azores, Cape Verde Islands</option>
+				<option value='0' {echo $checktimezone[0]}>(GMT) Casablanca, Dublin, Edinburgh, London, Lisbon, Monrovia</option>
+				<option value='1' {echo $checktimezone[1]}>(GMT + 1:00 hours) Berlin, Brussels, Copenhagen, Madrid, Paris, Rome</option><option value='2' {echo $checktimezone[2]}>(GMT + 2:00 hours) Kaliningrad, South Africa, Warsaw</option><option value='3' {echo $checktimezone[3]}>(GMT + 3:00 hours) Baghdad, Riyadh, Moscow, Nairobi</option><option value='3.5' {echo $checktimezone[3.5]}>(GMT + 3:30 hours) Tehran</option><option value='4' {echo $checktimezone[4]}>(GMT + 4:00 hours) Adu Dhabi, Baku, Muscat, Tbilisi</option><option value='4.5' {echo $checktimezone[4.5]}>(GMT + 4:30 hours) Kabul</option><option value='5' {echo $checktimezone[5]}>(GMT + 5:00 hours) Ekaterinburg, Islamabad, Karachi, Tashkent</option><option value='5.5' {echo $checktimezone[5.5]}>(GMT + 5:30 hours) Bombay, Calcutta, Madras, New Delhi</option><option value='6' {echo $checktimezone[6]}>(GMT + 6:00 hours) Almaty, Colomba, Dhakra</option><option value='7' {echo $checktimezone[7]}>(GMT + 7:00 hours) Bangkok, Hanoi, Jakarta</option><option value='8' {echo $checktimezone[8]}>(GMT + 8:00 hours) Beijing, Hong Kong, Perth, Singapore, Taipei</option><option value='9' {echo $checktimezone[9]}>(GMT + 9:00 hours) Osaka, Sapporo, Seoul, Tokyo, Yakutsk</option><option value='9.5' {echo $checktimezone[9.5]}>(GMT + 9:30 hours) Adelaide, Darwin</option><option value='10' {echo $checktimezone[10]}>(GMT + 10:00 hours) Melbourne, Papua New Guinea, Sydney, Vladivostok</option><option value='11' {echo $checktimezone[11]}>(GMT + 11:00 hours) Magadan, New Caledonia, Solomon Islands</option><option value='12' {echo $checktimezone[12]}>(GMT + 12:00 hours) Auckland, Wellington, Fiji, Marshall Island</option></select>
+
+				</td>
+				</tr>
+				<tr class="article_color1"><td class="forum_border_one_3">
+				{show_form_lng[167]}</td>
+				<td class="forum_border_one_3">
+				<input name="new_date_format" value="{echo $time_f}" type="text" size="20" maxlength="20" />
+				</td>
+				</tr>
+				<tr class="article_color1">
+					<td valign="top" class="forum_border_one_3">&nbsp;{show_form_lng[142]}</td><td class="forum_border_one_3">
+					<input type="radio" name="receivemail" value="text" checked="checked" id="open_2" /><label for="open_2"> 
+					{show_form_lng[143]}</label>
+					<input type="radio" name="receivemail" value="html" id="open_3" /><label for="open_3"> 
+					{show_form_lng[144]}</label>
+					<input type="radio" name="receivemail" value="none" id="open_4" /><label for="open_4"> 
+					{show_form_lng[145]}</label> </td>
+				</tr>
+				<tr class="article_color1">
+					<td colspan="2" align="center" class="form-actions">
+					<input type="submit" value="{show_form_lng[149]}" class="btn btn-primary" />
+					<input type="reset" class="btn" value="{show_form_lng[150]}" name="reset" />
+					<input type="hidden" value="2" name="step" />
+					<input type="hidden" value="{echo $usericon[0]}" name="oldusericon" />
+					</td>
+				</tr>
+		</table>
+	</td>
+	</tr>
+</table>
+</form>
+<!-- END startform -->

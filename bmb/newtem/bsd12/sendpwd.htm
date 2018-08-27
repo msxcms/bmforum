@@ -1,0 +1,52 @@
+<!--{if $tplType['type']==1}-->
+<form action="misc.php?p=sendpwd" method="post" name="form1" style="margin:0px;">
+<div class="alert alert-block alert-info fade in" id="ajax_information">
+    <h4 class="alert-heading">{gl[24]}</h4>
+    <p>
+<br />
+{gl[27]}
+<input type="text" name="user" size="16" />
+</p>
+<p><input type="submit" value="{gl[29]}" class="btn btn-primary" /></p>
+<input type="hidden" value="2" name="step" />
+</div>
+</form>
+<!--{elseif $tplType['type']==2}-->
+<form action="misc.php?p=sendpwd" method="post" name="form1" style="margin:0px;">
+<div class="alert alert-block alert-info fade in" id="ajax_information">
+    <h4 class="alert-heading">{gl[24]}</h4>
+    <p>
+
+<br />{gl[266]} {echo $useraskinfo}
+<br />{gl[267]}<br /><input type="text" name="passanswer" size="25" />
+<br />{gl[439]}<br /><input type="text" size="25" maxlength="30" name="authinput" /><br />
+<!--{if ($gd_auth == 1)}-->
+<img src='authimg.php?p=1' alt='' onclick='javascript:randtime=Date.parse(new Date());this.src="authimg.php?p=1&amp;reget=1&amp;timerand="+randtime;' title='{gl[529]}' style='cursor: pointer;' />
+<!--{else}-->
+<img src='authimg.php?p=1' alt='' /><img src='authimg.php?p=2' alt='' /><img src='authimg.php?p=3' alt='' /><img src='authimg.php?p=4' alt='' /><img src='authimg.php?p=5' alt='' />
+<!--{/if}-->
+<br /><br />
+<p><input type="submit" value="{gl[29]}" class="btn btn-primary" /></p>
+<input type="hidden" value="3" name="step" /> 
+<input type="hidden" name="user" value="{echo $user}" />
+</p>
+</div>
+</form>
+<!--{elseif $tplType['type']==3}-->
+<form action="misc.php?p=sendpwd&step=v" method="post" name="form1" style="margin:0px;">
+<div class="alert alert-block alert-info fade in" id="ajax_information">
+    <h4 class="alert-heading">{gl[24]}</h4>
+    <p>
+
+<br />{gl[534]}<br /><input type="password" name="addpassword" size="25" />
+<br />{gl[535]}<br /><input type="password" size="25" name="addpassword2" />
+<br /><br />
+<input type="submit" value="{gl[29]}" class="btn btn-primary" >
+<input type="hidden" value="v" name="step" /> 
+<input type="hidden" value="2" name="pc" /> 
+<input type="hidden" name="uid" value="$uid" />
+<input type="hidden" name="id" value="$id" />
+</p>
+</div>
+</form>
+<!--{/if}-->

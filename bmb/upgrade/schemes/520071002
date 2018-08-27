@@ -1,0 +1,145 @@
+<?php
+
+bmbdb_query("ALTER TABLE `{$database_up}userlist` ADD `pwdrecovery` VARCHAR( 5 ) NULL");
+bmbdb_query("ALTER TABLE `{$database_up}threads` ADD `diggcount` INT DEFAULT '0' NOT NULL");
+bmbdb_query("ALTER TABLE `{$database_up}threads` ADD INDEX ( `diggcount` )  ");
+bmbdb_query("CREATE TABLE `{$database_up}ugoptlist` (
+  `id` int(11) NOT NULL auto_increment,
+  `optname` varchar(100) NOT NULL default '',
+  `opttype` smallint(6) NOT NULL default '0',
+  `noforum` tinyint(1) NOT NULL default '0',
+  `nolevel` tinyint(1) NOT NULL default '0',
+  `noguest` tinyint(1) NOT NULL default '0',
+  `mustforum` tinyint(1) NOT NULL default '0',
+  `optid` int(11) NOT NULL default '0',
+  `optidt` int(11) NOT NULL default '0',
+  `specmod` mediumint(9) NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `forumonly` (`noforum`),
+  KEY `levelonly` (`nolevel`),
+  KEY `noguest` (`noguest`)
+) TYPE=MyISAM");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (1, '\$arr_ad_lng[80]', 1, 1, 1, 0, 0, 0, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (2, '\$arr_ad_lng[81]', 1, 1, 1, 0, 0, 1, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (3, '\$arr_ad_lng[82]', 1, 1, 1, 0, 0, 23, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (4, '\$arr_ad_lng[83]', 2, 1, 1, 0, 0, 64, 0, 1)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (5, '\$arr_ad_lng[86]', 3, 0, 0, 1, 0, 3, 88, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (6, '\$arr_ad_lng[89]', 3, 0, 0, 1, 0, 4, 89, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (7, '\$arr_ad_lng[90]', 3, 0, 0, 1, 0, 5, 90, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (8, '\$arr_ad_lng[91]', 3, 0, 0, 1, 0, 6, 91, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (9, '\$arr_ad_lng[121]', 1, 0, 0, 1, 0, 29, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (10, '\$arr_ad_lng[126]', 1, 0, 0, 1, 0, 28, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (11, '\$arr_ad_lng[1210]', 2, 0, 0, 0, 0, 126, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (12, '\$arr_ad_lng[1211]', 2, 0, 0, 0, 0, 127, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (13, '\$arr_ad_lng[1128]', 1, 0, 0, 0, 0, 116, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (14, '\$arr_ad_lng[1129]', 1, 0, 0, 0, 0, 117, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (15, '\$arr_ad_lng[956]', 1, 0, 0, 0, 0, 101, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (16, '\$arr_ad_lng[954]', 2, 0, 0, 0, 0, 99, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (17, '\$arr_ad_lng[1043]', 2, 0, 0, 0, 0, 109, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (18, '\$arr_ad_lng[1044]', 2, 0, 0, 0, 0, 110, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (19, '\$arr_ad_lng[127]', 1, 0, 0, 0, 0, 25, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (20, '\$arr_ad_lng[128]', 2, 0, 0, 0, 0, 37, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (21, '\$arr_ad_lng[1206] \$curl_check', 2, 0, 0, 0, 0, 120, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (22, '\$arr_ad_lng[129]', 1, 0, 0, 0, 0, 38, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (23, '\$arr_ad_lng[130]', 1, 0, 0, 0, 0, 20, 0, 2)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (24, '\$arr_ad_lng[123]', 1, 0, 0, 0, 0, 19, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (25, '\$arr_ad_lng[124]', 1, 0, 0, 0, 0, 27, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (26, '\$arr_ad_lng[120]', 4, 0, 0, 0, 0, 26, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (27, '\$arr_ad_lng[125]', 2, 0, 0, 0, 0, 80, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (28, '\$arr_ad_lng[104]', 1, 0, 0, 0, 0, 14, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (29, '\$arr_ad_lng[1006]', 1, 0, 0, 0, 0, 102, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (30, '\$arr_ad_lng[1007]', 1, 0, 0, 0, 0, 103, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (31, '\$arr_ad_lng[1008]', 1, 0, 0, 0, 0, 104, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (32, '\$arr_ad_lng[105]', 2, 0, 0, 0, 0, 69, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (33, '\$arr_ad_lng[106]', 2, 0, 0, 0, 0, 70, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (34, '\$arr_ad_lng[107]', 2, 0, 0, 0, 0, 71, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (35, '\$arr_ad_lng[108]', 2, 0, 0, 0, 0, 77, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (36, '\$arr_ad_lng[109]', 2, 0, 0, 0, 0, 78, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (37, '\$arr_ad_lng[110]', 2, 0, 0, 0, 0, 72, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (38, '\$arr_ad_lng[111]', 2, 0, 0, 0, 0, 73, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (39, '\$arr_ad_lng[1127]', 1, 0, 0, 0, 0, 115, 0, 3)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (40, '\$arr_ad_lng[112]', 2, 0, 0, 0, 0, 74, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (41, '\$arr_ad_lng[113]', 2, 0, 0, 0, 0, 75, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (42, '\$arr_ad_lng[114]', 2, 0, 0, 0, 0, 76, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (43, '\$arr_ad_lng[115]', 2, 1, 0, 0, 0, 79, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (44, '\$arr_ad_lng[92]', 1, 1, 0, 1, 0, 7, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (45, '\$arr_ad_lng[122]', 2, 1, 0, 1, 0, 18, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (46, '\$arr_ad_lng[118]', 2, 1, 0, 1, 0, 17, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (47, '\$arr_ad_lng[93]', 2, 0, 0, 0, 0, 8, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (48, '\$arr_ad_lng[96]', 2, 0, 0, 0, 0, 9, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (49, '\$arr_ad_lng[97]', 2, 0, 0, 0, 0, 10, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (50, '\$arr_ad_lng[98]', 2, 0, 0, 0, 0, 11, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (51, '\$arr_ad_lng[136]', 2, 1, 0, 1, 0, 39, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (52, '\$arr_ad_lng[137]', 2, 1, 0, 1, 0, 40, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (53, '\$arr_ad_lng[138]', 1, 1, 0, 1, 0, 41, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (54, '\$arr_ad_lng[139]', 1, 1, 0, 1, 0, 42, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (55, '\$arr_ad_lng[140]', 1, 1, 0, 1, 0, 43, 0, 2)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (56, '\$arr_ad_lng[141]', 1, 1, 0, 1, 0, 44, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (57, '\$arr_ad_lng[142]', 1, 1, 0, 1, 0, 45, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (58, '\$arr_ad_lng[1173]', 5, 0, 0, 0, 0, 118, 119, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (59, '\$arr_ad_lng[101]', 3, 0, 0, 0, 0, 47, 94, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (60, '\$arr_ad_lng[102]', 3, 0, 0, 0, 0, 87, 95, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (61, '\$arr_ad_lng[103]', 3, 0, 0, 0, 0, 46, 96, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (62, '\$arr_ad_lng[955]', 2, 0, 0, 0, 0, 100, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (63, '\$arr_ad_lng[99]', 3, 1, 0, 0, 0, 12, 92, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (64, '\$arr_ad_lng[341]', 2, 0, 0, 0, 1, 12, 92, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (65, '\$arr_ad_lng[131]', 2, 1, 0, 0, 0, 81, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (66, '\$arr_ad_lng[132]', 2, 1, 0, 0, 0, 82, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (67, '\$arr_ad_lng[133]', 2, 1, 0, 0, 0, 83, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (68, '\$arr_ad_lng[134]', 2, 1, 0, 0, 0, 84, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (69, '\$arr_ad_lng[915]', 3, 0, 0, 0, 0, 97, 98, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (70, '\$arr_ad_lng[100]', 3, 1, 0, 1, 0, 13, 93, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (71, '\$arr_ad_lng[150]', 2, 0, 0, 0, 0, 67, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (72, '\$arr_ad_lng[1037]', 2, 0, 0, 0, 0, 106, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (73, '\$arr_ad_lng[151]', 2, 0, 0, 0, 0, 68, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (74, '\$arr_ad_lng[116]', 1, 1, 0, 1, 0, 15, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (75, '\$arr_ad_lng[117]', 1, 1, 0, 1, 0, 16, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (76, '\$arr_ad_lng[119]', 2, 1, 0, 1, 0, 86, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (77, '\$arr_ad_lng[144]', 1, 0, 0, 0, 0, 33, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (78, '\$arr_ad_lng[145]', 1, 0, 0, 0, 0, 34, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (79, '\$arr_ad_lng[146]', 1, 0, 0, 0, 0, 65, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (80, '\$arr_ad_lng[147]', 1, 0, 0, 0, 0, 35, 0, 4)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (81, '\$arr_ad_lng[148]', 1, 0, 0, 0, 0, 36, 0, 4)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (82, '\$arr_ad_lng[149]', 1, 0, 0, 0, 0, 66, 0, 4)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (83, '\$arr_ad_lng[1027]', 1, 0, 0, 0, 0, 105, 0, 4)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (84, '\$arr_ad_lng[1040]', 1, 0, 0, 0, 0, 108, 0, 4)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (85, '\$arr_ad_lng[1038]', 1, 0, 0, 0, 0, 107, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (86, '\$arr_ad_lng[1060]', 1, 0, 0, 0, 0, 114, 0, 4)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (87, '\$arr_ad_lng[913]', 6, 0, 0, 0, 0, 121, 122, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (88, '\$arr_ad_lng[914]', 6, 0, 0, 0, 0, 123, 124, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (89, '\$arr_ad_lng[1207]', 7, 0, 0, 0, 0, 125, 130, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (90, '\$arr_ad_lng[155]', 2, 0, 0, 0, 0, 24, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (91, '\$arr_ad_lng[156]', 2, 1, 0, 1, 0, 21, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (92, '\$arr_ad_lng[157]', 2, 1, 0, 1, 0, 22, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (93, '\$arr_ad_lng[1047]', 2, 0, 0, 0, 0, 111, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (94, '\$arr_ad_lng[159]', 2, 0, 0, 0, 0, 48, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (95, '\$arr_ad_lng[160]', 2, 0, 0, 0, 0, 49, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (96, '\$arr_ad_lng[161]', 2, 0, 0, 0, 0, 50, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (97, '\$arr_ad_lng[162]', 2, 0, 0, 0, 0, 51, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (98, '\$arr_ad_lng[164]', 2, 0, 0, 0, 0, 53, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (99, '\$arr_ad_lng[165]', 2, 0, 0, 0, 0, 54, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (100, '\$arr_ad_lng[166]', 2, 0, 0, 0, 0, 59, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (101, '\$arr_ad_lng[167]', 2, 0, 0, 0, 0, 55, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (102, '\$arr_ad_lng[168]', 2, 0, 0, 0, 0, 56, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (103, '\$arr_ad_lng[169]', 2, 0, 0, 0, 0, 57, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (104, '\$arr_ad_lng[170]', 2, 0, 0, 0, 0, 58, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (105, '\$arr_ad_lng[171]', 2, 0, 0, 0, 0, 60, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (106, '\$arr_ad_lng[172]', 2, 0, 0, 0, 0, 61, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (107, '\$arr_ad_lng[173]', 2, 0, 0, 0, 0, 62, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (108, '\$arr_ad_lng[174]', 2, 0, 0, 0, 0, 30, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (109, '\$arr_ad_lng[175]', 2, 0, 0, 0, 0, 63, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (110, '\$arr_ad_lng[176]', 2, 0, 0, 0, 0, 31, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (111, '\$arr_ad_lng[177]', 2, 0, 0, 0, 0, 32, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (112, '\$arr_ad_lng[1049]', 2, 0, 0, 0, 0, 112, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (113, '\$arr_ad_lng[1208]', 2, 0, 0, 0, 0, 128, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (114, '\$arr_ad_lng[1209]', 2, 0, 0, 0, 0, 129, 0, 0)");
+bmbdb_query("INSERT INTO `{$database_up}ugoptlist` VALUES (115, '\$arr_ad_lng[1050]', 2, 0, 0, 0, 0, 113, 0, 0)");
+
+$version_file_info='<?php
+if (!defined("INBMFORUM")) die("Access Denied");
+// Kernel version ,do NOT change this!
+define("VERTYPE", 1); // Datium!
+
+$verandproname = "BMForum Myna Alpha 1";
+$kernel_build  = "520071002";
+';

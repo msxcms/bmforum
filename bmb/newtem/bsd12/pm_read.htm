@@ -1,0 +1,35 @@
+<!--{template pm_head}-->
+<!-- content -->
+<table width='100%' cellspacing='0' cellpadding='0' class='tableborder'><tr><td>
+<table width='100%' cellspacing='1' cellpadding='4' class='bordercolor_background'>
+<tr>
+    <td colspan='2' class='announcement'><strong class='title_color_pm'>{echo $row[prtitle]}</strong></td>
+</tr>
+<tr class='forum_border_one_1'>
+    <td class='forum_border_one_3' width='60' valign='top'>{gl[76]}</td>
+    <td class='forum_border_one_3' valign='top'><a href='messenger.php?job=write&amp;target={echo urlencode($row[belong])}'>{echo $row[belong]}</a> (<a href="profile.php?job=show&amp;target={echo urlencode($row[belong])}" target="_blank">{gl[336]}</a>)</td>
+</tr>
+<tr class='forum_border_one_2'>
+    <td class='forum_border_one_3' width='60' valign='top'>{gl[454]}</td>
+    <td class='forum_border_one_3' valign='top'>{echo $ctime}</td>
+</tr>
+<tr class='forum_border_one_1'>
+    <td class='forum_border_one_3' width='60' valign='top'>{mmssms[7]}</td>
+    <td class='forum_border_one_3' valign='top'>{echo $content} {echo $attaches}</td>
+</tr>
+<tr class='forum_border_one_2'>
+    <td class='forum_border_one_3' width='60' valign='top'>{gl[83]}</td>
+    <td class='forum_border_one_3' valign='top'><form name='FORM' onsubmit="javascript:check_submit();" action='messenger.php' method='post' style='margin:0px;'><input type='hidden' name='job' value='write' /><input type='hidden' name='pruser' value='{echo $row[belong]}' /><input type='hidden' name='title' value='RE:{echo $row[prtitle]}' /><input type="hidden" name="step" value="2" /><textarea onkeydown='ctlent()' name='content' cols='66' rows='7'></textarea><br /><label><input type='checkbox' name='ssnd' value='1' /> {gl[84]}</label><br /><input id="quicksubmit" type='submit' value='{gl[85]}' class="btn btn-primary" /></td>
+</tr>
+<tr class='forum_border_one_1'>
+    <td class='forum_border_one_3' width='60' valign='top'>{gl[78]}</td>
+    <td class='forum_border_one_3' valign='top'>[<a href='messenger.php?job=write&amp;target={echo urlencode($row[belong])}&amp;timu=RE:{echo urlencode($row[prtitle])}'>{gl[79]}</a>]  [<a href='messenger.php?job=write&amp;fwid={echo urlencode($row[id])}&amp;timu=Fw:{echo urlencode($row[prtitle])}'>{gl[80]}</a>]  [<a href='messenger.php?job=delone&amp;verify={echo $log_hash}&amp;msg={echo $msg}'>{gl[81]}</a>] [<a href='messenger.php?job=receivebox'>{gl[82]}</a>]</form></td>
+</tr>
+<script type="text/javascript">
+//<![CDATA[ 
+function check_submit(){
+	document.getElementById("quicksubmit").disabled=true;
+}
+//]]>>
+</script>
+<!--{template pm_foot}-->

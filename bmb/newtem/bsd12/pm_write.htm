@@ -1,0 +1,100 @@
+<!--{template pm_head}-->
+<!--{if $error_error}-->
+<table width='100%' cellspacing='0' cellpadding='0' class='tableborder'><tr><td>
+<table width='100%' cellspacing='1' cellpadding='4' class='bordercolor_background'>
+<tr align='center'>
+<td colspan='4'>
+<div class="alert alert-block alert-info fade in">
+    <h4 class="alert-heading">{echo $error_error}</h4>
+</div>
+</td>
+</tr></table></table></table>
+<!--{else}-->
+<!--{if $tips_error}-->
+<table width='100%' cellspacing='0' cellpadding='0' class='tableborder'><tr><td>
+<table width='100%' cellspacing='1' cellpadding='4' class='bordercolor_background'>
+<tr align='center'>
+<td colspan='4'>
+<div class="alert alert-block fade in">
+    <h4 class="alert-heading">{echo $tips_error}</h4>
+</div>
+</td>
+</tr></table></table></table>
+<!--{/if}-->
+<!-- content -->
+<script type="text/javascript">
+//<![CDATA[ 
+function friendls()
+{
+    var myfriend = document.FORM.friend.options[document.FORM.friend.selectedIndex].value;
+    if (myfriend != "") document.FORM.pruser.value = document.FORM.pruser.value == "" ? myfriend : document.FORM.pruser.value + ";" + myfriend;
+}
+function check_file_ext(fobject,extcount) {
+	ext_exists = 0;
+	if (fobject.value!="") {
+		available_exts = "{echo $upload_type_available}"
+		available_ext = available_exts.split(' ');
+		for (i = 0; i < extcount; i++) {
+			currentext = available_ext[i].toLowerCase();
+			str1=fobject.value.toLowerCase();
+			s=str1.lastIndexOf("."); 
+			str2=str1.substring(s+1).toLowerCase(); 
+			if (str2==currentext) {
+				ext_exists = 1;
+			}
+		}
+	}
+	if (ext_exists != 1) {
+		alert("{echo $gl[527]}");
+		fobject.style.backgroundColor="#FFFF77";
+	} else {
+		fobject.style.backgroundColor="";
+	}
+}
+function check_submit(){
+	document.getElementById("quicksubmit").disabled=true;
+}
+
+
+//]]>>
+</script>
+<form name="FORM" onsubmit="javascript:check_submit();" action="messenger.php" method="post" enctype="multipart/form-data" style="margin:0px;">
+<table width='100%' cellspacing='0' cellpadding='0' class='tableborder'><tr><td>
+<table width='100%' cellspacing='1' cellpadding='4' class='bordercolor_background'>
+    <tr align='center' class='tile_back_pm'>
+        <td colspan='4' class='forum_border_one_3'><strong class='title_color_pm'>{gl[116]}</strong></td>
+</tr>
+<tr class='forum_border_one_1'>
+    <td class='forum_border_one_3' width="60" valign="top">{gl[117]}</td>
+    <td class='forum_border_one_3' valign="top"><select name="friend" onchange="friendls()">
+                <option selected="selected" value="">{gl[118]}</option>
+{echo $friend_l}
+              </select><input value='{echo $target}'  type="text" size="60" name="pruser" title="{gl[119]}" /></td>
+</tr>
+<tr class='forum_border_one_2'>
+    <td class='forum_border_one_3' width="60" valign="top">{gl[120]}</td>
+    <td class='forum_border_one_3' valign="top"><input value='{echo $timu}'  type="text" size='71' name="title" /></td>
+</tr>
+<tr class='forum_border_one_1'>
+    <td class='forum_border_one_3' width="60" valign="top">{gl[121]}</td>
+    <td class='forum_border_one_3' valign="top"><textarea onkeydown="ctlent()"  name="content" cols="87" rows="20">{echo $neirong}</textarea></td>
+</tr>
+<tr class='forum_border_one_2'>
+    <td class='forum_border_one_3' width="60" valign="top">{print_form[69]}<br /></td>
+    <td class='forum_border_one_3' valign="top" title="{print_form[70]}{echo $leftuploadnum}, {print_form[71]} {echo $max_upload_size}, {print_form[72]} {print_form[73]} {echo $max_upload_post} {print_form[74]}">{echo $showtype} {echo $uploadfileshow}</td>
+</tr>
+<tr class='forum_border_one_1'>
+    <td class='forum_border_one_3' width="60" style="padding-left: 70px;" colspan="2" valign="top"><label><input type="checkbox" name="ssnd" value="1" />{gl[122]}</label></td>
+</tr>
+<tr class='forum_border_one_1'>
+    <td  class="form-actions" colspan="2" valign="top">
+   <input type="hidden" name="job" value="write" />
+<input type="hidden" name="step" value="2" />
+<input type="submit" id="quicksubmit" value="{gl[85]}" class="btn btn-primary" /> </form></td>
+</tr>
+
+
+
+
+<!--{template pm_foot}-->
+<!--{/if}-->

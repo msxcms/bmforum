@@ -1,0 +1,51 @@
+<?php
+// BMB  語言檔案 ： 繁體中文
+$war[0]="警告";
+$war[1]="<center><p><p>你被本版板主禁止了在本版發言，有問題向本版板主詢問，也可聯繫站長;<br /><br /><p><p>請你遵守本站發帖規則<a href=index.php>返回論壇首頁</a><p><p>";
+$errc[0]="發生錯誤";
+$errc[1]="找不到版塊";
+$errc[2]="您要訪問的版塊不存在";
+$errc[3]="發表文章";
+$errc[4]="時間不夠";
+$errc[5]="您必須到達{$logon_post_second}秒才可以發帖，您現在距離登入到現在只有{$onlylps}秒。";
+$errc[6]="狀態：對不起，資料錯誤，您無法登入，請檢查您的資料";
+$errc[7]="狀態：對不起，此會員是已註冊會員，不可使用";
+$errc[8]="你沒有權利在此版塊發帖，如果有問題請向管理員詢問";
+$errc[ab9]="回收站內不能發帖。";
+$errc[9]="發表文章時，發生了錯誤，情況：";
+$errc[10]="返回前一頁";
+$errc[11]="您必須在註冊 $reg_posting 小時之後才可以發表文章.";
+$errc[12]="您的文章內容包含過多的敏感關鍵詞，請等待審核。";
+$tipc[0]="輔助面板：";
+$tipc[1]="字體屬性面板";
+$tipc[2]="字體特效面板";
+$tipc[3]="ASCII圖案產生面板";
+$tipc[4]="點擊切換";
+$tipc[5]="(未註冊會員發帖不要填寫密碼)";
+$check_data_lng[0]="文章超過管理員指定的長度";
+$check_data_lng[1]="沒有填寫標題或內容，或內容太短";
+$check_data_lng[2]="標題太長了";
+$check_data_lng[3]="文章描述太長了";
+$check_data_lng[4]="不接受空選項";
+$check_data_lng[5]="沒有填寫推薦名稱";
+$check_data_lng[6]="推薦名稱太長";
+$check_data_lng[7]="填寫大小特性怎麼會超過25個字元？";
+$check_data_lng[8]="作者超長";
+$check_data_lng[9]="網址超過規定長度";
+$check_data_lng[10]="下載地址超過規定長度";
+$check_data_lng[11]="圖片連結位置超長";
+$send_HTML_mail_lng[0]="您有回覆:";
+$send_HTML_mail_lng[1]="這裏是 BMB 信件快遞";
+$send_HTML_mail_lng[2]="你在 {$bbs_title} 發的文章:";
+$send_HTML_mail_lng[3]="現在有人回覆了，快來看吧";
+$send_HTML_mail_lng[4]="你有回覆~~~";
+$login_user[0]="你的會員名稱：";
+$login_user[1]="你的密碼：";
+$login_user[2]="忘了密碼?";
+$print_form[G1]="<strong>隨意貼(Tags)：</strong>";
+$print_form[G2]="隨意貼是針對主題的描述性的關鍵詞，這將把您的主題放置到您希望的分類中，用空格隔開關鍵詞。";
+$print_form[G3]="<a href='plugins.php?p=tags' target=_blank>[ 檢視當前的隨意貼(Tags)清單 ]</a>";
+$print_form[G4]="最大隨意貼數: ";
+$print_form[tags]="您必須設定一個隨意貼(Tags)";
+
+?>
