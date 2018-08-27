@@ -13,10 +13,9 @@ include_once("include/template.php");
 include_once("getskin.php");
 $cip = $ip;
 include_once("lang/$language/index.php");
-
 $lang_zone = array("programname"=>$programname, "fenleiq"=>$fenleiq, "onlyread"=>$onlyread, "newpost"=>$newpost, "nonewpost"=>$nonewpost, "todaybd"=>$todaybd, "poteo"=>$poteo, "forum_line"=>$forum_line, "bm_skin"=>$bm_skin, "otherimages"=>$otherimages, "whosonlinelang"=>$whosonlinelang, "popp"=> $popp, "indexinfo" => $indexinfo);
 $template_name = newtemplate("index", $temfilename, $styleidcode, $lang_zone);
-    
+
 $acount = count($usergroupdata);
 $onlinests = array();
 $shareforum_js =  "";
@@ -97,11 +96,12 @@ if ($see_a_tags && $bmfopt["hot_tags"])
         $hot_tags_list[] = array('threads' => $row['threads'], 'size' => $size_t, 'urlname' => urlencode($row['tagname']), 'name' => $row['tagname']);
     } 
 }
-
-$count = count($forumlist);
-for ($i = 0; $i < $count; $i++) {
-    $detail = explode('|', $forumlist[$i]);
-} 
+if(is_array($forumlist)){
+	$count = count($forumlist);
+	for ($i = 0; $i < $count; $i++) {
+	    $detail = explode('|', $forumlist[$i]);
+	}
+}
 
 $line = $sxfourmrow;
 $xxxcount = $forumscount;
@@ -171,19 +171,21 @@ if ($todayb_show) {
     $thisyear = $thisyear["year"];
     $bdfile = "datafile/birthday/{$thismonth}_$thisday";
     $bddata = @file($bdfile);
-    $bdccount = count($bddata);
-    for($bdc = 0;$bdc < $bdccount;$bdc++) {
-		$detail = explode("|", $bddata[$bdc]);
-    	if ($detail[0]) {
-			if ($detail[2] != 0) {
-				$cluage = $thisyear - $detail[2];
-			} else {
-				$cluage = '';
+    if(is_array($bddata)){
+	    $bdccount = count($bddata);
+	    for($bdc = 0;$bdc < $bdccount;$bdc++) {
+			$detail = explode("|", $bddata[$bdc]);
+	    	if ($detail[0]) {
+				if ($detail['2'] != 0) {
+					$cluage = $thisyear - $detail[2];
+				} else {
+					$cluage = '';
+				}
+				$tdbdshow[] = array('urlname' => urlencode($detail[0]), 'name' => $detail[0], 'cluage' => $cluage);
+				$counowtd++;
 			}
-			$tdbdshow[] = array('urlname' => urlencode($detail[0]), 'name' => $detail[0], 'cluage' => $cluage);
-			$counowtd++;
-		}
-    } 
+	    }
+    }
 } 
 indexwhosonline();
 eval(load_hook('int_index_before_output'));

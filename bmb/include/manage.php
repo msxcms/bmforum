@@ -21,7 +21,7 @@ $adminlist = $pincancel = $addalimit = "";
 $aquery = "SELECT * FROM {$database_up}threads WHERE tid='$filename' LIMIT 0,1";
 $xresult = bmbdb_query($aquery);
 $nline = bmbdb_fetch_array($xresult);
-$forumid = $nline[forumid];
+$forumid = $nline['forumid'];
 $oldtags = $nline['ttagname'];
 $topic_islock = $nline['islock'];
 $topic_type = $nline['type'];
@@ -32,10 +32,10 @@ get_forum_info("");
 
 $xfourmrow = $sxfourmrow;
 for($i = 0;$i < $forumscount;$i++) {
-    if ($xfourmrow[$i][id] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $newforumid) $newforumname = $xfourmrow[$i]['bbsname'];
+    if ($xfourmrow[$i]['id'] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $newforumid) $newforumname = $xfourmrow[$i]['bbsname'];
 } 
 if ($login_status == 1 && $nline['replys'] == 0 && $nline['author'] == $username && $del_self_topic == 1 && $action == "del") $check_user = 1;
 if ($login_status == 1 && $nline['replys'] > 0 && $nline['author'] == $username && $usertype[106] == 1 && $action == "del") $check_user = 1;
@@ -47,11 +47,11 @@ if ($login_status == 1 && $check_user == 0 && $adminlist != "") {
     } 
 } 
 if ($usertype[22] == "1" || $usertype[21] == "1") $check_user = 1;
-if ($del_true != "1" && $action == del && $nline['author'] != $username) $check_user = 0;
-if ($lock_true != "1" && ($action == lock || $action == unlock)) $check_user = 0;
-if ($move_true != "1" && $action == move) $check_user = 0;
-if ($copy_true != "1" && $action == copy) $check_user = 0;
-if ($sej_true != "1" && ($action == jihua || $action == unjihua)) $check_user = 0;
+if ($del_true != "1" && $action == 'del' && $nline['author'] != $username) $check_user = 0;
+if ($lock_true != "1" && ($action == 'lock' || $action == 'unlock')) $check_user = 0;
+if ($move_true != "1" && $action == 'move') $check_user = 0;
+if ($copy_true != "1" && $action == 'copy') $check_user = 0;
+if ($sej_true != "1" && ($action == 'jihua' || $action == 'unjihua')) $check_user = 0;
 
 $query = "SELECT * FROM {$database_up}threads WHERE tid='$filename' LIMIT 0,1";
 $result = bmbdb_query($query);

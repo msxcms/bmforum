@@ -510,8 +510,9 @@ function show_member($view_by = 0)
     $line = ($view_by ? get_user_info($view_by, "usrid") : get_user_info($target));
     @extract($line, EXTR_PREFIX_SAME, "user");
     
-	$count_rc = count($reg_c);
-	
+    if(is_array($reg_c)){
+    	$count_rc = count($reg_c);
+    }
 	for($i = 0;$i < $count_rc; $i++){
 		$detail = explode("|", $reg_c[$i]);
 		$reg_ssc["$detail[0]"] = $detail[1];

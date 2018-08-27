@@ -85,7 +85,7 @@ if (empty($action)) {
 	
 	$results_t = bmbdb_query("SHOW TABLE STATUS");
     while (false !== ($line_t = bmbdb_fetch_array($results_t))) {
-    	if (!in_array($line_t[Name],$select_array) && strstr($line_t[Name],$database_up)) 
+    	if (!in_array($line_t['Name'],$select_array) && strstr($line_t['Name'],$database_up)) 
     	$table_selector .= "<option selected='selected' value='$line_t[Name]'>$line_t[Name]</option>";
     }
 	$table_selector .= "</select>";

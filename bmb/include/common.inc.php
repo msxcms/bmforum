@@ -38,9 +38,9 @@ function check_admin_permission($sxfourmrow, $forumscount, $forumid, $login_stat
 	global $forum_upid, $forum_cid;
     $xfourmrow = $sxfourmrow;
     for($i = 0;$i < $forumscount;$i++) {
-        if ($xfourmrow[$i][id] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
-        if ($xfourmrow[$i][id] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
-        if ($xfourmrow[$i][id] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
+        if ($xfourmrow[$i]['id'] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
+        if ($xfourmrow[$i]['id'] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
+        if ($xfourmrow[$i]['id'] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
     } 
     if ($login_status == 1 && $check_user == 0 && $adminlist != "") {
         $arrayal = explode("|", $adminlist);

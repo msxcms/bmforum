@@ -229,11 +229,13 @@ function navi_bar($des = "", $l2 = "", $l3 = "", $echorefresh = "yes", $nolimit 
     $barpic = "";
     $space = "";
     if (empty($des)) global $des;
-    $count = count($snavi_bar);
+    if(is_array($snavi_bar)){
+    	$count = count($snavi_bar);
+    }
     $cachehtml = $pgo[4] . $space . $closepic . "";
     if ($l3) $l2pic = $closepic;
     else $l2pic = $openpic;
-    if ($navimode == newmode) {
+    if ($navimode == 'newmode') {
         for ($i = 0; $i < $count; $i++) {
             $cachehtml .= $space . $barpic . $openpic;
             if (!empty($snavi_bar_url[$i])) $cachehtml .=  "<a href=\"$snavi_bar_url[$i]\">$snavi_bar[$i]</a>";
@@ -580,7 +582,7 @@ function getUserLevel($amount, $score, $username, $usertype = "")
     $level_id = 0;
     
     $usertype = explode("|", $usergroupdata[$usertype]);
-    $user_level = $mtitle[a0];
+    $user_level = $mtitle['a0'];
     
     if ($level_score_mode == 1) $amount = $score / 10;
     elseif ($level_score_mode == 2) {
@@ -611,7 +613,7 @@ function getUserIcon($amount, $score, $username, $usertype = "")
 	include_once("datafile/usertitle.php");
 
     $usertype = explode("|", $usergroupdata[$usertype]);
-    $usericon = $mgraphic[a0];
+    $usericon = $mgraphic['a0'];
     
     if ($level_score_mode == 1) $amount = $score / 10;
     elseif ($level_score_mode == 2) {
@@ -1081,7 +1083,7 @@ function get_add_date($datetime)
 function getfulldate($datetime)
 {
     global $minoffset, $time_1, $time_f;
-    $datetime = $datetime + ($time_1 * 60 * 60);
+    $datetime = intval($datetime) + intval($time_1 * 60 * 60);
 	eval(load_hook('int_global_getfulldate'));
     return gmdate("$time_f H:i", $datetime);
 } 
@@ -1089,7 +1091,7 @@ function getfulldate($datetime)
 function get_time($datetime)
 {
     global $minoffset, $time_1;
-    $datetime = $datetime + ($time_1 * 60 * 60);
+    $datetime = intval($datetime) + intval($time_1 * 60 * 60);
 	eval(load_hook('int_global_get_time'));
     return gmdate("H:i", $datetime);
 } 
@@ -1097,7 +1099,7 @@ function get_time($datetime)
 function get_date($datetime)
 {
     global $minoffset, $time_1, $time_f;
-    $datetime = $datetime + ($time_1 * 60 * 60);
+    $datetime = intval($datetime) + intval($time_1 * 60 * 60);
 	eval(load_hook('int_global_get_date'));
     return gmdate("$time_f", $datetime);
 } 
@@ -1382,7 +1384,7 @@ function refresh_forumcach($type = "forumdata", $lname = "sxfourmrow", $cn = "fo
         $xfourmrow[] = $fourmrow;
     } 
     $wrting = "<?php \n";
-    $count = count($xfourmrow);
+    if(is_array($xfourmrow)) $count = count($xfourmrow);
     for ($i = 0; $i < $count; $i++) {
         $tmp = $xfourmrow[$i];
         foreach ($tmp as $key => $value) {

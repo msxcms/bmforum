@@ -236,20 +236,22 @@ if ($bbs_news && $page == 1) {
         $announcelist = file("datafile/announcement{$forumid}.php");
     } 
    	eval(load_hook('int_forums_bbs_news'));
-    $count = count($announcelist);
-    for ($i = 1;$i < $count;$i++) {
-        if ($i >= $set_forinfo) break;
-        $ic = $i + 1;
-        list($aauthor, $atitle, $atime, $acontent, $amember) = explode("|", $announcelist[$i]);
-        $almdtime = get_date($atime) . ' ' . get_time($atime);
-        $salmdtime = get_date($atime);
-        $size_gg = utf8_strlen($acontent);
-        $ag = $timestamp - $atime;
-        $announceurl = 'announcesys.php?forumid=' . $forumid . '&amp;job=read&amp;msg=' . $i;
-        $bbs_news_loop[] = array("announceurl" => $announceurl, "topic_name" => $atitle, "title" => $atitle, "almdtime" => $almdtime, "topic_author" => $aauthor, "salmdtime" => $salmdtime);
-        $hereis_top = 1;
-    } 
-} 
+	if(is_array($announcelist)){
+	$count = count($announcelist);
+		for ($i = 1;$i < $count;$i++) {
+			if ($i >= $set_forinfo) break;
+			$ic = $i + 1;
+			list($aauthor, $atitle, $atime, $acontent, $amember) = explode("|", $announcelist[$i]);
+			$almdtime = get_date($atime) . ' ' . get_time($atime);
+			$salmdtime = get_date($atime);
+			$size_gg = utf8_strlen($acontent);
+			$ag = $timestamp - $atime;
+			$announceurl = 'announcesys.php?forumid=' . $forumid . '&amp;job=read&amp;msg=' . $i;
+			$bbs_news_loop[] = array("announceurl" => $announceurl, "topic_name" => $atitle, "title" => $atitle, "almdtime" => $almdtime, "topic_author" => $aauthor, "salmdtime" => $salmdtime);
+			$hereis_top = 1;
+		}
+	}
+}
 
 // ===================================
 // Forum Admin list
@@ -357,7 +359,7 @@ if ($jinhua != "" || $trash == "trash") {
         if ($page > $maxpageno) $page = $maxpageno;
         $pagemin = min(($page-1) * $perpage , $count-1);
         $pagemax = min($pagemin + $perpage-1, $count-1);
-        $coutop = count($filenametop);
+        if(is_array($filenametop)) $coutop = count($filenametop);
         for ($i = 0; $i < $perpage; $i++) {
             if ($showto[$i]['tid'] != "") {
             	$snputed = 1;

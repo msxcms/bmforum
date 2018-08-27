@@ -67,11 +67,11 @@ if ($action == "digg")
 	$add_sql = $add_sql_2 = "";
 	
     for($i = 0;$i < $forumscount;$i++) {
-        if (!($bmfopt['hidebyug'] && !check_forum_permission(0, 1, $sxfourmrow[$i])) && $sxfourmrow[$i][type] != "category" && check_permission($username, $sxfourmrow[$i][type]) && !$sxfourmrow[$i][forumpass] && $sxfourmrow[$i][forumpass] <> "d41d8cd98f00b204e9800998ecf8427e") {
-            $forumnum["{$sxfourmrow[$i][id]}"] = $sxfourmrow[$i][bbsname];
+        if (!($bmfopt['hidebyug'] && !check_forum_permission(0, 1, $sxfourmrow[$i])) && $sxfourmrow[$i]['type'] != "category" && check_permission($username, $sxfourmrow[$i]['type']) && !$sxfourmrow[$i]['forumpass'] && $sxfourmrow[$i]['forumpass'] <> "d41d8cd98f00b204e9800998ecf8427e") {
+            $forumnum["{$sxfourmrow[$i]['id']}"] = $sxfourmrow[$i]['bbsname'];
         } else {
-            if ($sxfourmrow[$i][type] != "category" && $countbyself != 1) $countbyself = 1;
-            $add_sql .= " AND forumid!='{$sxfourmrow[$i][id]}'";
+            if ($sxfourmrow[$i]['type'] != "category" && $countbyself != 1) $countbyself = 1;
+            $add_sql .= " AND forumid!='{$sxfourmrow[$i]['id']}'";
         } 
     } 
 
@@ -223,7 +223,7 @@ function articlelist($row)
     } elseif ($topic_type >= 3) {
         $stats = "<img border='0' src='$otherimages/system/holdtopic.gif' alt=\"\" />";
     } else {
-        if ($username != $row[author]) {
+        if ($username != $row['author']) {
             $stats = "<img border='0' src='$otherimages/system/topicnew.gif' alt=\"\" />";
             if ($reply >= 10) $stats = "<img border='0' src='$otherimages/system/topichot.gif' alt=\"\" />";
             if ($topic_islock == 1 || $topic_islock == 3) $stats = "<img border='0' src='$otherimages/system/topiclocked.gif' alt=\"\" />";
@@ -282,7 +282,7 @@ function articlelist($row)
     if ($topic_islock == 2 || $topic_islock == 3) $title .= "  <img src=\"$otherimages/system/jhinfo.gif\" alt=\"\" />";
 
     $lmdtime_tmp = getfulldate($lmd[2]);
-    $cmdtime_tmp = get_date($row[time]);
+    $cmdtime_tmp = get_date($row['time']);
     if ($time_2) {
         $timetmp_a = $timestamp - $lmd[2];
         $lmdtime = get_add_date($timetmp_a);

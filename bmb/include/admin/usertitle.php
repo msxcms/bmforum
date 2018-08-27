@@ -159,9 +159,9 @@ EOT;
     for($i = 0;$i < $countmtitle;$i++) {
         if ($_POST['mtitle']["a{$i}"]) {
             $filecontent .= "
-\$mpostmark[a$thisi]	=	'" . $_POST['mpostmark']["a{$i}"] . "';
-\$mtitle[a$thisi]	=	'" . $_POST['mtitle']["a{$i}"] . "';
-\$mgraphic[a$thisi]	=	'" . $_POST['mgraphic']["a{$i}"] . "';
+\$mpostmark['a$thisi']	=	'" . $_POST['mpostmark']["a{$i}"] . "';
+\$mtitle['a$thisi']	=	'" . $_POST['mtitle']["a{$i}"] . "';
+\$mgraphic['a$thisi']	=	'" . $_POST['mgraphic']["a{$i}"] . "';
 ";
             $thisi++;
             $lastname = $_POST['mtitle']["a{$i}"];

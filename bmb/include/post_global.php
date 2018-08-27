@@ -20,9 +20,9 @@ $forum_admin_1 = $notrashlimit = $block_posts = "";
 
 $xfourmrow = $sxfourmrow;
 for($i = 0;$i < $forumscount;$i++) {
-    if ($xfourmrow[$i][id] == $forumid) $forum_admin_1 .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $forum_cid) $forum_admin_1 .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $forum_upid) $forum_admin_1 .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forumid) $forum_admin_1 .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_cid) $forum_admin_1 .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_upid) $forum_admin_1 .= $xfourmrow[$i]['adminlist'];
 } 
 
 $forum_admin = explode("|", $forum_admin_1);

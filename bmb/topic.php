@@ -111,12 +111,12 @@ if (file_exists('datafile/postads.php')) {
 // ===================================
 $xfourmrow = $sxfourmrow;
 for($i = 0;$i < $forumscount;$i++) {
-    if ($xfourmrow[$i][id] == $row[forumid]) {
-        $bbsname = $xfourmrow[$i][bbsname];
+    if ($xfourmrow[$i]['id'] == $row['forumid']) {
+        $bbsname = $xfourmrow[$i]['bbsname'];
         $adminlist .= $xfourmrow[$i]['adminlist'];
     } 
-    if ($xfourmrow[$i][id] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
 } 
 
 
@@ -149,7 +149,7 @@ if ($checktrash == "yes" && $view_recybin != "1") {
 // =================================
 // GET LAEST THREAD
 // ===================================
-if ($getlastpost == yes) {
+if ($getlastpost == 'yes') {
 	eval(load_hook('int_topic_getlastpost'));
     $query = "SELECT COUNT(*) FROM {$database_up}threads WHERE tid='$ct' AND ttrash!='1' AND forumid!='$forumid' LIMIT 0,1";
     $result = bmbdb_query($query, 0);
@@ -311,7 +311,7 @@ if ($ajax_display != 1) {
     // ===================================
     // Nav Bar.
     // ===================================
-    $navimode = newmode;
+    $navimode = 'newmode';
     
     $prefix_file = ($bmfopt['rewrite'] && !$url_extra) ? "forums_" : "forums.php?forumid=";
     
