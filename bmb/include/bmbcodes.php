@@ -345,7 +345,10 @@ function bmbconvert($post, $allow = array('pic' => 1, 'flash' => 1, 'fontsize' =
 	eval(load_hook('int_bmbcodes_custom'));
 	@include_once("datafile/cache/epsiplist.php");
     if ($allow['bmfimg'] != 1 && !$somepostinfo[2]) {
-    	if (count($simlist) >= 1) {
+    if(is_array($simlist)){
+    	$count = count($simlist);
+    }
+    	if ($count >= 1) {
     		foreach($simlist as $emotcode=>$emotname)
     		{
     			$post = str_replace($emotcode, "<img src='images/face/emotpacks/$emotname' bmbemotion='$emotcode' />", $post);
@@ -360,7 +363,7 @@ function badwords($post, $forbid_check = 0)
 {
     global $includedbadwords, $badwordscount, $badwords, $bmfopt;
     
-    if (NOBADWORD != 1) {
+    if (!defined('NOBADWORD')) {
         if ($includedbadwords != 1) {
             if (file_exists("datafile/badwords.php")) {
                 include("datafile/badwords.php");

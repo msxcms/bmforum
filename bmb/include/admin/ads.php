@@ -47,9 +47,9 @@ if ($action != "process") {
     
     if (@file_exists($row_file)) {
         @include($row_file);
-        if ($row_show[showindex]) $javascript .= "<script type='text/javascript'>document.rowform.showindex.checked='checked';</script>";
-        if ($row_show[showforum]) $javascript .= "<script type='text/javascript'>document.rowform.showforum.checked='checked';</script>";
-        if ($row_show[showtopic]) $javascript .= "<script type='text/javascript'>document.rowform.showtopic.checked='checked';</script>";
+        if ($row_show['showindex']) $javascript .= "<script type='text/javascript'>document.rowform.showindex.checked='checked';</script>";
+        if ($row_show['showforum']) $javascript .= "<script type='text/javascript'>document.rowform.showforum.checked='checked';</script>";
+        if ($row_show['showtopic']) $javascript .= "<script type='text/javascript'>document.rowform.showtopic.checked='checked';</script>";
     } 
     
     $ads_row = htmlspecialchars($ads_row);

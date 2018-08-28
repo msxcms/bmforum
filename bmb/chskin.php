@@ -11,8 +11,8 @@
 require("datafile/config.php");
 require("getskin.php");
 @bmb_setcookie('lastpath', "abcsad.php");
-if ($fnew_skin == 1 && isset($_GET[skinname])) bmb_setcookie("bmbskin", $_GET[skinname]);
-if (isset($_GET[langname])) bmb_setcookie("userlanguage", $_GET[langname]);
+if ($fnew_skin == 1 && isset($_GET['skinname'])) bmb_setcookie("bmbskin", $_GET['skinname']);
+if (isset($_GET['langname'])) bmb_setcookie("userlanguage", $_GET['langname']);
 
 if ($_SERVER['HTTP_REFERER'] == "" || $_GET['goto'] == "demo") $_SERVER['HTTP_REFERER'] = "index.php";
 eval(load_hook('int_chskin_select'));

@@ -18,8 +18,8 @@ if ($porank_list == 0) {
 } 
 require("header.php");
 navi_bar("$gl[9]", "$gl[10]", "", "no");
-$topnum = $bmfopt[view_ranking] ? $bmfopt[view_ranking] : 15; //那个10代表前10，可以自己修改~
-$bmf_rank = "";
+$topnum = $bmfopt['view_ranking'] ? $bmfopt['view_ranking'] : 15; //那个10代表前10，可以自己修改~
+$bmf_rank = array();
 
 $query = "SELECT * FROM {$database_up}userlist ORDER BY `postamount` DESC  LIMIT 0,$topnum";
 $result = bmbdb_query($query);

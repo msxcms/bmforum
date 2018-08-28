@@ -20,7 +20,7 @@ $announceadmin = 0;
 $add_title = " > $ggl[3]";
 $msgg_max = 100; #系统记录的最大公告数目
 $pagesize = 10; #每页显示数目
-if ($job == "") $job = show;
+if ($job == "") $job = 'show';
 if (empty($forumid)) {
     if ($usertype[22] == "1" || $usertype[21] == "1") {
         $announceadmin = 1;
@@ -37,9 +37,9 @@ if (empty($forumid)) {
     // ######## 检测是否为管理员开始 ##########
     $xfourmrow = $sxfourmrow;
     for($i = 0;$i < $forumscount;$i++) {
-	    if ($xfourmrow[$i][id] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
-	    if ($xfourmrow[$i][id] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
-	    if ($xfourmrow[$i][id] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
+	    if ($xfourmrow[$i]['id'] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
+	    if ($xfourmrow[$i]['id'] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
+	    if ($xfourmrow[$i]['id'] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
     } 
     if ($login_status == 1 && $announceadmin == 0 && $adminlist != "") {
         $arrayal = explode("|", $adminlist);
@@ -86,7 +86,7 @@ if ($job == "read") {
         
         eval(load_hook('int_announce_before_read'));
         require ("header.php");
-        $navimode = newmode;
+        $navimode = 'newmode';
         if ($forumid) $snavi_bar[] = "<a href='forums.php?forumid=$forumid'>$forum_name</a>";
         $snavi_bar[] = "<a href='announcesys.php?forumid=$forumid'>$ggl[12]</a>";
         $snavi_bar[] = $ggl[6];
@@ -138,7 +138,7 @@ if ($job == "show") {
 	
 	eval(load_hook('int_announce_before_dp'));
     require("header.php");
-    $navimode = newmode;
+    $navimode = 'newmode';
     if ($forumid) $snavi_bar[] = "<a href='forums.php?forumid=$forumid'>$forum_name</a>";
     $snavi_bar[] = "<a href='announcesys.php?forumid=$forumid'>$ggl[12]</a>";
     $des = $ggl[11];

@@ -16,7 +16,7 @@ if ($useraccess != "1" || $admgroupdata[36] != "1") {
     adminlogin();
 } 
 
-if ($action == process) {
+if ($action == 'process') {
     $query = "TRUNCATE TABLE {$database_up}apclog";
     $result = bmbdb_query($query);
     $query = "INSERT into {$database_up}apclog (adminid,adminpwd,actionstatus,adminip,admintime,addtime) values ('$bmbadminid','$arr_ad_lng[32]','$arr_ad_lng[844]','$ip','$current_time','$timestamp')";

@@ -258,8 +258,7 @@ function update_count_forum($id)
     } 
     
     @include("datafile/cache/pin_thread.php");
-    
-    if (count($topthread) > 0)
+    if (is_array($topthread) && count($topthread) > 0)
     {
 	    foreach ($topthread as $key=>$value) {
 	    	$this_arr = substr($value, 0, -1);

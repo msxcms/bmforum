@@ -854,38 +854,38 @@ EOT;
     exit;
 } elseif ($action == "process") {
     // Process Form
-    if (!$setting[a9]) $setting[a9] = 0;
-    if (!$setting[a14]) $setting[a14] = 0;
-    if (!$setting[a15]) $setting[a15] = 0;
-    if (!$setting[a17]) $setting[a17] = 0;
-    if (!$setting[a21]) $setting[a21] = 0;
-    if (!$setting[a25]) $setting[a25] = 0;
-    if (!$setting[a26]) $setting[a26] = 0;
-    if (!$setting[a27]) $setting[a27] = 0;
-    if (!$setting[a28]) $setting[a28] = 0;
-    if (!$setting[a29]) $setting[a29] = 0;
-    if (!$setting[a30]) $setting[a30] = 0;
-    if (!$setting[a31]) $setting[a31] = 0;
-    if (!$setting[a35]) $setting[a35] = 0;
+    if (!$setting['a9']) $setting['a9'] = 0;
+    if (!$setting['a14']) $setting['a14'] = 0;
+    if (!$setting['a15']) $setting['a15'] = 0;
+    if (!$setting['a17']) $setting['a17'] = 0;
+    if (!$setting['a21']) $setting['a21'] = 0;
+    if (!$setting['a25']) $setting['a25'] = 0;
+    if (!$setting['a26']) $setting['a26'] = 0;
+    if (!$setting['a27']) $setting['a27'] = 0;
+    if (!$setting['a28']) $setting['a28'] = 0;
+    if (!$setting['a29']) $setting['a29'] = 0;
+    if (!$setting['a30']) $setting['a30'] = 0;
+    if (!$setting['a31']) $setting['a31'] = 0;
+    if (!$setting['a35']) $setting['a35'] = 0;
     
-    $setting[ft] = str_replace('\"', '"', $setting[ft]);
-    $setting[a2] = str_replace('\"', '"', $setting[a2]);
-    $setting[a41] = str_replace('\"', '"', $setting[a41]);
-    $setting[dt] = str_replace('\"', '"', $setting[dt]);
+    $setting['ft'] = str_replace('\"', '"', $setting['ft']);
+    $setting['a2'] = str_replace('\"', '"', $setting['a2']);
+    $setting['a41'] = str_replace('\"', '"', $setting['a41']);
+    $setting['dt'] = str_replace('\"', '"', $setting['dt']);
     $setting['tags_solid'] = strtolower(str_replace('\"', '"', $setting['tags_solid']));
-    $setting[ip_address] = str_replace('\"', '"', $setting[ip_address]);
+    $setting['ip_address'] = str_replace('\"', '"', $setting['ip_address']);
     
-    if (!$setting[a4]) {
-    	$setting[a4] = ($_SERVER['HTTPS'] ? "https://" : "http://").$_SERVER['HTTP_HOST'].(($_SERVER['SERVER_PORT'] != 443 && $_SERVER['SERVER_PORT'] != 80) ? ":".$_SERVER['SERVER_PORT'] : "").dirname($_SERVER['REQUEST_URI'])."/";
+    if (!$setting['a4']) {
+    	$setting['a4'] = ($_SERVER['HTTPS'] ? "https://" : "http://").$_SERVER['HTTP_HOST'].(($_SERVER['SERVER_PORT'] != 443 && $_SERVER['SERVER_PORT'] != 80) ? ":".$_SERVER['SERVER_PORT'] : "").dirname($_SERVER['REQUEST_URI'])."/";
     }
     
-    if (!$setting[a6]) {
-    	$setting[a6] = ($_SERVER['HTTPS'] ? "https://" : "http://").$_SERVER['HTTP_HOST'].(($_SERVER['SERVER_PORT'] != 443 && $_SERVER['SERVER_PORT'] != 80) ? ":".$_SERVER['SERVER_PORT'] : "").dirname($_SERVER['REQUEST_URI'])."/";
+    if (!$setting['a6']) {
+    	$setting['a6'] = ($_SERVER['HTTPS'] ? "https://" : "http://").$_SERVER['HTTP_HOST'].(($_SERVER['SERVER_PORT'] != 443 && $_SERVER['SERVER_PORT'] != 80) ? ":".$_SERVER['SERVER_PORT'] : "").dirname($_SERVER['REQUEST_URI'])."/";
     }
     
     $inviteallow = @implode(",", $inviteug);
 
-    $setting[a30] *= 60;
+    $setting['a30'] *= 60;
 
     $filecontent = "<?php
 define(\"CONFIGLOADED\", 1);
@@ -1028,16 +1028,16 @@ error_reporting(E_ALL ^ E_NOTICE);
 \$allow_ajax_reply='$setting[ajax_o]';
 \$allow_ajax_browse='$setting[ajax_b]';
 \$gd_auth='$setting[auen]';
-\$bmfopt[showsubforum]='$setting[fa5]';
+\$bmfopt['showsubforum']='$setting[fa5]';
 \$admin_idname='$setting[b1]';
-\$bmfopt[invite_type]='$setting[invite_type]';
+\$bmfopt['invite_type']='$setting[invite_type]';
 \$footer_copyright='$setting[ft]';
-\$bmfopt[view_newpost]='$setting[view_newpost]';
-\$bmfopt[view_ranking]='$setting[view_ranking]';
-\$bmfopt[ip_address]='$setting[ip_address]';
-\$bmfopt[return_opage]='$setting[return_opage]';
-\$bmfopt[hot_tags]='$setting[hot_tags]';
-\$bmfopt[tags_max_similar]='$setting[tags_max_similar]';
+\$bmfopt['view_newpost']='$setting[view_newpost]';
+\$bmfopt['view_ranking']='$setting[view_ranking]';
+\$bmfopt['ip_address']='$setting[ip_address]';
+\$bmfopt['return_opage']='$setting[return_opage]';
+\$bmfopt['hot_tags']='$setting[hot_tags]';
+\$bmfopt['tags_max_similar']='$setting[tags_max_similar]';
 \$bmfopt['rewrite']='$setting[rewrite]';
 \$bmfopt['hidebyug']='$setting[hidebyug]';
 \$bmfopt['block_keywords']='$setting[block_keywords]';
@@ -1073,6 +1073,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 \$bmfopt['oauth']['$providerId']['appSecret']='{$setting['oauth'][$providerId]['appSecret']}';";
 		}
 	}
+	if($bmfopt['oauth']){
 	foreach($bmfopt['oauth'] as $orgProviderId => $orgProvider) {
 		if(in_array($orgProviderId, $providerIdArr)) {
 			continue;
@@ -1081,7 +1082,8 @@ error_reporting(E_ALL ^ E_NOTICE);
 \$bmfopt['oauth']['$orgProviderId']['appKey']='{$bmfopt['oauth'][$orgProviderId]['appKey']}';
 \$bmfopt['oauth']['$orgProviderId']['appSecret']='{$bmfopt['oauth'][$orgProviderId]['appSecret']}';";
 	}
-    if ($setting[a34] && !file_exists("upload")) mkdir("upload", 0777);
+    }
+    if ($setting['a34'] && !file_exists("upload")) mkdir("upload", 0777);
     writetofile("datafile/config.php", $filecontent);
     
 	@include("datafile/cache/tags_topic.php");
@@ -1101,9 +1103,9 @@ error_reporting(E_ALL ^ E_NOTICE);
 $search_xml=
 '<?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
-<ShortName>'.$setting[a3].'</ShortName>
-<Description>'.$setting[a3].'</Description>
-<InputEncoding>UTF-8</InputEncoding><Url type="text/html" template="'.$setting[a4].'/search.php?keyword={searchTerms}&amp;method=or&amp;method1=1&amp;method2=120"/>
+<ShortName>'.$setting['a3'].'</ShortName>
+<Description>'.$setting['a3'].'</Description>
+<InputEncoding>UTF-8</InputEncoding><Url type="text/html" template="'.$setting['a4'].'/search.php?keyword={searchTerms}&amp;method=or&amp;method1=1&amp;method2=120"/>
 </OpenSearchDescription>
 ';
 	writetofile("datafile/cache/search.xml", $search_xml);

@@ -11,7 +11,7 @@ $errc[5]="您必须到达{$logon_post_second}秒才可以发帖，您现在离�
 $errc[6]="状态：对不起，资料错误，您无法登录，请检查您的数据";
 $errc[7]="客人：对不起，此用户是已注册用户，不可使用";
 $errc[8]="你没有权利在此版块发贴，如果有问题请向管理员咨询";
-$errc[ab9]="回收站内不能发帖。";
+$errc['ab9']="回收站内不能发帖。";
 $errc[9]="发帖时发生了错误，详情：";
 $errc[10]="返回前一页";
 $errc[11]="您必须在注册 $reg_posting 小时之后才可以发表文章.";
@@ -42,10 +42,10 @@ $send_HTML_mail_lng[4]="你有回复~~~";
 $login_user[0]="你的用户名：";
 $login_user[1]="你的密码：";
 $login_user[2]="忘了密码?";
-$print_form[G1]="<strong>随意贴(Tags)：</strong>";
-$print_form[G2]="随意贴是针对主题的描述性的关键词，这将把您的主题放置到您希望的分类中，用空格隔开关键词。";
-$print_form[G3]="<a href='plugins.php?p=tags' target=_blank>[ 查看当前的随意贴(Tags)列表 ]</a>";
-$print_form[G4]="最大随意贴数: ";
-$print_form[tags]="您必须设置一个随意贴(Tags)";
+$print_form['G1']="<strong>随意贴(Tags)：</strong>";
+$print_form['G2']="随意贴是针对主题的描述性的关键词，这将把您的主题放置到您希望的分类中，用空格隔开关键词。";
+$print_form['G3']="<a href='plugins.php?p=tags' target=_blank>[ 查看当前的随意贴(Tags)列表 ]</a>";
+$print_form['G4']="最大随意贴数: ";
+$print_form['tags']="您必须设置一个随意贴(Tags)";
 
 ?>

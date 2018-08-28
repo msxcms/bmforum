@@ -143,10 +143,10 @@ function article_line($a_info)
     global $atrlistat, $hereis_top, $topinfooutput, $baninfooutput, $bmfopt, $page, $allow_ajax_reply, $hasatopic, $fastmanage, $allinfooutput, $emotrand, $forum_cid, $quinfooutput, $database_up, $atrlistt, $atrlistvt, $forumid, $time_2, $filetopn, $forum_mang_t, $coninfo, $forum_cid, $listfilename, $username, $read_perpage, $timestamp, $login_status, $forum_admin, $admin_name, $idpath, $otherimages, $usertype;
     // list($title,$author,$date,$des,$icon,$filename,$reply,$hit,$last_mod_data,$islock,$topic_type)=explode("|",$a_info);
     $hasatopic = 1; // Check topics
-    $filename = $a_info[id];
-    $reply = $a_info[replys];
-    $topic_type = trim($a_info[type]);
-    $topic_islock = trim($a_info[islock]);
+    $filename = $a_info['id'];
+    $reply = $a_info['replys'];
+    $topic_type = trim($a_info['type']);
+    $topic_islock = trim($a_info['islock']);
     if ($a_info['addinfo']) {
         list($moveinfo, $isjztitle) = explode("|", $a_info['addinfo']);
         list($isjztitle, $isjzcolor, $jiacu, $shanchu, $xiahuau, $xietii, $bgcolorcode, $fontsize) = explode(",", $isjztitle);
@@ -181,9 +181,9 @@ function article_line($a_info)
 //            else $toplangg .= "<a href='misc.php?p=manage5&amp;action=cancel&amp;filename=$filename'>$forum_mang_t[12]</a>|";
 //        } 
 //    } 
-    if (utf8_strlen($a_info[author]) >= 12) $viewauthor = substrfor($a_info[author], 0, 9) . '...';
-    else $viewauthor = $a_info[author];
-    $icon = $a_info[face];
+    if (utf8_strlen($a_info['author']) >= 12) $viewauthor = substrfor($a_info['author'], 0, 9) . '...';
+    else $viewauthor = $a_info['author'];
+    $icon = $a_info['face'];
 
 //    if ($topic_type == 1) {
 //        $stats = "<img src='$otherimages/system/statistic.gif' border='0' alt='' />";
@@ -208,8 +208,8 @@ function article_line($a_info)
         $multipage = (($bmfopt['rewrite'] && $filetopn == "topic.php") ? "topic_{$filename}_{page}" : "$filetopn?forumid=$forumid&amp;filename=$filename&amp;page={page}&amp;extra=page%3D$page");
     } 
     // /
-    $titlelong = stripslashes($a_info[title]);
-    $title = stripslashes($a_info[title]);
+    $titlelong = stripslashes($a_info['title']);
+    $title = stripslashes($a_info['title']);
 
     if ($allow_ajax_reply && $login_status == 1 && ($username == $a_info["author"] || ($forum_admin && in_array($username, $forum_admin)) || $usertype[22] == "1" || $usertype[21] == "1")) {
         $ajaxscript = true;
@@ -244,14 +244,14 @@ function article_line($a_info)
     $g = $timestamp - $lmd[2];
     $lmdauthor = urlencode($lmd[1]);
     $lmdtime_tmp = get_date($lmd[2]) . ' ' . get_time($lmd[2]);
-    $cmdtime_tmp = get_date($a_info[time]);
+    $cmdtime_tmp = get_date($a_info['time']);
     if ($time_2) {
         $timetmp_a = $timestamp - $lmd[2];
         $timetoshow = get_add_date($timetmp_a);
         if ($timetoshow == "getfulldate") {
             $timetoshow = $lmdtime_tmp;
         } 
-        $timedmp_b = $timestamp - $a_info[time];
+        $timedmp_b = $timestamp - $a_info['time'];
         $aimetoshow = get_add_date($timedmp_b);
         if ($aimetoshow == "getfulldate") {
             $aimetoshow = $cmdtime_tmp;
@@ -260,8 +260,8 @@ function article_line($a_info)
         $timetoshow = $lmdtime_tmp;
         $aimetoshow = $cmdtime_tmp;
     } 
-    $hit = $a_info[hits];
-    $urlauthor = urlencode($a_info[author]);
+    $hit = $a_info['hits'];
+    $urlauthor = urlencode($a_info['author']);
 
 //    if ($a_info['toptype'] == 9) {
 //        $stats = "<img src='$otherimages/announce.gif' border='0' alt=''/>";

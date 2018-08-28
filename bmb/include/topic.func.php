@@ -63,24 +63,24 @@ function view_user_info($author, $getuserinfo)
         }
     } 
 
-    list($oicq, $msn, $icq) = explode('※', $getuserinfo[qqmsnicq]);
-    $author_point = $getuserinfo[point];
+    list($oicq, $msn, $icq) = explode('※', $getuserinfo['qqmsnicq']);
+    $author_point = $getuserinfo['point'];
     $getuserinfo['bym'] = floor($author_point / 10);
 
-    $getuserinfo['r_userlevel'] = getUserLevel($getuserinfo[postamount], $getuserinfo['point'], $author, $getuserinfo[ugnum]);
-    $getuserinfo['r_userIcon'] = getUserIcon($getuserinfo[postamount], $getuserinfo['point'], $author, $getuserinfo[ugnum]);
+    $getuserinfo['r_userlevel'] = getUserLevel($getuserinfo['postamount'], $getuserinfo['point'], $author, $getuserinfo['ugnum']);
+    $getuserinfo['r_userIcon'] = getUserIcon($getuserinfo['postamount'], $getuserinfo['point'], $author, $getuserinfo['ugnum']);
 
     $author_type = $usertype = getLevelGroup($getuserinfo['ugnum'], $usergroupdata, $forumid, $getuserinfo['postamount'], $getuserinfo['point'], $level_id);
     list(, , , , , , , , , $bmfcode_sign['pic'], $bmfcode_sign['flash'], $bmfcode_sign['fontsize'], , , , , , , $swf, , , , , , , ,$html_codeinfo , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , $bmfcode_post['pic'], $bmfcode_post['reply'], $bmfcode_post['jifen'], $bmfcode_post['sell'], $bmfcode_post['flash'], $bmfcode_post['mpeg'], $bmfcode_post['iframe'], $bmfcode_post['fontsize'], $bmfcode_post['hpost'], $bmfcode_post['hmoney']) = $usertype;
     $bmfcode_sign['table'] = $bmfcode_post['table'] = $author_type[115];
 
     if ($infopics && !empty($usertype[23])) $userpic = "<img alt='{$usertype[0]}$unreguser[3]' src='$otherimages/system/{$usertype[23]}' />&nbsp;";
-    list($regdate, $regip) = explode("_", $getuserinfo[regdate]);
+    list($regdate, $regip) = explode("_", $getuserinfo['regdate']);
     $getuserinfo['rr_usericon'] = get_user_portait($getuserinfo['avarts'], true, $getuserinfo['mailadd']);
 
 
 
-    list($y, $m, $d) = explode("-", $getuserinfo[birthday]);
+    list($y, $m, $d) = explode("-", $getuserinfo['birthday']);
 
     if ($getuserinfo['fromwhere'] == "") $getuserinfo['fromwhere'] = $unreguser[7];
 
@@ -89,9 +89,9 @@ function view_user_info($author, $getuserinfo)
 	        $starname = astrology($m, $d);
 	        $starname .= "&nbsp;";
 	    } 
-	    if ($getuserinfo[sex] == "Male") {
+	    if ($getuserinfo['sex'] == "Male") {
 	        $seximages = "&nbsp;<img src='$otherimages/system/mal.gif' width='20' alt='$unreguser[8]' />";
-	    } elseif ($getuserinfo[sex] == "Female") {
+	    } elseif ($getuserinfo['sex'] == "Female") {
 	        $seximages = "&nbsp;<img src='$otherimages/system/fem.gif' width='20' alt='$unreguser[9]' />";
 	    } else {
 	        $seximages = "";
@@ -104,7 +104,7 @@ function view_user_info($author, $getuserinfo)
     if (!$getuserinfo['postamount']) $getuserinfo['postamount'] = 0;
     if (!$getuserinfo['digestmount']) $getuserinfo['digestmount'] = 0;
     if (!$getuserinfo['money']) $getuserinfo['money'] = "0";
-    $getuserinfo['national'] = nationalget($getuserinfo[national]);
+    $getuserinfo['national'] = nationalget($getuserinfo['national']);
     if ($infopics) $getuserinfo['sureget'] = "$unreguser[10]{$starname}{$shengxiao}$userpic$check_on$seximages<br />";
 	
     if ($getuserinfo['homepage']) {
@@ -112,9 +112,9 @@ function view_user_info($author, $getuserinfo)
     }
     
     if ($regdate) $getuserinfo['regdate']= get_date($regdate);
-    
-	$count_rc = count($reg_c);
-	
+	if(is_array($reg_c)){
+		$count_rc = count($reg_c);
+	}
 	if ($count_rc > 0 && $line['baoliu2']) {
 		for($sr = 0;$sr < $count_rc; $sr++){
 			$detail = explode("|", $reg_c[$sr]);
@@ -149,7 +149,7 @@ function view_user_info($author, $getuserinfo)
 
     eval(load_hook('int_topic_profile'));
 
-    return array($print_info, $post_list, $bmfcode_sign, $bmfcode_post, $getuserinfo[signtext]);
+    return array($print_info, $post_list, $bmfcode_sign, $bmfcode_post, $getuserinfo['signtext']);
 } 
 // ===================================
 // Polls
@@ -414,18 +414,18 @@ $row, $usertype, $view_recybin, $recy_allow_ww, $del_self_post, $allow_ajax_repl
         // Vars.
         // ===================================
 
-        $title = stripslashes($line[articletitle]);
-        $author = $line[username];
-        $content = $line[articlecontent];
-        $time = $line[timestamp];
-        $aaa = $line[ip];
-        $icon = $line[usericon];
-        $usesign = $line[options];
-        $bym = $line[other1];
-        $bymuser = $line[other2];
-        $uploadfilename = $line[other3];
-        $editinfo = $line[other4];
-        $sellmoney = $line[other5];
+        $title = stripslashes($line['articletitle']);
+        $author = $line['username'];
+        $content = $line['articlecontent'];
+        $time = $line['timestamp'];
+        $aaa = $line['ip'];
+        $icon = $line['usericon'];
+        $usesign = $line['options'];
+        $bym = $line['other1'];
+        $bymuser = $line['other2'];
+        $uploadfilename = $line['other3'];
+        $editinfo = $line['other4'];
+        $sellmoney = $line['other5'];
         
         // ===================================
         // Check Attachments' Permission

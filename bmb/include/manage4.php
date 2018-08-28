@@ -45,10 +45,10 @@ get_forum_info("");
 
 $xfourmrow = $sxfourmrow;
 for($i = 0;$i < $forumscount;$i++) {
-    if ($xfourmrow[$i][id] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $destforum) $newforumname = $xfourmrow[$i]['bbsname'];
+    if ($xfourmrow[$i]['id'] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $destforum) $newforumname = $xfourmrow[$i]['bbsname'];
 } 
 
 if ($login_status == 1 && $nline['author'] == $username && $del_self_topic == 1 && $action == "del") $check_user = 1;
@@ -449,7 +449,7 @@ if ($action == "del") {
         $nquery = "SELECT * FROM {$database_up}forumdata WHERE type!='category' ORDER BY `showorder` ASC";
         $nresult = bmbdb_query($nquery);
         while (false !== ($fourmrow = bmbdb_fetch_array($nresult))) {
-            $content .= "<option value={$fourmrow[id]}>{$fourmrow[bbsname]}</option>";
+            $content .= "<option value={$fourmrow['id']}>{$fourmrow['bbsname']}</option>";
         } 
         $content .= "</select><br />$selectreason";
 
@@ -612,19 +612,19 @@ function article_line($a_info)
     $quinfooutput = "";
     $allinfooutput = "";
     $filetopn = "topic.php";
-    $filename = $a_info[id];
-    $reply = $a_info[replys];
+    $filename = $a_info['id'];
+    $reply = $a_info['replys'];
     $totalre = $totalre + $reply;
-    $topic_type = trim($a_info[type]);
-    $topic_islock = trim($a_info[islock]);
+    $topic_type = trim($a_info['type']);
+    $topic_islock = trim($a_info['islock']);
     if ($a_info['addinfo']) {
         list($moveinfo, $isjztitle) = explode("|", $a_info['addinfo']);
         list($isjztitle, $isjzcolor, $jiacu, $shanchu, $xiahuau, $xietii) = explode(",", $isjztitle);
         $moveinfo = "<strong><span class='jiazhongcolor'>$moveinfo</span></strong>";
     } 
     // ///
-    if (utf8_strlen($a_info[author]) >= 12) $viewauthor = substrfor($a_info[author], 0, 9) . '...';
-    else $viewauthor = $a_info[author];
+    if (utf8_strlen($a_info['author']) >= 12) $viewauthor = substrfor($a_info['author'], 0, 9) . '...';
+    else $viewauthor = $a_info['author'];
     if ($topic_type == 1) {
         $stats = "<img border='0' src='$otherimages/system/statistic.gif' alt='' />";
         if ($topic_islock == 1 || $topic_islock == 3) $stats = "<img border='0' src='$otherimages/system/closesta.gif' alt='' />";
@@ -634,7 +634,7 @@ function article_line($a_info)
     } elseif ($topic_type >= 3) {
         $stats = "<img border='0' src='$otherimages/system/holdtopic.gif' alt='' />";
     } else {
-        if ($username != $a_info[author]) {
+        if ($username != $a_info['author']) {
             $stats = "<img border='0' src='$otherimages/system/topicnew.gif' alt='' />";
             if ($reply >= 10) $stats = "<img border='0' src='$otherimages/system/topichot.gif' alt='' />";
             if ($topic_islock == 2) $stats = "<img border='0' src='$otherimages/system/topcool.gif' alt='' />";
@@ -646,28 +646,28 @@ function article_line($a_info)
         } 
     } 
 
-    $titlelong = stripslashes($a_info[title]);
-    $title = stripslashes($a_info[title]);
+    $titlelong = stripslashes($a_info['title']);
+    $title = stripslashes($a_info['title']);
     
     if ($a_info['other3']) $title = '<img src="images/attach/attach.gif" border="0" alt="" />' . $title;
 
 
-    if (!empty($a_info[newdesc])) $desshow = "\n$a_info[newdesc]";
+    if (!empty($a_info['newdesc'])) $desshow = "\n$a_info[newdesc]";
     $title = "<a href='$filetopn?filename=$filename' title='$coninfo[4]\n$titlelong$desshow'>$title</a>";
-    $lmd = explode(",", $a_info[lastreply]);
+    $lmd = explode(",", $a_info['lastreply']);
     $g = $timestamp - $lmd[2];
     if ($topic_islock == 2 || $topic_islock == 3) $title .= "  <img title=\"$forum_mang_t[17]\" src=\"$otherimages/system/jhinfo.gif\">";
     if ($lmd[2] == $date) $lmdauthor = "$forum_mang_t[18]";
     else $lmdauthor = "<a href=\"profile.php?job=show&target=" . urlencode($lmd[1]) . "\">$lmd[1]</a>";
     $lmdtime_tmp = get_date($lmd[2]) . ' ' . get_time($lmd[2]);
-    $cmdtime_tmp = get_date($a_info[time]);
+    $cmdtime_tmp = get_date($a_info['time']);
     if ($time_2) {
         $timetmp_a = $timestamp - $lmd[2];
         $timetoshow = get_add_date($timetmp_a);
         if ($timetoshow == "getfulldate") {
             $timetoshow = $lmdtime_tmp;
         } 
-        $timedmp_b = $timestamp - $a_info[time];
+        $timedmp_b = $timestamp - $a_info['time'];
         $aimetoshow = get_add_date($timedmp_b);
         if ($aimetoshow == "getfulldate") {
             $aimetoshow = $cmdtime_tmp;
@@ -676,8 +676,8 @@ function article_line($a_info)
         $timetoshow = $lmdtime_tmp;
         $aimetoshow = $cmdtime_tmp;
     } 
-    $hit = $a_info[hits];
-    $urlauthor = urlencode($a_info[author]);
+    $hit = $a_info['hits'];
+    $urlauthor = urlencode($a_info['author']);
 
     if ($a_info['toptype'] == 9) {
         $stats = "<img border='0' src='$otherimages/announce.gif' alt='' />";
@@ -694,7 +694,7 @@ function article_line($a_info)
         $allinfooutput .= $outputbs;
     } 
 
-    $icon = $a_info[face];
+    $icon = $a_info['face'];
 
     if (($icon == "ran" || $icon == "") && $emotrand == 1) {
         $icon = mt_rand(0, 52) . '.gif';

@@ -89,10 +89,10 @@ require("header.php");
 
 $add_sql = "";
 for($i = 0;$i < $forumscount;$i++) {
-    if (!(!check_forum_permission(0, 1, $sxfourmrow[$i])) && $sxfourmrow[$i][type] != "category" && check_permission($username, $sxfourmrow[$i][type]) && !$sxfourmrow[$i][forumpass] && $sxfourmrow[$i][forumpass] <> "d41d8cd98f00b204e9800998ecf8427e") {
-        $forumnum["{$sxfourmrow[$i][id]}"] = $sxfourmrow[$i][bbsname];
+    if (!(!check_forum_permission(0, 1, $sxfourmrow[$i])) && $sxfourmrow[$i]['type'] != "category" && check_permission($username, $sxfourmrow[$i]['type']) && !$sxfourmrow[$i]['forumpass'] && $sxfourmrow[$i]['forumpass'] <> "d41d8cd98f00b204e9800998ecf8427e") {
+        $forumnum["{$sxfourmrow[$i]['id']}"] = $sxfourmrow[$i]['bbsname'];
     } else {
-        $add_sql .= ",'{$sxfourmrow[$i][id]}'";
+        $add_sql .= ",'{$sxfourmrow[$i]['id']}'";
     } 
 } 
 if ($add_sql != "") $add_sql = "and !(t.forumid in('xxxxx'" . $add_sql ."))";

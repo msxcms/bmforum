@@ -44,9 +44,9 @@ $author = $nline['username'];
 
 if ($login_status == 1 && $author == $username && $del_self_post == 1 && $action == "del") $check_user = 1;
 if ($usertype[22] == "1" || $usertype[21] == "1") $check_user = 1;
-if ($uptop_true != "1" && $action == btfront) $check_user = 0;
-if ($ttop_true != "1" && ($action == holdfront || $action == unhold)) $check_user = 0;
-if ($del_self_post != "1" && $action == del && $nline['username'] != $username) $check_user = 0;
+if ($uptop_true != "1" && $action == 'btfront') $check_user = 0;
+if ($ttop_true != "1" && ($action == 'holdfront' || $action == 'unhold')) $check_user = 0;
+if ($del_self_post != "1" && $action == 'del' && $nline['username'] != $username) $check_user = 0;
 if ($usertype[128] != "1" && $action == "recyclepost") $check_user = 0;
 if ($can_rec != "1" && $action == "recoverpost") $check_user = 0;
 if (!$del_rec && $action == "del" && $nline['posttrash'] == '1') $check_user = 0;
@@ -92,7 +92,9 @@ if ($step) {
 
     } elseif ($action == "recyclepost") {
         if ($article == "multi") {
-        	$count_tp = count($delpost);
+        	if(is_array($delpost)){
+        		$count_tp = count($delpost);
+        	}
         	if ($count_tp > 0) {
 				foreach($delpost as $key=>$value) {
 					$ids_r .= ",'".substr($key, 1)."'";
@@ -105,7 +107,9 @@ if ($step) {
 	    } 
     } elseif ($action == "recoverpost") {
         if ($article == "multi") {
-        	$count_tp = count($delpost);
+        	if(is_array($delpost)){
+        		$count_tp = count($delpost);
+        	}
         	if ($count_tp > 0) {
 				foreach($delpost as $key=>$value) {
 					$ids_r .= ",'".substr($key, 1)."'";

@@ -57,7 +57,7 @@ if ($action == "new" || $action == "reply" || $action == "quote") {
         $step = 0;
     } 
 } 
-if ($_COOKIE[can_visual_post] == cancel) $can_visual_post = 0;
+if ($_COOKIE['can_visual_post'] == 'cancel') $can_visual_post = 0;
 // ============================
 if ($usertype[120] == 1 && $allow_upload && $remote_upload) {
 	remote_upload($remote_upload, $remote_referer);
