@@ -1530,7 +1530,7 @@ function safe_upload_name($upload)
 	$upload = str_replace("(", "", $upload);
 	$upload = str_replace("'", "", $upload);
 	$upload = str_replace('"', "", $upload);
-	$upload = basename($upload);
+	//$upload = basename($upload);
 	$upload = htmlspecialchars($upload);
 	eval(load_hook('int_global_safe_upload_name'));
 	

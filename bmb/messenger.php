@@ -119,7 +119,7 @@ if ($job == "read") {
     $bcode_post['table'] = $u_t[115];
     $qbgcolor = "article_color2";
     $content = bmbconvert($row['prcontent'], $bmfcode_post);
-    if (empty($row[prtitle])) $row[prtitle] = "($gl[97])";
+    if (empty($row['prtitle'])) $row['prtitle'] = "($gl[97])";
     if (!empty($uploadfile)) {
         $attaches = "<br /><a href='upload/$uploadfile'>$gl[441]$uploadfile</a>";
     } 
@@ -174,7 +174,7 @@ if ($job == "receivebox") {
 	$query = "SELECT * FROM {$database_up}primsg WHERE stid='$userid' ORDER BY `prtime` DESC LIMIT {$startline},$perpage";
 	$result = bmbdb_query($query);
 
-	$bmf_pms = "";
+	$bmf_pms = array();
     $counts = 0;
     while (false !== ($row = bmbdb_fetch_array($result))) {
         $counts++;
@@ -208,7 +208,7 @@ if ($job == "sendbox") {
 
     $query = "SELECT * FROM {$database_up}primsg WHERE blid='$userid' AND prkeepsnd='1' ORDER BY `prtime` DESC LIMIT {$startline},$perpage";
     $result = bmbdb_query($query);
-	$bmf_pms = "";
+	$bmf_pms = array();
 
     $counts = 0;
     while (false !== ($row = bmbdb_fetch_array($result))) {
@@ -256,7 +256,7 @@ if ($job == "write") {
 
       	
         $prruser = explode(";", $pruser);
-        $ccount = count($prruser);
+        if(is_array($prruser)) $ccount = count($prruser);
         for ($i = 0; $i < $ccount; $i++) {
             $ruser = $prruser[$i];
             

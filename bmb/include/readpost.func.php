@@ -56,7 +56,7 @@ function similar_threads($tid, $ttag_ex, $is_article = 0)
 	
 	$max_similar_tags = $bmfopt["tags_max_similar"];
 	
-	$c_tags = count($ttag_ex);
+	if(is_array($ttag_ex)) $c_tags = count($ttag_ex);
 	if ($c_tags > 0 && $max_similar_tags > 0) {
 		
 		for ($i = 0; $i < $c_tags; $i++){

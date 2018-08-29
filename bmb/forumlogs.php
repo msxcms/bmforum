@@ -33,19 +33,21 @@ require("header.php");
 
 get_forum_info($xfourmrow);
 $up_id = $forum_upid;
-for($i = 0;$i < count($xfourmrow);$i++) {
-    if ($up_id == $xfourmrow[$i]['id']) {
-        $up_name = $xfourmrow[$i]['bbsname'];
-        break;
-    } 
-} 
+if(is_array($xfourmrow)){
+	for($i = 0;$i < count($xfourmrow);$i++) {
+	    if ($up_id == $xfourmrow[$i]['id']) {
+	        $up_name = $xfourmrow[$i]['bbsname'];
+	        break;
+	    }
+	}
+}
 if (empty($up_name)) {
-    $navimode = newmode;
+    $navimode = 'newmode';
     $des = $tip[10];
     $snavi_bar[0] = "<a href='forums.php?forumid=$forumid'>$forum_name</a>";
     navi_bar();
 } else {
-    $navimode = newmode;
+    $navimode = 'newmode';
     $des = $tip[10];
     $snavi_bar[0] = "<a href='forums.php?forumid=$up_id'>$up_name</a>";
     $snavi_bar[1] = "<a href='forums.php?forumid=$forumid'>$forum_name</a>";

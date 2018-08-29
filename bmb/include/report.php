@@ -21,15 +21,15 @@ if ($login_status == 0) {
 $result = bmbdb_query("SELECT * FROM {$database_up}threads WHERE tid='$filename' LIMIT 0,1");
 $row = bmbdb_fetch_array($result);
 $threadrow = $row;
-$forumid = $row[forumid];
+$forumid = $row['forumid'];
 tbuser();
 $xfourmrow = $sxfourmrow;
 if (!$row['tid']) exit;
 for($i = 0;$i < $forumscount;$i++) {
-    if ($xfourmrow[$i][id] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
-    if ($xfourmrow[$i][id] == $row[forumid]) $bbsname = $xfourmrow[$i][bbsname];
+    if ($xfourmrow[$i]['id'] == $forumid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_cid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $forum_upid) $adminlist .= $xfourmrow[$i]['adminlist'];
+    if ($xfourmrow[$i]['id'] == $row['forumid']) $bbsname = $xfourmrow[$i]['bbsname'];
 } 
 get_forum_info($xfourmrow);
 
@@ -61,18 +61,18 @@ for($i = 0;$i < count($xfourmrow);$i++) {
     } 
 } 
 
-$topic_name = $row[title];
-$topic_author = $row[author];
-$topic_content = $row[content];
-$topic_date = $row[time];
-$aaa = $row[ip];
-$icon = $row[usericon];
-$usesign = $row[options];
-$bym = $row[other1];
-$bymuser = $row[other2];
-$uploadfilename = $row[other3];
-$editinfo = $row[other4];
-$sellmoney = $row[other5];
+$topic_name = $row['title'];
+$topic_author = $row['author'];
+$topic_content = $row['content'];
+$topic_date = $row['time'];
+$aaa = $row['ip'];
+$icon = $row['usericon'];
+$usesign = $row['options'];
+$bym = $row['other1'];
+$bymuser = $row['other2'];
+$uploadfilename = $row['other3'];
+$editinfo = $row['other4'];
+$sellmoney = $row['other5'];
 
 $topic_date = getfulldate($topic_date);
 
@@ -88,7 +88,7 @@ if ($action == "submit" && $_POST['message']) {
 } else {
     $add_title = " &gt; $forum_name &gt; $topic_name";
     require_once("header.php");
-    $navimode = newmode;
+    $navimode = 'newmode';
     if (empty($up_name)) {
         $des = "$report[0]";
         $snavi_bar[0] = "<a href='forums.php?forumid=$forumid'>$forum_name</a>";

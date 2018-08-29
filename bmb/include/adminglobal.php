@@ -27,7 +27,7 @@ $table_start = "</tr></td></table></tr></td></table>
 $table_stop = "</td></tr><tr><td>";
 ////
 if (file_exists("install.php")) die($arr_ad_lng[27]);
-if (!empty($_POST[username])) {
+if (!empty($_POST['username'])) {
 	$authinput = strtoupper($authinput);
 	
 	if ($_SESSION["checkauthnum"] != $authinput && $log_va) {
@@ -39,8 +39,8 @@ if (!empty($_POST[username])) {
     if ($_SESSION["logintry"] > $maxlogintry-1 && isset($maxlogintry)) {
         echo $arr_ad_lng[28];
     } else {
-        $_SESSION["bmbadminid"] = $_POST[username];
-        $_SESSION["bmbadminpwd"] = md5(stripslashes($_POST[password]));
+        $_SESSION["bmbadminid"] = $_POST['username'];
+        $_SESSION["bmbadminpwd"] = md5(stripslashes($_POST['password']));
         echo "$arr_ad_lng[29]";
         echo "<form action=admin.php name=thispage id=thispage></form>
 		<script>

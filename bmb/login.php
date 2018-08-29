@@ -97,7 +97,7 @@ if ($job == "relogin") {
             $_SESSION["bmfUsrAuth"] = $_SESSION["bmfUsrId"] = "";
 
             if ($privacy != 1) $privacy = 0;
-            if ($TNM != yes) $TNM = 0;
+            if ($TNM != 'yes') $TNM = 0;
             if ($_POST['close_ajax'] != 1) $close_ajax = 0;
               else $close_ajax = 1;
             $login_status = 1;
