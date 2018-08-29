@@ -28,7 +28,7 @@ if ($step == "v") {
 	eval(load_hook('int_active_invite'));
 	if ($mod == "add" && $_POST['emailinv']){ 
 		$check = 1;
-        if ($bmfopt[invite_type] == 1) $userpoint = $usermoney;
+        if ($bmfopt['invite_type'] == 1) $userpoint = $usermoney;
 
 		$last_invite = bmbdb_fetch_array(bmbdb_query("SELECT datetime FROM {$database_up}invite WHERE inviter ='$userid' ORDER BY `datetime` DESC LIMIT 1"));
 		
@@ -46,7 +46,7 @@ if ($step == "v") {
         }
         
         if ($check) {
-            if ($bmfopt[invite_type] == 1) bmfwwz($userid, -$invit_del_point, 0, 0, 0, 0, 1);
+            if ($bmfopt['invite_type'] == 1) bmfwwz($userid, -$invit_del_point, 0, 0, 0, 0, 1);
                 else bmfwwz($userid, 0, -$invit_del_point * 10, 0, 0, 0, 1);
             
             include_once("include/sendmail.inc.php");
@@ -107,7 +107,7 @@ if ($step == "v") {
 	} else {
 		if ($bmfopt['inviteallow']) $inviteallow = explode(",", $bmfopt['inviteallow']);
 		if (@in_array($logonutnum, $inviteallow)) {
-            if ($bmfopt[invite_type] == 1) {
+            if ($bmfopt['invite_type'] == 1) {
                 $msg = $r_a[18];
                 $userpoint = $usermoney;
             } else $msg = $r_a[7];

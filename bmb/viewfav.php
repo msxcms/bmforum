@@ -115,7 +115,7 @@ eval(load_hook('int_viewfav_usercp'));
 require($template_name['usercp']);
 $template_name['viewfav'] = newtemplate("viewfav", $temfilename, $styleidcode, $lang_zone);
 
-$bmf_view = "";
+$bmf_view = array();
 
 if ($count % $perpage == 0) $fav_maxpageno = $count / $perpage;
 else $fav_maxpageno = floor($count / $perpage) + 1;

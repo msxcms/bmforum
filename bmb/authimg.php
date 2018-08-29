@@ -10,7 +10,7 @@
 */
 include("datafile/config.php");
 $tmpdir = getdate(time());
-$tmpdir = $tmpdir[year] . $tmpdir[yday];
+$tmpdir = $tmpdir['year'] . $tmpdir['yday'];
 if (!$sess_cust) {
     @session_save_path("tmp");
 } 
@@ -37,7 +37,7 @@ if ($gd_auth != 1) {
         9 => 'R0lGODlhCAANAJEAAAAAAP////4BAgAAACH5BAQUAP8ALAAAAAAIAA0AAAIVDA6hyJabnnISnsnybXdS73hcZlUFADs=',
         );
 
-    preg_match ("/([0-9]{1})([0-9]{1})([0-9]{1})([0-9]{1})([0-9]{1})/", $_SESSION[checkauthnum], $shownum);
+    preg_match ("/([0-9]{1})([0-9]{1})([0-9]{1})([0-9]{1})([0-9]{1})/", $_SESSION['checkauthnum'], $shownum);
     $showtmp = $shownum[$p];
     $echonum = base64_decode($numbers[$showtmp]);
     flush();

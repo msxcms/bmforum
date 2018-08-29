@@ -127,8 +127,7 @@ if ($action == "new") {
             } 
 			eval(load_hook('int_post_new_upload'));
             if ($check == 0) @unlink($FILE_URL[$ia]);
-        } 
-        
+        }
         if ($usertype[110] == 1 && !str_replace(" ", "", $tags)) {
             $check	= 0;
             $status	= $print_form[tags];
@@ -188,7 +187,7 @@ if ($action == "new") {
 
             $lm = $articletitle . "," . $username . "," . $timestamp;
 
-            $axsount = count($usergnshow);
+            if(is_array($usergnshow)) $axsount = count($usergnshow);
             if ($allow_forb_ub) {
                 for($axs = 0;$axs < $axsount;$axs++) $writetlist .= $usergnshow[$axs] . "§";
             } 
@@ -343,8 +342,10 @@ if ($action == "reply" || $action == "quote") {
             $status = $war[11];
             if ($mutilequote == "yes") {
             	$quotein = "";
-            	for($q = 0; $q < count($quotes); $q++) {
-            		$quotein .= $quotein ? ",'".$quotes[$q]."'" : "'".$quotes[$q]."'";
+            	if(is_array($quotes)){
+	            	for($q = 0; $q < count($quotes); $q++) {
+	            		$quotein .= $quotein ? ",'".$quotes[$q]."'" : "'".$quotes[$q]."'";
+	            	}
             	}
             	$quotein = $quotein ? $quotein : "'".$filename."'";
                 $aquery = "SELECT p.*,u.ugnum,u.postamount,u.point FROM {$database_up}posts p LEFT JOIN {$database_up}userlist u ON u.userid=p.usrid WHERE id in($quotein)";
@@ -354,7 +355,7 @@ if ($action == "reply" || $action == "quote") {
                     $f_content[$row['id']] = $row;
                     $_SESSION['notificationUserId'][] = $row['usrid'];
                 } 
-                $counsa = count($quotes);
+                if(is_array($quotes)) $counsa = count($quotes);
                 for($acs = 0;$acs < $counsa;$acs++) {
                     $tmpnum = $quotes[$acs];
                     if ($f_content[$quotes[$acs]]) {
@@ -517,7 +518,7 @@ if ($action == "reply" || $action == "quote") {
 
             $lm = ($articletitle ? $articletitle : $articletitle_reply). "," . $username . "," . $timestamp;
             
-            $axsount = count($usergnshow);
+            if(is_array($usergnshow)) $axsount = count($usergnshow);
             if ($allow_forb_ub) {
                 for($axs = 0;$axs < $axsount;$axs++) $writetlist .= $usergnshow[$axs] . "§";
             } 
@@ -660,7 +661,7 @@ if ($action == "modify") {
     $newoldupload = $other3;
     // ------Check if the user got the right to modify--------
     $check_user = 0;
-    $timeleft_edit = $timestamp - ($usertype[107] * 3600);
+    $timeleft_edit = $timestamp - intval($usertype[107]) * 3600;
     if ($login_status == 1 && (($usertype[107] == "" && $row['usrid'] == $userid) || $usertype[22] == "1" || $usertype[21] == "1" || ($forum_admin && in_array($username, $forum_admin)))) $check_user = 1;
     if ($login_status == 1 && $usertype[107] >= 0 && $usertype[107] != "" && $timeleft_edit <= $row['timestamp'] && $row['usrid'] == $userid && $usertype[22] != "1" && $usertype[21] != "1") $check_user = 1;
     if ($login_status == 1 && $row['usrid'] != $userid && $edit_true != "1") $check_user = 0;
@@ -807,7 +808,7 @@ if ($action == "modify") {
             if ($asbeg == 'yes') $articlecontent = "[beg]" . $articlecontent . "[/beg]";
 
 
-            $axsount = count($usergnshow);
+            if(is_array($usergnshow)) $axsount = count($usergnshow);
             if ($allow_forb_ub) {
                 for($axs = 0;$axs < $axsount;$axs++) $writetlist .= $usergnshow[$axs] . "§";
             } 

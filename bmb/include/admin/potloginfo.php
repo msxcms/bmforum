@@ -15,7 +15,7 @@ $thisprog = "potloginfo.php";
 if ($useraccess != "1" || $admgroupdata[37] != "1") {
     adminlogin();
 } 
-if ($action == process) {
+if ($action == 'process') {
     $query = "TRUNCATE TABLE {$database_up}potlog";
     $result = bmbdb_query($query);
     print"<tr><td bgcolor=#14568A valign=middle align=center colspan=1><font color=#F9FAFE>

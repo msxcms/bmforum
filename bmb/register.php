@@ -172,7 +172,7 @@ if ($login_status == 0 && $_POST['step'] == 2) {
         $check = 0;
     } 
     $authnum = $gd_auth ? getCode(4,1) : rand(10000, 99999);
-    $_SESSION[checkauthnum] = $authnum;
+    $_SESSION['checkauthnum'] = $authnum;
     if ($check && !preg_match("/^[0-9]{0,}$/", $qqnumber)) {
         $reason = "$reglang[19]";
         $check = 0;
@@ -282,29 +282,29 @@ if ($login_status == 0 && $_POST['step'] == 2) {
     $homepage = $homepage;
     $addcomment = $addcomment;
     $fromwhere = $fromwhere;
-    $own_portait[a0] = $own_portait[a0];
+    $own_portait['a0'] = $own_portait['a0'];
     if ($check && strrpos($sysusericon, '|') !== false) {
         $reason = "$reglang[26]";
         $check = 0;
     } 
-    if ($own_portait[a0]) {
-        $own_portait[a0] = safe_convert($own_portait[a0]);
-        if ($check && (strrpos($own_portait[a0], '%') !== false)) {
+    if ($own_portait['a0']) {
+        $own_portait['a0'] = safe_convert($own_portait['a0']);
+        if ($check && (strrpos($own_portait['a0'], '%') !== false)) {
             $reason = "$reglang[26]";
             $check = 0;
         } 
     	
-    	if ((!preg_match("/^[0-9]{2,3}$/", $own_portait[a1]) || !preg_match("/^[0-9]{2,3}$/", $own_portait[a2])) && preg_match("/\.(gif|jpg|jpeg|swf|bmp|png)$/i", $own_portait[a0])) {
-    		imageshow($own_portait[a0], 120);
-    		$own_portait[a1] = $auto_width;
-    		$own_portait[a2] = $auto_height;
+    	if ((!preg_match("/^[0-9]{2,3}$/", $own_portait['a1']) || !preg_match("/^[0-9]{2,3}$/", $own_portait['a2'])) && preg_match("/\.(gif|jpg|jpeg|swf|bmp|png)$/i", $own_portait['a0'])) {
+    		imageshow($own_portait['a0'], 120);
+    		$own_portait['a1'] = $auto_width;
+    		$own_portait['a2'] = $auto_height;
     	}
     	
-        if ($check && (!preg_match("/^[0-9]{2,3}$/", $own_portait[a2]) || $own_portait[a2] > 120)) {
+        if ($check && (!preg_match("/^[0-9]{2,3}$/", $own_portait['a2']) || $own_portait['a2'] > 120)) {
             $reason = "$reglang[27]";
             $check = 0;
         } 
-        if ($check && (!preg_match("/^[0-9]{2,3}$/", $own_portait[a2]) || $own_portait[a2] > 120)) {
+        if ($check && (!preg_match("/^[0-9]{2,3}$/", $own_portait['a2']) || $own_portait['a2'] > 120)) {
             $reason = "$reglang[28]";
             $check = 0;
         } 
@@ -455,7 +455,7 @@ if ($login_status == 0 && !$reg && !$step) {
     exit;
 } 
 
-if ($login_status == 0 && !$step && $reg == bym) {
+if ($login_status == 0 && !$step && $reg == 'bym') {
     // --------输出注册页面--------
     include_once("header.php");
     print_bar();
@@ -486,7 +486,7 @@ function print_form()
 
     if ($reg_va) {
         $authnum = $gd_auth ? getCode(4,1) : rand(10000, 99999);
-        $_SESSION[checkauthnum] = $authnum;
+        $_SESSION['checkauthnum'] = $authnum;
         $showautonum = $gd_auth;
     } 
     global $language, $cachedstyle;
