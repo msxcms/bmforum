@@ -11,7 +11,7 @@ $errc[5]="您必須到達{$logon_post_second}秒才可以發帖，您現在距�
 $errc[6]="狀態：對不起，資料錯誤，您無法登入，請檢查您的資料";
 $errc[7]="狀態：對不起，此會員是已註冊會員，不可使用";
 $errc[8]="你沒有權利在此版塊發帖，如果有問題請向管理員詢問";
-$errc[ab9]="回收站內不能發帖。";
+$errc['ab9']="回收站內不能發帖。";
 $errc[9]="發表文章時，發生了錯誤，情況：";
 $errc[10]="返回前一頁";
 $errc[11]="您必須在註冊 $reg_posting 小時之後才可以發表文章.";
@@ -42,10 +42,10 @@ $send_HTML_mail_lng[4]="你有回覆~~~";
 $login_user[0]="你的會員名稱：";
 $login_user[1]="你的密碼：";
 $login_user[2]="忘了密碼?";
-$print_form[G1]="<strong>隨意貼(Tags)：</strong>";
-$print_form[G2]="隨意貼是針對主題的描述性的關鍵詞，這將把您的主題放置到您希望的分類中，用空格隔開關鍵詞。";
-$print_form[G3]="<a href='plugins.php?p=tags' target=_blank>[ 檢視當前的隨意貼(Tags)清單 ]</a>";
-$print_form[G4]="最大隨意貼數: ";
-$print_form[tags]="您必須設定一個隨意貼(Tags)";
+$print_form['G1']="<strong>隨意貼(Tags)：</strong>";
+$print_form['G2']="隨意貼是針對主題的描述性的關鍵詞，這將把您的主題放置到您希望的分類中，用空格隔開關鍵詞。";
+$print_form['G3']="<a href='plugins.php?p=tags' target=_blank>[ 檢視當前的隨意貼(Tags)清單 ]</a>";
+$print_form['G4']="最大隨意貼數: ";
+$print_form['tags']="您必須設定一個隨意貼(Tags)";
 
 ?>

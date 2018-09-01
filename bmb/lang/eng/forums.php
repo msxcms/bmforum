@@ -3,8 +3,8 @@
 $error[0]="An Error Has Occurred";
 $error[1]="Forum not found.";
 $error[2]="The forum you request does not exist.";
-$error[3]="";
-$error[4]="";
+$error[3]=array();
+$error[4]=array();
 $error[5]="Permission denied.";
 $error[6]="You have no permission to enter this forum since your status does not meet one or more of the following requirements:<br /><ui><li>Required posts number is {$ford[1]}, yours is {$postamount};<br /></li><Li>Required credits  {$ford[2]}, yours is {$userbym};<br /></li><li>Required money:{$ford[3]}, yours is {$usermoney}<br /></li></ui><br />.";
 $error[7]="Password required.";

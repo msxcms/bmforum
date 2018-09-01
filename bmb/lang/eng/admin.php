@@ -1252,6 +1252,6 @@ $arr_ad_lng=array("IP Address", // #0, =Line-3
 "Please choose one group and option at least!",
 "Unavailable with current environment and user group",
 "Default Emoticons Package",
-"Forum Name:"
+"Forum Name:",
 "Enable Gravatar"
 );
