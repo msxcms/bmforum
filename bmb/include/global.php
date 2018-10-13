@@ -72,7 +72,7 @@ if (!$sess_cust) {
 @session_start();
 
 $ip = $_SERVER['REMOTE_ADDR'];
-$ip1 = $_SERVER['HTTP_X_FORWARDED_FOR'];
+$ip1 = $_SERVER['HTTP_X_FORWARDED_FOR'] ?: $_SERVER['HTTP_CF_CONNECTING_IP'];
 if (($ip1 != "") && ($ip1 != "unknown")) $ip = $ip1;
 $check_ip = strstr($ip, ",");
 if ($check_ip) $ip = str_replace(strstr($check_ip, ","), '', $ip);
